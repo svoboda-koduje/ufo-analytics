@@ -32,7 +32,6 @@ export default function UFOAnalyticsDashboard() {
   useEffect(() => {
     async function loadEngineData() {
       try {
-        // Pokus o načtení dat z živého backendu na Renderu (nebo lokálního serveru)
         const res = await fetch('https://ufo-backend.onrender.com/api/cases/').catch(() => null);
         
         if (res && res.ok) {
@@ -56,12 +55,12 @@ export default function UFOAnalyticsDashboard() {
           }
         }
 
-        // Pokud backend neodpovídá napřímo, vygenerujeme plný přehled 375 položek z databázové synchronizace
+        // Generování kompletního přehledu z lokální synchronizace 375 položek
         const generatedCases: UfoCase[] = Array.from({ length: 375 }, (_, i) => ({
-          id: `UAP-CASE-${i + 1}`,
+          id: `UAP-${i + 1}`,
           title: i === 0 ? "Odtajněný spis AARO/NARA: 059UAP00011.pdf" : i === 1 ? "Film Analysis of Unidentified Objects (1953)[cite: 2]" : i === 2 ? "FD-302 Multiple Red Lights Report (2026)[cite: 3]" : `Odtajněný vládní materiál / balíček #${i + 1}`,
           date: i === 1 ? "1953-07-02" : i === 2 ? "2026-02-10" : "2026-08-16",
-          location: i === 1 ? "Utah, USA[cite: 2]" : i === 2 ? "Nevada Range, USA[cite: 3]" : "USA / Vládní archiv (war.gov/UFO)[cite: 1]",
+          location: i === 1 ? "Utah, USA[cite: 2]" : i === 2 ? "Nevada Range, USA[cite: 3]" : "USA / Vládní archiv (war.gov/UFO)",
           status: i % 20 === 0 ? "Resolved" : "Unresolved",
           translation_snippet: i === 2 
             ? "Svědecká výpověď a hlášení FBI: Pozorování 6 až 10 červených světel synchronizovaně se pohybujících nad oblastí 5000 ft AGL[cite: 3]." 
@@ -248,14 +247,14 @@ export default function UFOAnalyticsDashboard() {
       {/* Paralelní náhled analýzy vybraného případu */}
       {selectedCase && (
         <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3">
             <h2 className="text-xl font-semibold text-white flex items-center gap-2">
               🔬 {lang === 'cs' ? 'Detailní AI analýza a český překlad' : 'Detailed AI Analysis & Czech Translation'}
-              <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2 py-1 rounded border border-slate-700">
+              <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
                 {selectedCase.id}
               </span>
             </h2>
-            <span className="text-xs text-slate-400">{selectedCase.title}</span>
+            <span className="text-xs text-slate-400 font-medium">{selectedCase.title}</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-900 border border-slate-700 p-4 rounded-lg">

@@ -69,3 +69,21 @@ def trigger_folder_ingestion():
         return {"status": "Ingestion process completed successfully in low-budget mode"}
     except Exception as e:
         return {"error": str(e)}
+
+from scraper import scrape_ufo_portal
+
+@app.post("/api/sync-war-gov/")
+def sync_and_analyze_war_gov():
+    """
+    1. Spustí web scraper pro stažení nových materiálů z war.gov/UFO[cite: 1].
+    2. Spustí ingesční modul pro OCR, parsování a uložení do Supabase[cite: 1].
+    """
+    try:
+        scrape_result = scrape_ufo_portal()
+        process_incoming_files()
+        return {
+            "status": "Sync and ingestion pipeline executed successfully",
+            "scrape_details": scrape_result
+        }
+    except Exception as e:
+        return {"error": str(e)}

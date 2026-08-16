@@ -7,7 +7,7 @@ print("=== START LOKÁLNÍ ETL PIPELINE ===")
 # =====================================================================
 # TADY SI MŮŽEŠ ROVNOU VYPLNIT SVÉ ÚDAJE PRO JEDNODUCHÉ SPUŠTĚNÍ
 # =====================================================================
-DIRECT_DATABASE_URL = "postgresql://postgres:postgres.qbvhzjzbjihwjbfptrn:VvXCTpPGW8RcxG@db.qbvhzjzbjihwjbfptrn.supabase.co:5432/postgres"
+DIRECT_DATABASE_URL = "postgresql://postgres:pIVvXCTpPGW8RcxG@db.qbvhzjzbxjihwjbfptrn.supabase.co:5432/postgres"
 DIRECT_OPENAI_KEY = "sk-proj-jWX1RltluAGCed2ckSjcV-19Pzg5sKcTfwib2SubJughVlTZOS0X0URximkLQI3R6wQ2QaT3B1bkFJSiqFF121cubnKc04T98zXSZHp4GRY8FA11rxdj9_JZupcgimza4bd7bEKpXFd3hlermk_rZQA"
 
 # Načtení z prostředí nebo z přímých proměnných výše

@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-const DynamicMap = dynamic(() => import('./components/Map'), { 
+// Bezpečné načtení mapy pouze na klientovi (vypnuté SSR)
+const DynamicMap = dynamic(() => import('./MapComponent'), { 
   ssr: false, 
   loading: () => <div className="flex h-full items-center justify-center text-slate-500">Načítám GIS modul...</div> 
 });
@@ -58,7 +59,7 @@ export default function UFOAnalyticsDashboard() {
           }
         }
 
-        // Kompletní datová sada 375 položek s reálnými ukázkami na začátku
+        // Fallback data pro všech 375 položek
         const generatedCases: UfoCase[] = Array.from({ length: 375 }, (_, i) => {
           const idStr = `UAP-FILE-${i + 1}`;
           let title = `Odtajněný vládní spis NARA #${i + 1}`;

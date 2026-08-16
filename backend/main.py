@@ -27,7 +27,7 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     """
-    Vrací základní stavový přehled analytického enginu v low-budget režimu[cite: 1].
+    Vrací základní stavový přehled analytického enginu v low-budget režimu.
     """
     return {
         "status": "UFO Analytics Engine Running (Supabase Connected)",
@@ -38,7 +38,7 @@ def read_root():
 @app.get("/api/cases/")
 def get_cases(db: Session = Depends(get_db)):
     """
-    Vrací reálné UAP případy z cloudové databáze Supabase včetně GIS souřadnic pro mapu[cite: 1].
+    Vrací reálné UAP případy z cloudové databáze Supabase včetně GIS souřadnic pro mapu.
     """
     try:
         cases = db.query(UfoCase).all()
@@ -64,7 +64,7 @@ def get_cases(db: Session = Depends(get_db)):
 def trigger_folder_ingestion():
     """
     Spustí lokální ingesční modul, který zkontroluje složku incoming_data
-    a automaticky zpracuje nové PDF spisy, obrázky a videa do Supabase[cite: 1].
+    a automaticky zpracuje nové PDF spisy, obrázky a videa do Supabase.
     """
     try:
         process_incoming_files()
@@ -72,11 +72,13 @@ def trigger_folder_ingestion():
     except Exception as e:
         return {"error": str(e)}
 
+@app.get("/api/sync-war-gov/")
 @app.post("/api/sync-war-gov/")
 def sync_and_analyze_war_gov():
     """
-    1. Spustí web scraper pro automatické stažení nových materiálů z war.gov/UFO[cite: 1].
-    2. Spustí ingesční modul pro OCR, parsování a uložení do Supabase[cite: 1].
+    1. Spustí web scraper pro automatické stažení nových materiálů z war.gov/UFO.
+    2. Spustí ingesční modul pro OCR, parsování a uložení do Supabase.
+    Podporuje GET i POST pro snadné testování z prohlížeče.
     """
     try:
         scrape_result = scrape_ufo_portal()

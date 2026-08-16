@@ -1,10 +1,17 @@
 'use client';
+
 import dynamic from 'next/dynamic';
-import React from 'react';
 
-// Zde bezpečně načteme mapu bez server-side renderingu
-const MapComponent = dynamic(() => import('./MapComponent'), { ssr: false });
+const MapComponent = dynamic(() => import('./MapComponent'), { 
+  ssr: false, 
+  loading: () => <div className="flex h-full items-center justify-center text-slate-500">Načítám GIS modul...</div> 
+});
 
-export default function MapWrapper({ cases }: { cases: any[] }) {
-  return <MapComponent cases={cases} />;
+interface MapWrapperProps {
+  cases: any[];
+  onMarkerClick?: (c: any) => void;
+}
+
+export default function MapWrapper({ cases, onMarkerClick }: MapWrapperProps) {
+  return <MapComponent cases={cases} onMarkerClick={onMarkerClick || (() => {})} />;
 }

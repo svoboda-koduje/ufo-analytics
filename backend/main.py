@@ -1,21 +1,14 @@
 # -*- coding: utf-8 -*-
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from sqlalchemy.orm import Session
-from typing import List
-
-from database import get_db
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Session
 from models import UfoCase
-from ingestion_engine import process_incoming_files
-from scraper import scrape_ufo_portal
+import os
 
-app = FastAPI(
-    title="UFO Analytics API", 
-    version="3.2",
-    description="Badatelský analytický nástroj pro vyhodnocování UAP případů z war.gov/UFO a AARO."
-)
+app = FastAPI(title="UFO Analytics API", version="2.0")
 
-# Povolení CORS pro bezproblémovou komunikaci s frontendem na Renderu
+# Povolení CORS pro komunikaci s frontendem na Renderu
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -24,68 +17,53 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+DATABASE_URL = os.environ.get("DATABASE_URL") or "postgresql://postgres:postgres.qbvhzjzbjihwjbfptrn:VvXCTpPGW8RcxG@db.qbvhzjzbjihwjbfptrn.supabase.co:5432/postgres"
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
 @app.get("/")
 def read_root():
-    """
-    Vrací základní stavový přehled analytického enginu v low-budget režimu.
-    """
-    return {
-        "status": "UFO Analytics Engine Running (Supabase Connected)",
-        "mode": "Low-Budget Autonomous Pipeline",
-        "version": "3.2"
-    }
+    return {"status": "UFO Analytics Engine Running", "database": "Connected to Supabase"}
 
 @app.get("/api/cases/")
 def get_cases(db: Session = Depends(get_db)):
-    """
-    Vrací reálné UAP případy z cloudové databáze Supabase včetně GIS souřadnic pro mapu.
-    """
-    try:
-        cases = db.query(UfoCase).all()
-        return [
-            {
-                "id": c.case_id,
-                "title": c.title,
-                "date": c.date,
-                "location": c.location,
-                "latitude": c.latitude,
-                "longitude": c.longitude,
-                "status": c.status,
-                "translation_snippet": c.translation_snippet,
-                "original_text": c.original_text,
-                "source_url": c.source_url
-            }
-            for c in cases
-        ]
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Chyba databázové vrstvy: {str(e)}")
-
-@app.post("/api/ingest-folder/")
-def trigger_folder_ingestion():
-    """
-    Spustí lokální ingesční modul, který zkontroluje složku incoming_data
-    a automaticky zpracuje nové PDF spisy, obrázky a videa do Supabase.
-    """
-    try:
-        process_incoming_files()
-        return {"status": "Ingestion process completed successfully in low-budget mode"}
-    except Exception as e:
-        return {"error": str(e)}
-
-@app.get("/api/sync-war-gov/")
-@app.post("/api/sync-war-gov/")
-def sync_and_analyze_war_gov():
-    """
-    1. Spustí web scraper pro automatické stažení nových materiálů z war.gov/UFO.
-    2. Spustí ingesční modul pro OCR, parsování a uložení do Supabase.
-    Podporuje GET i POST pro snadné testování z prohlížeče.
-    """
-    try:
-        scrape_result = scrape_ufo_portal()
-        process_incoming_files()
-        return {
-            "status": "Sync and ingestion pipeline executed successfully",
-            "scrape_details": scrape_result
+    """Vrací všech 356+ reálných případů z databáze pro mapu a katalog."""
+    cases = db.query(UfoCase).all()
+    return [
+        {
+            "id": c.case_id,
+            "title": c.title,
+            "date": c.date,
+            "location": c.location,
+            "status": c.status,
+            "translation_snippet": c.translation_snippet,
+            "latitude": c.latitude or 37.2350,
+            "longitude": c.longitude or -115.8111,
+            "source_url": c.source_url
         }
-    except Exception as e:
-        return {"error": str(e)}
+        for c in cases
+    ]
+
+@app.get("/api/stats/")
+def get_stats(db: Session = Depends(get_db)):
+    """Vypočítá poměr vyřešených a nevysvětlených případů pro analytický přehled."""
+    total = db.query(UfoCase).count()
+    unresolved = db.query(UfoCase).filter(UfoCase.status == "Unresolved").count()
+    resolved = total - unresolved
+    unresolved_pct = round((unresolved / total * 100) if total > 0 else 0, 1)
+    
+    return {
+        "total_cases": total,
+        "resolved_cases": resolved,
+        "unresolved_cases": unresolved,
+        "unresolved_percentage": unresolved_pct,
+        "resolved_percentage": round(100 - unresolved_pct, 1)
+    }

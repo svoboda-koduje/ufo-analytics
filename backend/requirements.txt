@@ -13,8 +13,9 @@ beautifulsoup4
 celery
 redis
 pymupdf
-pymupdf
 openai
 opencv-python-headless
 numpy
 qdrant-client
+pydantic
+python-dotenv

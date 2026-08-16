@@ -1,0 +1,31 @@
+name: UAP Auto-Sync and Ingestion
+
+on:
+  workflow_dispatch: # Umožňuje spustit stahování jedním kliknutím v GitHub rozhraní
+  schedule:
+    - cron: '0 0 * * *' # Spustí se automaticky každý den o půlnoci
+
+jobs:
+  sync-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kódu
+        uses: actions/checkout@v3
+
+      - name: Nastavení Pythonu
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalace závislostí
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Spuštění stahování a ingesce
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd backend
+          python ingestion.py

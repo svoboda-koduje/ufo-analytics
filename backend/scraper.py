@@ -1,55 +1,46 @@
-import hashlib
-from datetime import datetime
-from sqlalchemy.orm import Session
-from database import SessionLocal
-import models
-from geoalchemy2.shape import from_shape
-from shapely.geometry import Point
-from ai_engine import translate_ufo_text
+# -*- coding: utf-8 -*-
+import os
+import requests
+from bs4 import BeautifulSoup
 
-def check_for_new_data():
-    print("🔍 Spouštím průzkum a ingesci nových dat z war.gov/UFO...")
+TARGET_URL = "https://www.war.gov/UFO/"
+DOWNLOAD_DIR = "incoming_data"
+
+def scrape_ufo_portal():
+    """
+    Automaticky stahuje PDF, obrázky a videa z portálu war.gov/UFO
+    do lokální složky pro následnou analýzu v low-budget režimu.
+    """
+    os.makedirs(DOWNLOAD_DIR, exist_ok=True)
+    downloaded_files = []
     
-    db: Session = SessionLocal()
     try:
-        # Generujeme unikátní název s časovým razítkem, aby nedocházelo k přeskakování duplicit
-        now_str = datetime.now().strftime("%H:%M:%S")
-        unique_title = f"Případ anomálie (Live Test {now_str})"
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) UAP-Research-Bot/3.2"}
+        response = requests.get(TARGET_URL, headers=headers, timeout=15)
         
-        simulated_war_gov_cases = [
-            {
-                "case_id": f"Live-{now_str}",
-                "title": unique_title,
-                "date": datetime.now(),
-                "status": "Unresolved",
-                "latitude": 32.3 + (datetime.now().minute % 10),
-                "longitude": -64.8 - (datetime.now().second % 10),
-                "english_description": "High-altitude object performing instantaneous vector changes without aerodynamic surfaces."
-            }
-        ]
+        if response.status_code != 200:
+            return {"status": "error", "message": f"Server vrátil kód {response.status_code}"}
         
-        new_records_count = 0
-        for item in simulated_war_gov_cases:
-            # Přeskočíme kontrolu duplicit, abychom viděli, že se data hned propíšou do frontendu
-            translated_text = translate_ufo_text(item["english_description"])
-            
-            point = Point(item["longitude"], item["latitude"])
-            new_case = models.UfoCase(
-                title=item["title"],
-                date=item["date"],
-                status=item["status"],
-                location=from_shape(point, srid=4326),
-                translation=translated_text,
-                metadata_json='{"source": "war.gov/UFO", "type": "Live-Test"}'
-            )
-            db.add(new_case)
-            new_records_count += 1
+        soup = BeautifulSoup(response.text, 'html.parser')
         
-        db.commit()
-        print(f"✅ Ingesce a AI překlad dokončeny. Přidáno nových případů: {new_records_count}")
+        # Prohledání stránky a stažení odkazů na soubory
+        for a in soup.find_all('a', href=True):
+            href = a['href']
+            if any(ext in href.lower() for ext in ['.pdf', '.mp4', '.jpg', '.png', '.avi', '.mov']):
+                file_url = href if href.startswith('http') else f"https://www.war.gov/UFO/{href}"
+                file_name = os.path.basename(file_url.split('?')[0])
+                file_path = os.path.join(DOWNLOAD_DIR, file_name)
+                
+                # Stáhnout pouze pokud soubor ještě neexistuje
+                if not os.path.exists(file_path):
+                    file_res = requests.get(file_url, headers=headers, timeout=30)
+                    if file_res.status_code == 200:
+                        with open(file_path, 'wb') as f:
+                            f.write(file_res.content)
+                        downloaded_files.append(file_name)
+                        
+        return {"status": "success", "new_files_downloaded": downloaded_files}
     
     except Exception as e:
-        db.rollback()
-        print(f"❌ CHYBA při ingesci a překladu: {str(e)}")
-    finally:
-        db.close()
+        # Pokud je portál nedostupný (nebo v offline/testovacím režimu), systém využije lokální vzorky
+        return {"status": "offline_mode", "message": f"Chyba při připojení k war.gov/UFO: {str(e)}"}

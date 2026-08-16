@@ -1,0 +1,9 @@
+name: UFO Analytics CI/CD
+on: [push, pull_request]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build and Test Docker Compose
+      run: docker compose up -d --build

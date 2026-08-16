@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+build/
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.env
+backend/incoming_data/*
+!backend/incoming_data/.gitkeep

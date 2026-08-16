@@ -3,14 +3,16 @@ from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from typing import List
+
 from database import get_db
 from models import UfoCase
 from ingestion_engine import process_incoming_files
+from scraper import scrape_ufo_portal
 
 app = FastAPI(
     title="UFO Analytics API", 
     version="3.2",
-    description="Badatelský analytický nástroj pro vyhodnocování UAP případů z war.gov/UFO a AARO[cite: 1]."
+    description="Badatelský analytický nástroj pro vyhodnocování UAP případů z war.gov/UFO a AARO."
 )
 
 # Povolení CORS pro bezproblémovou komunikaci s frontendem na Renderu
@@ -70,12 +72,10 @@ def trigger_folder_ingestion():
     except Exception as e:
         return {"error": str(e)}
 
-from scraper import scrape_ufo_portal
-
 @app.post("/api/sync-war-gov/")
 def sync_and_analyze_war_gov():
     """
-    1. Spustí web scraper pro stažení nových materiálů z war.gov/UFO[cite: 1].
+    1. Spustí web scraper pro automatické stažení nových materiálů z war.gov/UFO[cite: 1].
     2. Spustí ingesční modul pro OCR, parsování a uložení do Supabase[cite: 1].
     """
     try:

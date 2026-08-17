@@ -40,7 +40,7 @@ export default function UFOAnalyticsDashboard() {
     async function loadEngineData() {
       try {
         // Tady frontend volá tvůj cloudový backend
-        const res = await fetch('https://ufo-backend.onrender.com/api/cases/');
+        const res = await fetch('https://ufo-analytics-backend.onrender.com/api/cases/');
         
         if (res.ok) {
           const data = await res.json();

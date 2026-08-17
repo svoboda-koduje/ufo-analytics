@@ -39,13 +39,15 @@ export default function UFOAnalyticsDashboard() {
   useEffect(() => {
     async function loadEngineData() {
       try {
-        const res = await fetch('https://ufo-backend.onrender.com/api/cases/').catch(() => null);
+        // Tady frontend volá tvůj cloudový backend
+        const res = await fetch('https://ufo-backend.onrender.com/api/cases/');
         
-        if (res && res.ok) {
+        if (res.ok) {
           const data = await res.json();
           if (data && data.length > 0) {
             setCases(data);
             setSelectedCase(data[0]);
+            
             const total = data.length;
             const resolved = data.filter((c: UfoCase) => c.status === 'Resolved').length;
             setStats({
@@ -54,66 +56,24 @@ export default function UFOAnalyticsDashboard() {
               unresolved_cases: total - resolved,
               unresolved_percentage: total > 0 ? Number((((total - resolved) / total) * 100).toFixed(1)) : 0
             });
-            setLoading(false);
-            return;
           }
+        } else {
+            console.error("Chyba při stahování dat z backendu. Stav:", res.status);
         }
-
-        // Fallback data pro všech 375 položek
-        const generatedCases: UfoCase[] = Array.from({ length: 375 }, (_, i) => {
-          const idStr = `UAP-FILE-${i + 1}`;
-          let title = `Odtajněný vládní spis NARA #${i + 1}`;
-          let snippet = `Badatelský přehled pro spis #${i + 1}: Záznam obsahuje telemetrické údaje a radarové stopy z hlášení AARO.`;
-          let orig = `Official declassified package content for record ${idStr} retrieved from war.gov/UFO repository.`;
-
-          if (i === 0) {
-            title = "059UAP00011.pdf (Utah Film Analysis)";
-            snippet = "Objekty vykazují modro-bílou svítivost, tvar disku a vypočítanou rychlost přesahující 3780 mph.";
-            orig = "Preliminary detailed study of the Utah film: Objects exhibit blue-white luminosity and calculated velocities up to 3780 mph.";
-          } else if (i === 1) {
-            title = "DOW-UAP-D098_Film-Analysis-of-Unidentified-Objects_1953.pdf";
-            snippet = "Tři skupiny světel se pohybují proti směru hodinových ručiček po eliptické dráze s anomálním zrychlením.";
-            orig = "Analysis of Utah film: Three groups of lights moving counter-clock-wise along an elliptical track with anomalous acceleration.";
-          } else if (i === 2) {
-            title = "FBI-UAP-D040_FD-302_Multiple-Red-Lights_2026.pdf";
-            snippet = "Svědecká výpověď a hlášení FBI: Pozorování 6 až 10 červených světel synchronizovaně se pohybujících nad oblastí 5000 ft AGL.";
-            orig = "FBI FD-302 interview: Observation of 6 to 10 red lights syncing up and traveling east/southeast at approximately 5000-7000 feet AGL.";
-          }
-
-          return {
-            id: idStr,
-            title: title,
-            date: i === 1 ? "1953-07-02" : i === 2 ? "2026-02-10" : "2026-08-16",
-            location: i % 3 === 0 ? "Nevada Range, USA" : "USA / Vládní archiv (war.gov/UFO)",
-            status: i % 19 === 0 ? "Resolved" : "Unresolved",
-            translation_snippet: snippet,
-            original_text: orig,
-            latitude: 37.2350 + (i % 15) * 0.3 - 2,
-            longitude: -115.8111 + (i % 15) * 0.3 - 2,
-          };
-        });
-
-        setCases(generatedCases);
-        setSelectedCase(generatedCases[0]);
-        setStats({
-          total_cases: 375,
-          resolved_cases: 19,
-          unresolved_cases: 356,
-          unresolved_percentage: 94.9
-        });
       } catch (err) {
-        console.error("Chyba při načítání:", err);
+        console.error("Nelze se spojit se serverem:", err);
       } finally {
         setLoading(false);
       }
     }
+    
     loadEngineData();
   }, []);
 
   const filteredCases = cases.filter(c => 
-    c.id.toLowerCase().includes(searchFilter.toLowerCase()) ||
-    c.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
-    c.location.toLowerCase().includes(searchFilter.toLowerCase())
+    (c.id && c.id.toLowerCase().includes(searchFilter.toLowerCase())) ||
+    (c.title && c.title.toLowerCase().includes(searchFilter.toLowerCase())) ||
+    (c.location && c.location.toLowerCase().includes(searchFilter.toLowerCase()))
   );
 
   return (
@@ -133,7 +93,7 @@ export default function UFOAnalyticsDashboard() {
         </button>
       </header>
 
-      {stats && (
+      {stats && cases.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
             <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Celkem zkoumaných spisů' : 'Total Examined Files'}</p>
@@ -151,25 +111,29 @@ export default function UFOAnalyticsDashboard() {
             <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Stav systému' : 'System Status'}</p>
             <p className="text-sm font-semibold text-blue-400 mt-3 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              PostgreSQL / Supabase Synced
+              Live: Supabase DB
             </p>
           </div>
         </div>
       )}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Interaktivní mapa */}
         <section className="lg:col-span-1 bg-slate-800 border border-slate-700 p-6 rounded-xl flex flex-col h-[500px] shadow-lg">
           <h2 className="text-xl font-semibold mb-4 text-white">🗺️ {lang === 'cs' ? 'Interaktivní GIS mapa' : 'Interactive GIS Map'}</h2>
           <div className="flex-1 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 relative">
-            <DynamicMap cases={filteredCases} onMarkerClick={setSelectedCase} />
+            {cases.length > 0 ? (
+              <DynamicMap cases={filteredCases} onMarkerClick={setSelectedCase} />
+            ) : (
+              <div className="flex h-full items-center justify-center text-slate-500">
+                 {loading ? 'Načítám data...' : 'Čekám na data z backendu...'}
+              </div>
+            )}
           </div>
         </section>
 
-        {/* Katalog všech 375 položek */}
         <section className="lg:col-span-2 bg-slate-800 border border-slate-700 p-6 rounded-xl flex flex-col h-[500px] shadow-lg">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
-            <h2 className="text-xl font-semibold text-white">📋 {lang === 'cs' ? 'Katalog odtajněných spisů (375 položek)' : 'Declassified Files Catalog (375 items)'}</h2>
+            <h2 className="text-xl font-semibold text-white">📋 {lang === 'cs' ? 'Katalog odtajněných spisů' : 'Declassified Files Catalog'}</h2>
             <input 
               type="text" 
               placeholder={lang === 'cs' ? "Filtrovat ID, název, lokaci..." : "Filter ID, title, location..."}
@@ -191,11 +155,11 @@ export default function UFOAnalyticsDashboard() {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-8 text-slate-400">Načítám data...</td>
+                    <td colSpan={4} className="text-center py-8 text-slate-400">Načítám data ze Supabase...</td>
                   </tr>
                 ) : filteredCases.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-8 text-slate-400">Žádné záznamy neodpovídají filtru.</td>
+                    <td colSpan={4} className="text-center py-8 text-slate-400">Žádné záznamy nenalezeny. Očekávám data z backendu.</td>
                   </tr>
                 ) : (
                   filteredCases.map((c) => (
@@ -204,11 +168,11 @@ export default function UFOAnalyticsDashboard() {
                       onClick={() => setSelectedCase(c)} 
                       className={`border-b border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition ${selectedCase?.id === c.id ? 'bg-blue-900/30 border-blue-500/50' : ''}`}
                     >
-                      <td className="py-2.5 px-3 font-mono text-blue-400 text-xs font-semibold">{c.id}</td>
+                      <td className="py-2.5 px-3 font-mono text-blue-400 text-xs font-semibold">{c.id || "N/A"}</td>
                       <td className="py-2.5 px-3 text-slate-200 truncate max-w-xs">{c.title}</td>
                       <td className="py-2.5 px-3">
                         <span className={`px-2 py-0.5 rounded text-xs font-semibold border ${c.status === 'Resolved' ? 'bg-emerald-950 text-emerald-300 border-emerald-800/50' : 'bg-red-950 text-red-300 border-red-800/50'}`}>
-                          {c.status}
+                          {c.status || "Unknown"}
                         </span>
                       </td>
                       <td className="py-2.5 px-3 text-right">
@@ -226,31 +190,30 @@ export default function UFOAnalyticsDashboard() {
             </table>
           </div>
           <p className="text-xs text-slate-500 mt-3 text-right">
-            {lang === 'cs' ? `Zobrazeno ${filteredCases.length} položek (plně scrollovatelné pro všech 375 položek)` : `Showing ${filteredCases.length} items (scrollable for all 375 items)`}
+            {lang === 'cs' ? `Zobrazeno ${filteredCases.length} položek` : `Showing ${filteredCases.length} items`}
           </p>
         </section>
       </div>
 
-      {/* Detailní AI analýza a paralelní překlad */}
       {selectedCase && (
         <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3">
             <h2 className="text-xl font-semibold text-white flex items-center gap-2">
               🔬 {lang === 'cs' ? 'Detail případu: Paralelní analýza dokumentu' : 'Case Detail: Parallel Document Analysis'}
               <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
-                {selectedCase.id}
+                {selectedCase.id || "ID chybí"}
               </span>
             </h2>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-slate-900 border border-slate-700 p-4 rounded-lg">
-              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">{lang === 'cs' ? 'Originál (Angličtina)' : 'Original (English)'}</h3>
-              <p className="text-sm text-slate-300 font-mono leading-relaxed">{selectedCase.original_text}</p>
+              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">{lang === 'cs' ? 'Originál (Angličtina/Senzorová data)' : 'Original (English/Sensor Data)'}</h3>
+              <p className="text-sm text-slate-300 font-mono leading-relaxed">{selectedCase.original_text || "Originální text nenalezen."}</p>
             </div>
             <div className="bg-slate-900 border border-blue-500/30 p-4 rounded-lg">
-              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-2 font-bold text-blue-400">{lang === 'cs' ? 'Český překlad (LLM AI)' : 'Czech Translation (LLM AI)'}</h3>
-              <p className="text-sm text-slate-200 leading-relaxed">{selectedCase.translation_snippet}</p>
+              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-2 font-bold text-blue-400">{lang === 'cs' ? 'Český překlad a analýza (LLM AI)' : 'Czech Translation & Analysis (LLM AI)'}</h3>
+              <p className="text-sm text-slate-200 leading-relaxed">{selectedCase.translation_snippet || "Analýza zatím nebyla provedena."}</p>
             </div>
           </div>
         </section>

@@ -1,88 +1,81 @@
 # -*- coding: utf-8 -*-
 import os
 import re
-import fitz  # PyMuPDF pro čtení PDF
+import fitz  # PyMuPDF
 from database import SessionLocal
 from models import UfoCase
+from ai_engine import translate_ufo_text
 
 def process_incoming_files():
-    incoming_dir = "incoming_data"
+    # Nastavení absolutní cesty dle tvé struktury
+    incoming_dir = os.path.join(os.path.dirname(__file__), "incoming_data")
     
     if not os.path.exists(incoming_dir):
-        os.makedirs(incoming_dir)
-        print(f"Složka '{incoming_dir}' byla vytvořena.")
+        print(f"Složka '{incoming_dir}' neexistuje!")
         return
 
     files = os.listdir(incoming_dir)
-    if not files:
-        print(f"Složka '{incoming_dir}' je prázdná. Žádné nové soubory ke zpracování.")
-        return
-
     db = SessionLocal()
-    print(f"Nalezeno {len(files)} souborů k inteligentní ingesci...")
+    
+    print(f"🚀 Zahajuji lokální analýzu {len(files)} souborů...")
 
     for file_name in files:
         file_path = os.path.join(incoming_dir, file_name)
         if os.path.isdir(file_path):
             continue
 
-        print(f"Zpracovávám soubor: {file_name}...")
-        
+        print(f"\nZpracovávám: {file_name}")
         ext = file_name.split('.')[-1].lower()
-        case_id_gen = f"AUTO-{file_name[:6].upper()}"
         
-        # Kontrola duplicit
+        # Ošetření ID, aby neobsahovalo zakázané znaky a bylo unikátní
+        clean_name = file_name.replace(' ', '-').replace('_', '-')
+        case_id_gen = f"UAP-{clean_name[:20].upper()}"
+        
+        # Kontrola, zda už případ není v DB (šetří API volání)
         existing = db.query(UfoCase).filter(UfoCase.case_id == case_id_gen).first()
         if existing:
-            print(f"Případ s ID {case_id_gen} již v databázi existuje. Přeskakuji.")
+            print(f"⏭️ Případ {case_id_gen} již existuje. Přeskakuji.")
             continue
 
-        original_text = ""
-        snippet = ""
-        title = f"Záznam: {file_name}"
-        status = "Unresolved"
-        location = "USA / Vládní archiv (war.gov/UFO)"
-        lat, lon = 37.2350, -115.8111
-        detected_date = "2026-08-16"
+        original_text = f"Zdrojový soubor: {file_name}"
+        snippet = "Čeká na zpracování..."
+        title = f"Odtajněný spis: {file_name}"
+        detected_date = "2026-01-01"
+        lat, lon = 37.2350, -115.8111 # Default Area 51
 
-        # 1. Zpracování PDF dokumentů
+        # ANALÝZA PDF
         if ext == 'pdf':
-            title = f"Odtajněný spis: {file_name.replace('.pdf', '')}"
             try:
                 doc = fitz.open(file_path)
-                extracted_pages = [page.get_text() for page in doc]
+                extracted_pages = [page.get_text() for page in doc[:5]] # Projdeme max prvních 5 stran pro úsporu
                 full_pdf_text = "\n".join(extracted_pages).strip()
                 
                 if full_pdf_text:
-                    original_text = full_pdf_text[:4000]
-                    snippet = "Lokální AI analýza spisu: Dokument rozborově potvrzuje anomální charakteristiky, neregistrovanou akceleraci bez viditelných nosných ploch a absenci termální stopy v klíčových fázích letu."
+                    original_text = full_pdf_text[:3000]
+                    # Volání OpenAI přes náš upravený ai_engine
+                    print("   - Volám OpenAI pro analýzu a překlad...")
+                    snippet = translate_ufo_text(original_text)
                     
                     date_match = re.search(r'\b(19\d{2}|20\d{2})\b', full_pdf_text)
                     if date_match:
                         detected_date = f"{date_match.group(1)}-01-01"
                 else:
-                    original_text = f"Skenovaný dokument (obrazová vrstva): {file_name}"
-                    snippet = "Skenovaný tiskopis obsahující cenzurované pasáže (vyžaduje doplňkovou analýzu)."
+                    original_text = "Skenovaný obrazový dokument. Vyžaduje hluboké OCR."
+                    snippet = "Tento PDF dokument obsahuje převážně skenované obrázky bez textové vrstvy."
             except Exception as e:
-                original_text = f"Chyba při parsování PDF: {str(e)}"
-                snippet = "Nepodařilo se načíst strukturu dokumentu."
+                snippet = f"Chyba parsování PDF: {e}"
 
-        # 2. Zpracování obrazových souborů
-        elif ext in ['jpg', 'jpeg', 'png', 'img']:
-            title = f"Obrazová analýza: {file_name}"
-            snippet = "Optická analýza snímku: Detekován neregistrovaný objekt geometrické konfigurace v optickém spektru."
-            original = f"Digital imagery and sensor package rendering retrieved from archive source: {file_name}."
-            lat, lon = 32.5, -120.5
+        # ANALÝZA OBRÁZKŮ (.jpg, .png)
+        elif ext in ['jpg', 'jpeg', 'png']:
+            title = f"Obrazový důkaz: {file_name}"
+            snippet = "Optická analýza vizuálního záznamu odtajněného z war.gov/UFO."
             
-        # 3. Zpracování videí
-        elif ext in ['mp4', 'avi', 'mov', 'vid']:
-            title = f"Senzorový záznam / FLIR telemetrie: {file_name}"
-            snippet = "Telemetrická analýza videa: Snímek po snímku rozložená dynamika letu, vysoká úhlová rychlost bez doprovodné zvukové stopy či emisí."
-            original = f"HUD sensor video telemetry extraction package: {file_name}."
-            lat, lon = 25.0, -71.0
-            
+        # ANALÝZA VIDEA (.mp4)
+        elif ext in ['mp4']:
+            title = f"Senzorový záznam HUD/FLIR: {file_name}"
+            snippet = "Videometrická data připravená k budoucí pohybové analýze v modulu OpenCV."
+
         else:
-            print(f"Neznámý formát souboru: {ext}. Přeskakuji.")
             continue
 
         # Uložení do Supabase
@@ -90,21 +83,25 @@ def process_incoming_files():
             case_id=case_id_gen,
             title=title,
             date=detected_date,
-            location=location,
+            location="USA / war.gov/UFO",
             latitude=lat,
             longitude=lon,
-            status=status,
+            status="Unresolved",
             translation_snippet=snippet,
-            original_text=original,
+            original_text=original_text,
             source_url="https://www.war.gov/UFO/"
         )
 
-        db.add(new_case)
-        db.commit()
-        print(f"Případ {case_id_gen} úspěšně zpracován a uložen se správnou diakritikou!")
+        try:
+            db.add(new_case)
+            db.commit()
+            print(f"✅ Uloženo do databáze: {case_id_gen}")
+        except Exception as e:
+            db.rollback()
+            print(f"❌ Chyba ukládání do DB: {e}")
 
     db.close()
-    print("Ingestční cyklus úspěšně dokončen.")
+    print("\n🎉 Všechna lokální data byla prozkoumána a uložena do Supabase!")
 
 if __name__ == "__main__":
     process_incoming_files()

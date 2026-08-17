@@ -1,41 +1,34 @@
-# -*- coding: utf-8 -*-
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
-
-def translate_and_extract_metadata(raw_text: str):
+def translate_ufo_text(english_text: str) -> str:
     """
-    Využívá OpenAI GPT-4o k extrakci metadat a odbornému překladu
-    aviatické a vojenské terminologie do češtiny.
+    Modul pro specializovaný překlad s využitím OpenAI API a odborného glosáře.
+    Využívá model gpt-4o-mini pro úsporu nákladů.
     """
-    if not client.api_key:
-        return {
-            "snippet": "Lokální analýza: Detekován anomální objekt bez viditelných nosných ploch.",
-            "status": "Unresolved"
-        }
-
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return f"[Simulovaný překlad - chybí OPENAI_API_KEY]: {english_text[:100]}..."
+    
+    client = OpenAI(api_key=api_key)
+    
+    system_prompt = (
+        "Jsi odborný vojenský a aviatický překladatel pro analýzu UFO/UAP případů. "
+        "Přelož následující anglický text do češtiny. Udělej stručné, ale výstižné shrnutí. "
+        "Zachovej přesnou odbornou terminologii (např. Range Fouler, Thermal Crossover, Motion Parallax, Azimuth). "
+        "Výsledek vrať čistě v češtině."
+    )
+    
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-4o-mini", # Změněno z gpt-4o na mini pro úsporu nákladů
             messages=[
-                {
-                    "role": "system",
-                    "content": "Jsi expert na analýzu odtajněných UAP/UFO spisů AARO a Ministerstva války. "
-                               "Analyzuj text, zachovej vojenskou a aviatickou terminologii (např. Thermal Crossover, Azimuth, Range Fouler), "
-                               "vyextruj klíčové informace a vytvoř stručný český překlad a shrnutí."
-                },
-                {"role": "user", "content": raw_text[:4000]}
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": english_text[:4000]} # Omezení na 4000 znaků, aby nedošlo k přetečení tokenů
             ],
             temperature=0.3
-        ]
-        result_text = response.choices[0].message.content
-        return {
-            "snippet": result_text,
-            "status": "Unresolved"
-        }
+        )
+        return response.choices[0].message.content.strip()
     except Exception as e:
-        return {
-            "snippet": f"Chyba AI zpracování: {str(e)}",
-            "status": "Unresolved"
-        }
+        print(f"⚠️ Chyba AI překladu: {e}")
+        return "Překlad není dočasně k dispozici z důvodu chyby API."

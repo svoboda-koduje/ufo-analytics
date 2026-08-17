@@ -29,7 +29,7 @@ def process_incoming_files():
         
         # Ošetření ID, aby neobsahovalo zakázané znaky a bylo unikátní
         clean_name = file_name.replace(' ', '-').replace('_', '-')
-        case_id_gen = f"UAP-{clean_name[:20].upper()}"
+        case_id_gen = f"UAP-{clean_name[:40].upper()}"
         
         # Kontrola, zda už případ není v DB (šetří API volání)
         existing = db.query(UfoCase).filter(UfoCase.case_id == case_id_gen).first()

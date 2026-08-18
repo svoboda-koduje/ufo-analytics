@@ -293,7 +293,7 @@ export default function UFOAnalyticsDashboard() {
               </h2>
               {/* ODKAZ S FUNKCÍ PRO PŘESNÉ VYHLEDÁVÁNÍ */}
               <a 
-                href={getWarGovUrl(selectedCase.title)} 
+                href={getWarGovUrl(selectedCase)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"

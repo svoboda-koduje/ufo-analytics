@@ -32,40 +32,37 @@ interface Stats {
 const getWarGovUrl = (title: string) => {
   if (!title) return "https://www.war.gov/UFO/";
   
-  // 1. Očištění
+  // 1. Očištění balastu (odstraní naše české přípony a koncovky souborů)
   let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
   rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
 
   let searchTerm = rawName;
 
-  // 2. Formáty DOW-UAP, FBI-UAP (opravy nul)
+  // 2. Standardní formáty DOW-UAP, FBI-UAP (chytře opraví nuly a záměnu písmene O za 0)
   if (rawName.match(/^[A-Z]+-UAP-/i)) {
     let coreMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
     if (coreMatch) {
-        searchTerm = coreMatch[1];
-        searchTerm = searchTerm.replace(/PRO(\d+)$/i, 'PR0$1'); // PRO -> PR0
-        searchTerm = searchTerm.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (match, letters, numbers) => {
-          return `-${letters}` + numbers.padStart(3, '0'); // D32 -> D032
-        });
+        searchTerm = coreMatch[1].replace(/PRO(\d+)$/i, 'PR0$1');
+        searchTerm = searchTerm.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (m, letters, numbers) => `-${letters}` + numbers.padStart(3, '0'));
     }
   } 
-  // 3. DOD videa
+  // 3. Videa z DOD (vytáhne jen čisté číslo)
   else if (rawName.match(/DOD_(\d+)/i)) {
     let dodMatch = rawName.match(/DOD_(\d+)/i);
     if(dodMatch) searchTerm = `DOD_${dodMatch[1]}`;
   } 
-  // 4. Ostatní (např. 059UAP00011) - necháme ZCELA BEZ MEZER!
+  // 4. Staré archivy (např. 059UAP00011) - Extrémní zjednodušení na první 3 čísla!
+  else if (rawName.match(/^(\d{3})UAP/i)) {
+    let numMatch = rawName.match(/^(\d{3})/);
+    if (numMatch) searchTerm = numMatch[1];
+  } 
+  // 5. Poslední záchrana - ořízne to jen na úplně první slovo před podtržítkem nebo mezerou
   else {
-    if (rawName.includes('_')) {
-        // U starých archivů vezmeme jen přesné ID (např. "18_100754" z "18_100754_General...")
-        let chunks = rawName.split('_');
-        searchTerm = chunks.length > 1 ? `${chunks[0]}_${chunks[1]}` : chunks[0];
-    } else {
-        // Pro 059UAP00011 to odešle přesně tak, jak to je
-        searchTerm = rawName;
-    }
+    let chunks = rawName.split(/[_ ,]/);
+    searchTerm = chunks[0];
   }
 
+  // Finální odeslání do vládního webu
   return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
 };
 

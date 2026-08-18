@@ -145,25 +145,50 @@ export default function UFOAnalyticsDashboard() {
       </header>
 
       {stats && cases.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Celkem zkoumaných spisů' : 'Total Examined Files'}</p>
-            <p className="text-3xl font-bold text-white mt-2">{stats.total_cases}</p>
+        <div className="mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
+              <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Celkem zkoumaných spisů' : 'Total Examined Files'}</p>
+              <p className="text-3xl font-bold text-white mt-2">{stats.total_cases}</p>
+            </div>
+            <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
+              <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Nevysvětlené úkazy (Unresolved)' : 'Unresolved Cases'}</p>
+              <p className="text-3xl font-bold text-red-400 mt-2">{stats.unresolved_cases} ({stats.unresolved_percentage}%)</p>
+            </div>
+            <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
+              <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Vyřešené / Identifikované' : 'Resolved Cases'}</p>
+              <p className="text-3xl font-bold text-emerald-400 mt-2">{stats.resolved_cases}</p>
+            </div>
+            <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
+              <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Stav systému' : 'System Status'}</p>
+              <p className="text-sm font-semibold text-blue-400 mt-3 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Live: Supabase DB
+              </p>
+            </div>
           </div>
+
+          {/* NOVÝ VIZUÁLNÍ GRAF ÚSPĚŠNOSTI */}
           <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Nevysvětlené úkazy (Unresolved)' : 'Unresolved Cases'}</p>
-            <p className="text-3xl font-bold text-red-400 mt-2">{stats.unresolved_cases} ({stats.unresolved_percentage}%)</p>
-          </div>
-          <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Vyřešené / Identifikované' : 'Resolved Cases'}</p>
-            <p className="text-3xl font-bold text-emerald-400 mt-2">{stats.resolved_cases}</p>
-          </div>
-          <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
-            <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Stav systému' : 'System Status'}</p>
-            <p className="text-sm font-semibold text-blue-400 mt-3 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Live: Supabase DB
-            </p>
+            <div className="flex justify-between items-end mb-3">
+              <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-widest">{lang === 'cs' ? 'Analýza úspěšnosti identifikace' : 'Identification Success Rate'}</h3>
+            </div>
+            <div className="w-full bg-slate-900 rounded-full h-4 flex overflow-hidden border border-slate-700">
+              <div 
+                className="bg-red-500 h-4 transition-all duration-1000" 
+                style={{ width: `${stats.unresolved_percentage}%` }}
+                title={lang === 'cs' ? 'Nevysvětleno' : 'Unresolved'}
+              ></div>
+              <div 
+                className="bg-emerald-500 h-4 transition-all duration-1000" 
+                style={{ width: `${100 - stats.unresolved_percentage}%` }}
+                title={lang === 'cs' ? 'Vyřešeno' : 'Resolved'}
+              ></div>
+            </div>
+            <div className="flex justify-between mt-2 text-xs font-medium">
+              <span className="text-red-400">{stats.unresolved_percentage}% {lang === 'cs' ? 'Nevysvětleno (UAP)' : 'Unresolved (UAP)'}</span>
+              <span className="text-emerald-400">{100 - stats.unresolved_percentage}% {lang === 'cs' ? 'Identifikováno' : 'Resolved'}</span>
+            </div>
           </div>
         </div>
       )}

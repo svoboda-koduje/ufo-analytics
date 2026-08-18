@@ -28,6 +28,37 @@ interface Stats {
   unresolved_percentage: number;
 }
 
+// POMOCNÁ FUNKCE: Chytrý generátor oficiálního odkazu na war.gov
+const getWarGovUrl = (title: string) => {
+  if (!title) return "https://www.war.gov/UFO/";
+  
+  // 1. Očištění od našich interních prefixů
+  let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
+
+  // 2. Extrakce jádra ID (vezme vše před prvním podtržítkem, mezerou nebo čárkou)
+  // Např. "DOW-UAP-D32-Mission-Report..." -> "DOW-UAP-D32"
+  let coreId = rawName.split(/[_ ,.]/)[0];
+
+  // 3. OPRAVA TYPOGRAFIE: Záměna písmene O za číslici 0
+  // Pokud ID končí na "PRO" a čísla, přepíše to na "PR0" a čísla
+  coreId = coreId.replace(/PRO(\d+)$/i, 'PR0$1');
+
+  // 4. KOUZLO: Doplnění nul u krátkých čísel (z D32 udělá D032)
+  // Vyhledá spojovník, 1 nebo 2 písmena a následně 1 nebo 2 čísla na konci stringu
+  coreId = coreId.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (match, letters, numbers) => {
+    return `-${letters}` + numbers.padStart(3, '0');
+  });
+
+  // 5. Výjimka pro videa z DOD (vytáhne čistě číselné ID z prostředku názvu)
+  let dodMatch = rawName.match(/DOD_(\d+)/i);
+  if (dodMatch) {
+     coreId = `DOD_${dodMatch[1]}`;
+  }
+
+  // Složení finální URL s parametrem vyhledávání
+  return `https://www.war.gov/UFO/?search=${encodeURIComponent(coreId)}`;
+};
+
 export default function UFOAnalyticsDashboard() {
   const [cases, setCases] = useState<UfoCase[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -36,7 +67,7 @@ export default function UFOAnalyticsDashboard() {
   const [loading, setLoading] = useState(true);
   const [selectedCase, setSelectedCase] = useState<UfoCase | null>(null);
 
-  // 1. Efekt pro načítání dat z backendu
+  // Efekt pro načítání dat z backendu
   useEffect(() => {
     async function loadEngineData() {
       try {
@@ -70,12 +101,11 @@ export default function UFOAnalyticsDashboard() {
     loadEngineData();
   }, []);
 
-  // 2. NOVÝ EFEKT: Automatický scroll v tabulce po výběru případu (např. klikem do mapy)
+  // Automatický scroll v tabulce po výběru případu z mapy
   useEffect(() => {
     if (selectedCase && selectedCase.id) {
       const rowElement = document.getElementById(`case-row-${selectedCase.id}`);
       if (rowElement) {
-        // Plynule odscroluje tak, aby byl řádek uprostřed zobrazeného boxu
         rowElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
@@ -176,7 +206,7 @@ export default function UFOAnalyticsDashboard() {
                   filteredCases.map((c) => (
                     <tr 
                       key={c.id} 
-                      id={`case-row-${c.id}`} // TOTO JE KLÍČOVÉ PRO SCROLLOVÁNÍ
+                      id={`case-row-${c.id}`}
                       onClick={() => setSelectedCase(c)} 
                       className={`border-b border-slate-700/50 cursor-pointer transition ${selectedCase?.id === c.id ? 'bg-blue-900/40 border-l-4 border-l-blue-500' : 'hover:bg-slate-700/40'}`}
                     >
@@ -210,12 +240,23 @@ export default function UFOAnalyticsDashboard() {
       {selectedCase && (
         <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg flex flex-col">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3 shrink-0">
-            <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-              🔬 {lang === 'cs' ? 'Detail případu: Paralelní analýza dokumentu' : 'Case Detail: Parallel Document Analysis'}
-              <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
-                {selectedCase.id || "ID chybí"}
-              </span>
-            </h2>
+            <div>
+              <h2 className="text-xl font-semibold text-white flex items-center gap-2">
+                🔬 {lang === 'cs' ? 'Detail případu: Paralelní analýza dokumentu' : 'Case Detail: Parallel Document Analysis'}
+                <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
+                  {selectedCase.id || "ID chybí"}
+                </span>
+              </h2>
+              {/* NOVÉ TLAČÍTKO PRO VYZKOUŠENÍ HLEDÁNÍ NA OFICIÁLNÍM WEBU */}
+              <a 
+                href={getWarGovUrl(selectedCase.title)} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"
+              >
+                🌐 {lang === 'cs' ? 'Vyhledat originál ve vládní databázi war.gov' : 'Search original in war.gov database'}
+              </a>
+            </div>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>
           </div>
           

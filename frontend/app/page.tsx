@@ -196,24 +196,36 @@ export default function UFOAnalyticsDashboard() {
       </div>
 
       {selectedCase && (
-        <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3">
+        <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg flex flex-col">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3 shrink-0">
             <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-              🔬 {lang === 'cs' ? 'Detail případu: Paralelní analýza dokumentu' : 'Case Detail: Parallel Document Analysis'}
+              🔬 Detail případu: Paralelní analýza dokumentu
               <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
                 {selectedCase.id || "ID chybí"}
               </span>
             </h2>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>
           </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-slate-900 border border-slate-700 p-4 rounded-lg">
-              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">{lang === 'cs' ? 'Originál (Angličtina/Senzorová data)' : 'Original (English/Sensor Data)'}</h3>
-              <p className="text-sm text-slate-300 font-mono leading-relaxed">{selectedCase.original_text || "Originální text nenalezen."}</p>
+            {/* Box pro Originál */}
+            <div className="bg-slate-900 border border-slate-700 p-4 rounded-lg flex flex-col h-72">
+              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-3 font-bold shrink-0">Originál (Angličtina / OCR Senzorová data)</h3>
+              <div className="overflow-y-auto pr-2 custom-scrollbar">
+                <p className="text-sm text-slate-400 font-mono leading-relaxed break-words whitespace-pre-wrap">
+                  {selectedCase.original_text || "Originální text nenalezen."}
+                </p>
+              </div>
             </div>
-            <div className="bg-slate-900 border border-blue-500/30 p-4 rounded-lg">
-              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-2 font-bold text-blue-400">{lang === 'cs' ? 'Český překlad a analýza (LLM AI)' : 'Czech Translation & Analysis (LLM AI)'}</h3>
-              <p className="text-sm text-slate-200 leading-relaxed">{selectedCase.translation_snippet || "Analýza zatím nebyla provedena."}</p>
+            
+            {/* Box pro Překlad */}
+            <div className="bg-slate-900 border border-blue-500/30 p-4 rounded-lg flex flex-col h-72">
+              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-3 font-bold shrink-0">Český překlad a geolokace (LLM AI)</h3>
+              <div className="overflow-y-auto pr-2 custom-scrollbar">
+                <p className="text-sm text-slate-200 leading-relaxed break-words whitespace-pre-wrap">
+                  {selectedCase.translation_snippet || "Analýza zatím nebyla provedena."}
+                </p>
+              </div>
             </div>
           </div>
         </section>

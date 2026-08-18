@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-// Bezpečné načtení mapy pouze na klientovi (vypnuté SSR)
 const DynamicMap = dynamic(() => import('./MapComponent'), { 
   ssr: false, 
   loading: () => <div className="flex h-full items-center justify-center text-slate-500">Načítám GIS modul...</div> 
@@ -28,6 +27,34 @@ interface Stats {
   unresolved_percentage: number;
 }
 
+// POMOCNÁ FUNKCE: Extrémně chytrý generátor přímého odkazu (Deep Link)
+const getWarGovDeepLink = (title: string) => {
+  if (!title) return "https://www.war.gov/UFO/";
+  
+  // 1. Očištění od našich interních prefixů a přípon
+  let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
+  rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
+
+  // 2. Opravy specifických chyb vládní indexace
+  rawName = rawName.replace(/PRO(\d+)$/i, 'PR0$1');
+  rawName = rawName.replace(/-([A-Z]{1,2})(\d{1,2})(?=-|_|$)/i, (match, letters, numbers) => {
+    return `-${letters}` + numbers.padStart(3, '0');
+  });
+
+  // 3. Výjimka pro videa z DOD
+  let dodMatch = rawName.match(/DOD_(\d+)/i);
+  if (dodMatch) {
+     return `https://www.war.gov/UFO/#DOD_${dodMatch[1]}`;
+  }
+
+  // 4. Převedení na vládní Hash formát (nahrazení podtržítek, čárek a mezer pomlčkou)
+  // Příklad: "DOW-UAP-D32-Mission-Report,-Syria..." -> "DOW-UAP-D032-Mission-Report--Syria..."
+  let hashAnchor = rawName.replace(/[_ ,]+/g, "-");
+
+  // Finální odeslání přes tzv. Deep Link (otevře přímo modální okno dokumentu)
+  return `https://www.war.gov/UFO/#${hashAnchor}`;
+};
+
 export default function UFOAnalyticsDashboard() {
   const [cases, setCases] = useState<UfoCase[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -35,9 +62,6 @@ export default function UFOAnalyticsDashboard() {
   const [searchFilter, setSearchFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [selectedCase, setSelectedCase] = useState<UfoCase | null>(null);
-  
-  // Nový stav pro zobrazení potvrzení o zkopírování
-  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadEngineData() {
@@ -59,8 +83,6 @@ export default function UFOAnalyticsDashboard() {
               unresolved_percentage: total > 0 ? Number((((total - resolved) / total) * 100).toFixed(1)) : 0
             });
           }
-        } else {
-            console.error("Chyba při stahování dat z backendu. Stav:", res.status);
         }
       } catch (err) {
         console.error("Nelze se spojit se serverem:", err);
@@ -80,25 +102,6 @@ export default function UFOAnalyticsDashboard() {
       }
     }
   }, [selectedCase]);
-
-  // NOVÁ CHYTRÁ FUNKCE PRO SCHRÁNKU A PŘESMĚROVÁNÍ
-  const handleGovArchiveClick = (e: React.MouseEvent, title: string) => {
-    e.preventDefault();
-    
-    // Očištění názvu pro zkopírování do schránky (bez přípon a našich prefixů)
-    let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
-    rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
-    
-    // 1. Uložení do systémové schránky
-    navigator.clipboard.writeText(rawName);
-    setCopiedId(rawName);
-    
-    // 2. Vrácení textu tlačítka zpět po 3 sekundách
-    setTimeout(() => setCopiedId(null), 3000);
-    
-    // 3. Otevření vládního webu v novém panelu
-    window.open('https://www.war.gov/UFO/', '_blank');
-  };
 
   const filteredCases = cases.filter(c => 
     (c.id && c.id.toLowerCase().includes(searchFilter.toLowerCase())) ||
@@ -260,15 +263,15 @@ export default function UFOAnalyticsDashboard() {
                   {selectedCase.id || "ID chybí"}
                 </span>
               </h2>
-              {/* NOVÉ TLAČÍTKO PRO ZKOPÍROVÁNÍ DO SCHRÁNKY */}
-              <button 
-                onClick={(e) => handleGovArchiveClick(e, selectedCase.title)}
-                className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded transition border shadow ${copiedId ? 'bg-emerald-900/60 border-emerald-600 text-emerald-300' : 'bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 border-blue-700/50'}`}
+              {/* ODKAZ PŘES DEEP LINK */}
+              <a 
+                href={getWarGovDeepLink(selectedCase.title)} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"
               >
-                {copiedId 
-                  ? (lang === 'cs' ? '✅ Zkopírováno! Vložte do hledání (Ctrl+V)' : '✅ Copied! Paste into search (Ctrl+V)') 
-                  : (lang === 'cs' ? '📋 Zkopírovat název a otevřít war.gov' : '📋 Copy name & open war.gov')}
-              </button>
+                🌐 {lang === 'cs' ? 'Otevřít originál přímo na war.gov' : 'Open original directly on war.gov'}
+              </a>
             </div>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>
           </div>

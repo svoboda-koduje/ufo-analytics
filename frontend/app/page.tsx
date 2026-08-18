@@ -28,33 +28,41 @@ interface Stats {
 }
 
 // POMOCNÁ FUNKCE: Chytrý generátor přesných vyhledávacích dotazů pro war.gov
-const getWarGovUrl = (title: string) => {
-  if (!title) return "https://www.war.gov/UFO/";
-  
-  // Očištění prefixů a přípon
-  let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
-  rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
+const getWarGovUrl = (ufoCase: UfoCase) => {
+  if (!ufoCase) return "https://www.war.gov/UFO/";
 
-  let searchTerm = rawName;
+  // 1. Zkusíme primárně použít přesné ID případu (to je nejspolehlivější)
+  let searchTerm = ufoCase.id;
 
-  // 1. Výjimka pro videa (např. video_2605_DOD_111719709...)
-  const videoMatch = rawName.match(/(DOD_\d+)/i);
-  if (videoMatch) {
-    searchTerm = videoMatch[1];
-  }
-  // 2. Standardizované UAP identifikátory (DOW-UAP-D098, CIA-UAP-002, NASA-UAP-VM1...)
-  else if (rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i)) {
-    const agencyMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
-    if (agencyMatch) {
-        searchTerm = agencyMatch[1].toUpperCase();
-        // Oprava typografie 'O' vs '0' u "PRO" (např. PRO31 -> PR031)
-        searchTerm = searchTerm.replace(/PRO(\d+)/, 'PR0$1');
-        // Doplnění chybějících nul (D32 -> D032, D1 -> D001, VM1 -> VM001)
-        searchTerm = searchTerm.replace(/-([A-Z]+)(\d+)$/, (match, letters, numbers) => {
-          return `-${letters}` + numbers.padStart(3, '0');
-        });
+  // 2. Pokud ID z nějakého důvodu chybí, pokusíme se ho vyseparovat z názvu (původní záchranná logika)
+  if (!searchTerm || searchTerm === "N/A" || searchTerm === "ID chybí") {
+    if (!ufoCase.title) return "https://www.war.gov/UFO/";
+    
+    let rawName = ufoCase.title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
+    rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
+    searchTerm = rawName;
+
+    const videoMatch = rawName.match(/(DOD_\d+)/i);
+    if (videoMatch) {
+      searchTerm = videoMatch[1];
+    } else if (rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i)) {
+      const agencyMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
+      if (agencyMatch) {
+          searchTerm = agencyMatch[1].toUpperCase();
+          searchTerm = searchTerm.replace(/PRO(\d+)/, 'PR0$1');
+          searchTerm = searchTerm.replace(/-([A-Z]+)(\d+)$/, (match, letters, numbers) => `-${letters}` + numbers.padStart(3, '0'));
+      }
+    } else if (rawName.match(/^(\d+_\d+)_/)) {
+      const numMatch = rawName.match(/^(\d+_\d+)/);
+      if (numMatch) searchTerm = numMatch[1];
+    } else if (rawName.includes('_')) {
+       searchTerm = rawName.split('_')[0];
     }
   }
+
+  // 3. Vrácení vygenerované URL s garantovaným a správným parametrem ?search=
+  return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
+};
   // 3. Číselné archivy s podtržítky (18_100754_General..., 255_413270_...)
   else if (rawName.match(/^(\d+_\d+)_/)) {
     const numMatch = rawName.match(/^(\d+_\d+)/);

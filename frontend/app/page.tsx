@@ -31,36 +31,55 @@ interface Stats {
 const getWarGovUrl = (ufoCase: UfoCase) => {
   if (!ufoCase) return "https://www.war.gov/UFO/";
 
-  // 1. Zkusíme primárně použít přesné ID případu (to je nejspolehlivější)
-  let searchTerm = ufoCase.id;
+  let searchTerm = "";
+  let rawName = ufoCase.title ? ufoCase.title.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "") : "";
 
-  // 2. Pokud ID z nějakého důvodu chybí, pokusíme se ho vyseparovat z názvu
-  if (!searchTerm || searchTerm === "N/A" || searchTerm === "ID chybí") {
-    if (!ufoCase.title) return "https://www.war.gov/UFO/";
-    
-    let rawName = ufoCase.title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
-    rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
-    searchTerm = rawName;
+  // 1. Zjištění, zda je název popisný (např. FBI-UAP..._Multiple-Red-Lights) 
+  // nebo zda jde o "slepé" ID (např. 059UAP00011)
+  const isDescriptive = rawName.includes('_') || rawName.includes('-');
+  const isOpaqueId = /^[0-9]+[A-Z]+[0-9]+$/i.test(rawName); // zachytí formát 059UAP00011
 
-    const videoMatch = rawName.match(/(DOD_\d+)/i);
-    if (videoMatch) {
-      searchTerm = videoMatch[1];
-    } else if (rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i)) {
-      const agencyMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
-      if (agencyMatch) {
-          searchTerm = agencyMatch[1].toUpperCase();
-          searchTerm = searchTerm.replace(/PRO(\d+)/, 'PR0$1');
-          searchTerm = searchTerm.replace(/-([A-Z]+)(\d+)$/, (match, letters, numbers) => `-${letters}` + numbers.padStart(3, '0'));
+  if (isDescriptive && !isOpaqueId) {
+    // Zvláštní pravidlo pro videa (např. DOD_111688723)
+    if (rawName.startsWith('DOD_') || rawName.startsWith('video_')) {
+      const dodMatch = rawName.match(/(DOD_\d+)/i);
+      if (dodMatch) {
+        searchTerm = dodMatch[1];
       }
-    } else if (rawName.match(/^(\d+_\d+)_/)) {
-      const numMatch = rawName.match(/^(\d+_\d+)/);
-      if (numMatch) searchTerm = numMatch[1];
-    } else if (rawName.includes('_')) {
-       searchTerm = rawName.split('_')[0];
+    } else {
+      // Extrahuje smysluplná slova, např. z "FBI-UAP-D040_FD-302_Multiple-Red-Lights" udělá "Multiple Red Lights"
+      const parts = rawName.split('_');
+      let mainPart = parts.length > 2 ? parts[2] : parts[1] || parts[0];
+      searchTerm = mainPart.replace(/-/g, ' ').trim();
     }
   }
 
-  // 3. Vrácení vygenerované URL s garantovaným a správným parametrem ?search=
+  // 2. Pokud je název neprůhledný (059UAP00011), použijeme chytrou kombinaci z databáze: ROK + LOKACE
+  if (!searchTerm || isOpaqueId) {
+    let year = "";
+    if (ufoCase.date && ufoCase.date !== "N/A") {
+      const yearMatch = ufoCase.date.match(/\d{4}/);
+      if (yearMatch) year = yearMatch[0];
+    }
+
+    let loc = "";
+    if (ufoCase.location && ufoCase.location !== "N/A" && ufoCase.location !== "Unknown") {
+      // Vezmeme hlavní část lokace, např z "Tbilisi, Georgia" vezmeme "Tbilisi"
+      loc = ufoCase.location.split(',')[0].trim();
+    }
+
+    // Poskládáme finální dotaz
+    if (year && loc) {
+      searchTerm = `${year} ${loc}`; // Hledá např. "2001 Tbilisi"
+    } else if (year) {
+      searchTerm = year;
+    } else if (loc) {
+      searchTerm = loc;
+    } else {
+      searchTerm = "UAP"; // Poslední záchrana, pokud nemáme vůbec nic
+    }
+  }
+
   return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
 };
 

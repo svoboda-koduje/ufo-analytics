@@ -34,7 +34,7 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
   // 1. Zkusíme primárně použít přesné ID případu (to je nejspolehlivější)
   let searchTerm = ufoCase.id;
 
-  // 2. Pokud ID z nějakého důvodu chybí, pokusíme se ho vyseparovat z názvu (původní záchranná logika)
+  // 2. Pokud ID z nějakého důvodu chybí, pokusíme se ho vyseparovat z názvu
   if (!searchTerm || searchTerm === "N/A" || searchTerm === "ID chybí") {
     if (!ufoCase.title) return "https://www.war.gov/UFO/";
     
@@ -61,25 +61,6 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
   }
 
   // 3. Vrácení vygenerované URL s garantovaným a správným parametrem ?search=
-  return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
-};
-  // 3. Číselné archivy s podtržítky (18_100754_General..., 255_413270_...)
-  else if (rawName.match(/^(\d+_\d+)_/)) {
-    const numMatch = rawName.match(/^(\d+_\d+)/);
-    if (numMatch) {
-        searchTerm = numMatch[1];
-    }
-  }
-  // 4. Ostatní dokumenty s podtržítkem (Serial-3_Redacted, EOP-UAP-D001_...)
-  else if (rawName.includes('_')) {
-     searchTerm = rawName.split('_')[0];
-  }
-  // 5. Zbytek (např. 059UAP00011)
-  else {
-     searchTerm = rawName;
-  }
-
-  // Vrácení vygenerované URL s parametrem vyhledávání
   return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
 };
 

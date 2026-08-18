@@ -28,44 +28,6 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-// POMOCNÁ FUNKCE: Chytrý generátor oficiálního odkazu na war.gov
-const getWarGovUrl = (title: string) => {
-  if (!title) return "https://www.war.gov/UFO/";
-  
-  // 1. Očištění balastu (odstraní naše české přípony a koncovky souborů)
-  let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
-  rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
-
-  let searchTerm = rawName;
-
-  // 2. Standardní formáty DOW-UAP, FBI-UAP (chytře opraví nuly a záměnu písmene O za 0)
-  if (rawName.match(/^[A-Z]+-UAP-/i)) {
-    let coreMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
-    if (coreMatch) {
-        searchTerm = coreMatch[1].replace(/PRO(\d+)$/i, 'PR0$1');
-        searchTerm = searchTerm.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (m, letters, numbers) => `-${letters}` + numbers.padStart(3, '0'));
-    }
-  } 
-  // 3. Videa z DOD (vytáhne jen čisté číslo)
-  else if (rawName.match(/DOD_(\d+)/i)) {
-    let dodMatch = rawName.match(/DOD_(\d+)/i);
-    if(dodMatch) searchTerm = `DOD_${dodMatch[1]}`;
-  } 
-  // 4. Staré archivy (např. 059UAP00011) - Extrémní zjednodušení na první 3 čísla!
-  else if (rawName.match(/^(\d{3})UAP/i)) {
-    let numMatch = rawName.match(/^(\d{3})/);
-    if (numMatch) searchTerm = numMatch[1];
-  } 
-  // 5. Poslední záchrana - ořízne to jen na úplně první slovo před podtržítkem nebo mezerou
-  else {
-    let chunks = rawName.split(/[_ ,]/);
-    searchTerm = chunks[0];
-  }
-
-  // Finální odeslání do vládního webu
-  return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
-};
-
 export default function UFOAnalyticsDashboard() {
   const [cases, setCases] = useState<UfoCase[]>([]);
   const [stats, setStats] = useState<Stats | null>(null);
@@ -73,8 +35,10 @@ export default function UFOAnalyticsDashboard() {
   const [searchFilter, setSearchFilter] = useState('');
   const [loading, setLoading] = useState(true);
   const [selectedCase, setSelectedCase] = useState<UfoCase | null>(null);
+  
+  // Nový stav pro zobrazení potvrzení o zkopírování
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  // Efekt pro načítání dat z backendu
   useEffect(() => {
     async function loadEngineData() {
       try {
@@ -108,7 +72,6 @@ export default function UFOAnalyticsDashboard() {
     loadEngineData();
   }, []);
 
-  // Automatický scroll v tabulce po výběru případu z mapy
   useEffect(() => {
     if (selectedCase && selectedCase.id) {
       const rowElement = document.getElementById(`case-row-${selectedCase.id}`);
@@ -117,6 +80,25 @@ export default function UFOAnalyticsDashboard() {
       }
     }
   }, [selectedCase]);
+
+  // NOVÁ CHYTRÁ FUNKCE PRO SCHRÁNKU A PŘESMĚROVÁNÍ
+  const handleGovArchiveClick = (e: React.MouseEvent, title: string) => {
+    e.preventDefault();
+    
+    // Očištění názvu pro zkopírování do schránky (bez přípon a našich prefixů)
+    let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
+    rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
+    
+    // 1. Uložení do systémové schránky
+    navigator.clipboard.writeText(rawName);
+    setCopiedId(rawName);
+    
+    // 2. Vrácení textu tlačítka zpět po 3 sekundách
+    setTimeout(() => setCopiedId(null), 3000);
+    
+    // 3. Otevření vládního webu v novém panelu
+    window.open('https://www.war.gov/UFO/', '_blank');
+  };
 
   const filteredCases = cases.filter(c => 
     (c.id && c.id.toLowerCase().includes(searchFilter.toLowerCase())) ||
@@ -165,7 +147,6 @@ export default function UFOAnalyticsDashboard() {
             </div>
           </div>
 
-          {/* NOVÝ VIZUÁLNÍ GRAF ÚSPĚŠNOSTI */}
           <div className="bg-slate-800 border border-slate-700 p-5 rounded-xl shadow">
             <div className="flex justify-between items-end mb-3">
               <h3 className="text-sm font-semibold text-slate-300 uppercase tracking-widest">{lang === 'cs' ? 'Analýza úspěšnosti identifikace' : 'Identification Success Rate'}</h3>
@@ -198,7 +179,7 @@ export default function UFOAnalyticsDashboard() {
               <DynamicMap cases={filteredCases} onMarkerClick={setSelectedCase} />
             ) : (
               <div className="flex h-full items-center justify-center text-slate-500">
-                 {loading ? 'Načítám data...' : 'Čekám na data z backendu...'}
+                 {loading ? (lang === 'cs' ? 'Načítám data...' : 'Loading data...') : (lang === 'cs' ? 'Čekám na data z backendu...' : 'Waiting for backend data...')}
               </div>
             )}
           </div>
@@ -228,11 +209,11 @@ export default function UFOAnalyticsDashboard() {
               <tbody>
                 {loading ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-8 text-slate-400">Načítám data ze Supabase...</td>
+                    <td colSpan={4} className="text-center py-8 text-slate-400">{lang === 'cs' ? 'Načítám data ze Supabase...' : 'Loading data from Supabase...'}</td>
                   </tr>
                 ) : filteredCases.length === 0 ? (
                   <tr>
-                    <td colSpan={4} className="text-center py-8 text-slate-400">Žádné záznamy nenalezeny. Očekávám data z backendu.</td>
+                    <td colSpan={4} className="text-center py-8 text-slate-400">{lang === 'cs' ? 'Žádné záznamy nenalezeny.' : 'No records found.'}</td>
                   </tr>
                 ) : (
                   filteredCases.map((c) => (
@@ -279,15 +260,15 @@ export default function UFOAnalyticsDashboard() {
                   {selectedCase.id || "ID chybí"}
                 </span>
               </h2>
-              {/* NOVÉ TLAČÍTKO PRO VYZKOUŠENÍ HLEDÁNÍ NA OFICIÁLNÍM WEBU */}
-              <a 
-                href={getWarGovUrl(selectedCase.title)} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"
+              {/* NOVÉ TLAČÍTKO PRO ZKOPÍROVÁNÍ DO SCHRÁNKY */}
+              <button 
+                onClick={(e) => handleGovArchiveClick(e, selectedCase.title)}
+                className={`mt-3 inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded transition border shadow ${copiedId ? 'bg-emerald-900/60 border-emerald-600 text-emerald-300' : 'bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 border-blue-700/50'}`}
               >
-                🌐 {lang === 'cs' ? 'Vyhledat originál ve vládní databázi war.gov' : 'Search original in war.gov database'}
-              </a>
+                {copiedId 
+                  ? (lang === 'cs' ? '✅ Zkopírováno! Vložte do hledání (Ctrl+V)' : '✅ Copied! Paste into search (Ctrl+V)') 
+                  : (lang === 'cs' ? '📋 Zkopírovat název a otevřít war.gov' : '📋 Copy name & open war.gov')}
+              </button>
             </div>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>
           </div>

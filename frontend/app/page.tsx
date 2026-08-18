@@ -29,46 +29,43 @@ interface Stats {
 }
 
 // POMOCNÁ FUNKCE: Chytrý generátor oficiálního odkazu na war.gov
-const getWarGovUrl = (title) => {
+const getWarGovUrl = (title: string) => {
   if (!title) return "https://www.war.gov/UFO/";
   
-  // 1. Očištění od našich interních prefixů a přípon
+  // 1. Očištění
   let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
   rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
 
   let searchTerm = rawName;
 
-  // 2. Výjimka pro DOD videa (vytáhne číselné ID, např. DOD_111719709)
-  let dodMatch = rawName.match(/DOD_(\d+)/i);
-  if (dodMatch) {
-     searchTerm = `DOD_${dodMatch[1]}`;
-  }
-  // 3. Standardní formáty (DOW-UAP, FBI-UAP atd.)
-  else if (rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i)) {
-    let standardMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
-    searchTerm = standardMatch ? standardMatch[1] : rawName;
-    
-    // Oprava O vs 0 (PRO31 -> PR031)
-    searchTerm = searchTerm.replace(/PRO(\d+)$/i, 'PR0$1');
-    
-    // Doplnění nul u krátkých čísel (D32 -> D032)
-    searchTerm = searchTerm.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (match, letters, numbers) => {
-      return `-${letters}` + numbers.padStart(3, '0');
-    });
+  // 2. Formáty DOW-UAP, FBI-UAP (opravy nul)
+  if (rawName.match(/^[A-Z]+-UAP-/i)) {
+    let coreMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
+    if (coreMatch) {
+        searchTerm = coreMatch[1];
+        searchTerm = searchTerm.replace(/PRO(\d+)$/i, 'PR0$1'); // PRO -> PR0
+        searchTerm = searchTerm.replace(/-([A-Z]{1,2})(\d{1,2})$/i, (match, letters, numbers) => {
+          return `-${letters}` + numbers.padStart(3, '0'); // D32 -> D032
+        });
+    }
   } 
-  // 4. Formáty spojené dohromady (např. 059UAP00011 -> 059 UAP 00011)
-  else if (/^\d{3}UAP\d+$/i.test(rawName)) {
-     // Rozdělí text na 3 logické bloky oddělené mezerou (ideální pro vládní fulltext)
-     searchTerm = rawName.replace(/^(\d{3})(UAP)(\d+)$/i, "$1 $2 $3");
-  }
-  // 5. Ostatní staré vojenské formáty (např. 18_100754_General...)
+  // 3. DOD videa
+  else if (rawName.match(/DOD_(\d+)/i)) {
+    let dodMatch = rawName.match(/DOD_(\d+)/i);
+    if(dodMatch) searchTerm = `DOD_${dodMatch[1]}`;
+  } 
+  // 4. Ostatní (např. 059UAP00011) - necháme ZCELA BEZ MEZER!
   else {
-     // Spojí první dva identifikátory (např. "18" a "100754"), což spolehlivě odfiltruje balast
-     let chunks = rawName.split(/[_ \-]/);
-     searchTerm = chunks.length > 1 ? `${chunks[0]} ${chunks[1]}` : chunks[0];
+    if (rawName.includes('_')) {
+        // U starých archivů vezmeme jen přesné ID (např. "18_100754" z "18_100754_General...")
+        let chunks = rawName.split('_');
+        searchTerm = chunks.length > 1 ? `${chunks[0]}_${chunks[1]}` : chunks[0];
+    } else {
+        // Pro 059UAP00011 to odešle přesně tak, jak to je
+        searchTerm = rawName;
+    }
   }
 
-  // Vrácení vygenerované URL s bezpečným kódováním
   return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
 };
 

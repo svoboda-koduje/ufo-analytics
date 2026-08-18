@@ -27,32 +27,52 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-// POMOCNÁ FUNKCE: Extrémně chytrý generátor přímého odkazu (Deep Link)
-const getWarGovDeepLink = (title: string) => {
+// POMOCNÁ FUNKCE: Chytrý generátor přesných vyhledávacích dotazů pro war.gov
+const getWarGovUrl = (title: string) => {
   if (!title) return "https://www.war.gov/UFO/";
   
-  // 1. Očištění od našich interních prefixů a přípon
+  // Očištění prefixů a přípon
   let rawName = title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /g, "").trim();
   rawName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
 
-  // 2. Opravy specifických chyb vládní indexace
-  rawName = rawName.replace(/PRO(\d+)$/i, 'PR0$1');
-  rawName = rawName.replace(/-([A-Z]{1,2})(\d{1,2})(?=-|_|$)/i, (match, letters, numbers) => {
-    return `-${letters}` + numbers.padStart(3, '0');
-  });
+  let searchTerm = rawName;
 
-  // 3. Výjimka pro videa z DOD
-  let dodMatch = rawName.match(/DOD_(\d+)/i);
-  if (dodMatch) {
-     return `https://www.war.gov/UFO/#DOD_${dodMatch[1]}`;
+  // 1. Výjimka pro videa (např. video_2605_DOD_111719709...)
+  const videoMatch = rawName.match(/(DOD_\d+)/i);
+  if (videoMatch) {
+    searchTerm = videoMatch[1];
+  }
+  // 2. Standardizované UAP identifikátory (DOW-UAP-D098, CIA-UAP-002, NASA-UAP-VM1...)
+  else if (rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i)) {
+    const agencyMatch = rawName.match(/^([A-Z]+-UAP-[A-Z0-9]+)/i);
+    if (agencyMatch) {
+        searchTerm = agencyMatch[1].toUpperCase();
+        // Oprava typografie 'O' vs '0' u "PRO" (např. PRO31 -> PR031)
+        searchTerm = searchTerm.replace(/PRO(\d+)/, 'PR0$1');
+        // Doplnění chybějících nul (D32 -> D032, D1 -> D001, VM1 -> VM001)
+        searchTerm = searchTerm.replace(/-([A-Z]+)(\d+)$/, (match, letters, numbers) => {
+          return `-${letters}` + numbers.padStart(3, '0');
+        });
+    }
+  }
+  // 3. Číselné archivy s podtržítky (18_100754_General..., 255_413270_...)
+  else if (rawName.match(/^(\d+_\d+)_/)) {
+    const numMatch = rawName.match(/^(\d+_\d+)/);
+    if (numMatch) {
+        searchTerm = numMatch[1];
+    }
+  }
+  // 4. Ostatní dokumenty s podtržítkem (Serial-3_Redacted, EOP-UAP-D001_...)
+  else if (rawName.includes('_')) {
+     searchTerm = rawName.split('_')[0];
+  }
+  // 5. Zbytek (např. 059UAP00011)
+  else {
+     searchTerm = rawName;
   }
 
-  // 4. Převedení na vládní Hash formát (nahrazení podtržítek, čárek a mezer pomlčkou)
-  // Příklad: "DOW-UAP-D32-Mission-Report,-Syria..." -> "DOW-UAP-D032-Mission-Report--Syria..."
-  let hashAnchor = rawName.replace(/[_ ,]+/g, "-");
-
-  // Finální odeslání přes tzv. Deep Link (otevře přímo modální okno dokumentu)
-  return `https://www.war.gov/UFO/#${hashAnchor}`;
+  // Vrácení vygenerované URL s parametrem vyhledávání
+  return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
 };
 
 export default function UFOAnalyticsDashboard() {
@@ -263,14 +283,14 @@ export default function UFOAnalyticsDashboard() {
                   {selectedCase.id || "ID chybí"}
                 </span>
               </h2>
-              {/* ODKAZ PŘES DEEP LINK */}
+              {/* ODKAZ S FUNKCÍ PRO PŘESNÉ VYHLEDÁVÁNÍ */}
               <a 
-                href={getWarGovDeepLink(selectedCase.title)} 
+                href={getWarGovUrl(selectedCase.title)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"
               >
-                🌐 {lang === 'cs' ? 'Otevřít originál přímo na war.gov' : 'Open original directly on war.gov'}
+                🌐 {lang === 'cs' ? 'Vyhledat originál ve vládní databázi war.gov' : 'Search original in war.gov database'}
               </a>
             </div>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>

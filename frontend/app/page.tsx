@@ -36,10 +36,10 @@ export default function UFOAnalyticsDashboard() {
   const [loading, setLoading] = useState(true);
   const [selectedCase, setSelectedCase] = useState<UfoCase | null>(null);
 
+  // 1. Efekt pro načítání dat z backendu
   useEffect(() => {
     async function loadEngineData() {
       try {
-        // Tady frontend volá tvůj cloudový backend
         const res = await fetch('https://ufo-analytics-backend.onrender.com/api/cases/');
         
         if (res.ok) {
@@ -69,6 +69,17 @@ export default function UFOAnalyticsDashboard() {
     
     loadEngineData();
   }, []);
+
+  // 2. NOVÝ EFEKT: Automatický scroll v tabulce po výběru případu (např. klikem do mapy)
+  useEffect(() => {
+    if (selectedCase && selectedCase.id) {
+      const rowElement = document.getElementById(`case-row-${selectedCase.id}`);
+      if (rowElement) {
+        // Plynule odscroluje tak, aby byl řádek uprostřed zobrazeného boxu
+        rowElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+  }, [selectedCase]);
 
   const filteredCases = cases.filter(c => 
     (c.id && c.id.toLowerCase().includes(searchFilter.toLowerCase())) ||
@@ -142,7 +153,7 @@ export default function UFOAnalyticsDashboard() {
               className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 w-full sm:w-64"
             />
           </div>
-          <div className="overflow-y-auto flex-1 bg-slate-900/50 rounded-lg border border-slate-700/60">
+          <div className="overflow-y-auto flex-1 bg-slate-900/50 rounded-lg border border-slate-700/60 custom-scrollbar">
             <table className="w-full text-left text-sm">
               <thead className="sticky top-0 bg-slate-900 text-slate-400 border-b border-slate-700 z-10">
                 <tr>
@@ -165,8 +176,9 @@ export default function UFOAnalyticsDashboard() {
                   filteredCases.map((c) => (
                     <tr 
                       key={c.id} 
+                      id={`case-row-${c.id}`} // TOTO JE KLÍČOVÉ PRO SCROLLOVÁNÍ
                       onClick={() => setSelectedCase(c)} 
-                      className={`border-b border-slate-700/50 cursor-pointer hover:bg-slate-700/40 transition ${selectedCase?.id === c.id ? 'bg-blue-900/30 border-blue-500/50' : ''}`}
+                      className={`border-b border-slate-700/50 cursor-pointer transition ${selectedCase?.id === c.id ? 'bg-blue-900/40 border-l-4 border-l-blue-500' : 'hover:bg-slate-700/40'}`}
                     >
                       <td className="py-2.5 px-3 font-mono text-blue-400 text-xs font-semibold">{c.id || "N/A"}</td>
                       <td className="py-2.5 px-3 text-slate-200 truncate max-w-xs">{c.title}</td>
@@ -199,7 +211,7 @@ export default function UFOAnalyticsDashboard() {
         <section className="mt-8 bg-slate-800 border border-slate-700 p-6 rounded-xl shadow-lg flex flex-col">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-slate-700 pb-3 shrink-0">
             <h2 className="text-xl font-semibold text-white flex items-center gap-2">
-              🔬 Detail případu: Paralelní analýza dokumentu
+              🔬 {lang === 'cs' ? 'Detail případu: Paralelní analýza dokumentu' : 'Case Detail: Parallel Document Analysis'}
               <span className="text-xs font-mono bg-slate-900 text-blue-400 px-2.5 py-1 rounded border border-slate-700">
                 {selectedCase.id || "ID chybí"}
               </span>
@@ -208,9 +220,8 @@ export default function UFOAnalyticsDashboard() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Box pro Originál */}
             <div className="bg-slate-900 border border-slate-700 p-4 rounded-lg flex flex-col h-72">
-              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-3 font-bold shrink-0">Originál (Angličtina / OCR Senzorová data)</h3>
+              <h3 className="text-xs text-slate-400 uppercase tracking-widest mb-3 font-bold shrink-0">{lang === 'cs' ? 'Originál (Angličtina / OCR Senzorová data)' : 'Original (English / OCR Sensor Data)'}</h3>
               <div className="overflow-y-auto pr-2 custom-scrollbar">
                 <p className="text-sm text-slate-400 font-mono leading-relaxed break-words whitespace-pre-wrap">
                   {selectedCase.original_text || "Originální text nenalezen."}
@@ -218,9 +229,8 @@ export default function UFOAnalyticsDashboard() {
               </div>
             </div>
             
-            {/* Box pro Překlad */}
             <div className="bg-slate-900 border border-blue-500/30 p-4 rounded-lg flex flex-col h-72">
-              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-3 font-bold shrink-0">Český překlad a geolokace (LLM AI)</h3>
+              <h3 className="text-xs text-blue-400 uppercase tracking-widest mb-3 font-bold shrink-0">{lang === 'cs' ? 'Český překlad a geolokace (LLM AI)' : 'Czech Translation & Geolocation (LLM AI)'}</h3>
               <div className="overflow-y-auto pr-2 custom-scrollbar">
                 <p className="text-sm text-slate-200 leading-relaxed break-words whitespace-pre-wrap">
                   {selectedCase.translation_snippet || "Analýza zatím nebyla provedena."}

@@ -25,7 +25,9 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
 
   let query = "";
   if (ufoCase.asset_file_name && ufoCase.asset_file_name.trim() !== "") {
-    query = ufoCase.asset_file_name.replace(/["“”]/g, "").trim();
+    // Ponecháváme uvozovky v původním znění (včetně typografických), 
+    // aby vyhledávání na war.gov našlo přesnou shodu v poli SEARCH.
+    query = ufoCase.asset_file_name.trim();
   } else if (ufoCase.title) {
     query = ufoCase.title
       .replace(/Odtajněný spis:\s*/gi, "")

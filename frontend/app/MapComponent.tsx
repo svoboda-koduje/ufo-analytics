@@ -25,7 +25,6 @@ export interface MapProps {
   onMarkerClick: (c: UfoCase) => void;
 }
 
-// Neonový kruhový bod
 const createMarkerIcon = (isSelected: boolean) => {
   return L.divIcon({
     className: 'custom-uap-pin',
@@ -49,12 +48,11 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
   const mapInstanceRef = useRef<L.Map | null>(null);
   const markersLayerRef = useRef<L.LayerGroup | null>(null);
 
-  // 1. Inicializace mapy (Dark theme CartoDB)
   useEffect(() => {
     if (!mapContainerRef.current || mapInstanceRef.current) return;
 
     const map = L.map(mapContainerRef.current, {
-      center: [32, -20],
+      center: [30, 0],
       zoom: 2,
       minZoom: 1.5,
       maxBounds: [[-85, -180], [85, 180]],
@@ -74,7 +72,6 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
     };
   }, []);
 
-  // 2. Vykreslení všech 375 bodů s rozptylem duplicitních souřadnic
   useEffect(() => {
     const map = mapInstanceRef.current;
     const layer = markersLayerRef.current;
@@ -86,21 +83,19 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
       c => typeof c.latitude === 'number' && typeof c.longitude === 'number' && !isNaN(c.latitude) && !isNaN(c.longitude)
     );
 
-    // Počítadlo souřadnic pro vějířovitý rozptyl překrývajících se bodů
     const coordCounts: { [key: string]: number } = {};
 
     validCases.forEach((c) => {
-      const baseKey = `${c.latitude.toFixed(3)}_${c.longitude.toFixed(3)}`;
+      const baseKey = `${c.latitude.toFixed(2)}_${c.longitude.toFixed(2)}`;
       const count = coordCounts[baseKey] || 0;
       coordCounts[baseKey] = count + 1;
 
-      // Pokud je na stejném místě více bodů, mírně je rozprostřeme do kruhu
       let lat = c.latitude;
       let lng = c.longitude;
 
       if (count > 0) {
-        const angle = count * 0.7;
-        const radius = 0.15 + (count * 0.04);
+        const angle = count * 0.65;
+        const radius = 0.2 + (count * 0.05);
         lat += Math.sin(angle) * radius;
         lng += Math.cos(angle) * radius * 1.3;
       }
@@ -127,7 +122,6 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
     });
   }, [cases, selectedCase, onMarkerClick]);
 
-  // 3. Plynulý posun na vybraný záznam
   useEffect(() => {
     const map = mapInstanceRef.current;
     if (!map || !selectedCase) return;

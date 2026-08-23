@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { UfoCase } from './MapComponent';
+import fileMapping from './file_to_asset_mapping.json';
 
 const DynamicMap = dynamic(() => import('./MapComponent'), { 
   ssr: false, 
@@ -20,22 +21,99 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-const getWarGovUrl = (ufoCase: UfoCase) => {
-  if (!ufoCase) return "https://www.war.gov/UFO/";
+// Speciální slovník pro nestandardně pojmenované stažené soubory
+const SPECIAL_FILENAME_MAP: Record<string, string> = {
+  "059UAP00011.PDF": "STATE DEPARTMENT UAP CABLE 003, TBILISI, GEORGIA, OCTOBER 30, 2001",
+  "059UAP00012.PDF": "STATE DEPARTMENT UAP CABLE 004, ASHGABAT, TURKMENISTAN, NOVEMBER 5, 2004",
+  "059UAP00013.PDF": "STATE DEPARTMENT UAP CABLE 005, MEXICO, SEPTEMBER 16, 2003",
+  "DOS-UAP-D1-CABLE-1-PAPUA-NEW-GUINEA-JANUARY-1985.PDF": "STATE DEPARTMENT UAP CABLE 001, PAPUA NEW GUINEA, JANUARY 28, 1985",
+  "DOS-UAP-D2-CABLE-2-KAZAKHSTAN-JANUARY-1994.PDF": "STATE DEPARTMENT UAP CABLE 002, KAZAKHSTAN, JANUARY 31, 1994",
+  "2024-04-30-COMPOSITE-SKETCH.PDF": "FBI SEPTEMBER 2023 SIGHTING - COMPOSITE SKETCH",
+  "SERIAL-3_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 003",
+  "SERIAL-4-REDACTED_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 004",
+  "SERIAL 5 REDACTED_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 005",
+  "USPER-STATEMENT-REDACTED.PDF": "USPER STATEMENT ABOUT UAP SIGHTING",
+  "WESTERN_US_EVENT_SLIDES_5.08.2026.PDF": "WESTERN US EVENT",
+  "255_T_763_R1B_TRANSCRIPTS.PDF": "NASA-UAP-D003, GEMINI 7 TRANSCRIPT, 1965"
+};
 
-  let query = "";
-  if (ufoCase.asset_file_name && ufoCase.asset_file_name.trim() !== "") {
-    // Ponecháváme uvozovky v původním znění pro přesnou shodu na war.gov
-    query = ufoCase.asset_file_name.trim();
-  } else if (ufoCase.title) {
-    query = ufoCase.title
-      .replace(/Odtajněný spis:\s*/gi, "")
-      .replace(/\.(pdf|mp4|jpg|png)$/gi, "")
-      .trim();
+// Pomocná funkce pro vyhledání oficiálního ASSET názvu a sestavení URL na war.gov
+const getAssetInfo = (ufoCase: UfoCase | null) => {
+  if (!ufoCase) {
+    return {
+      assetName: "",
+      url: "https://www.war.gov/UFO/#records"
+    };
   }
 
-  // Kombinace vyhledávacího query parametru a kotvy #records pro automatický scroll
-  return `https://www.war.gov/UFO/?search=${encodeURIComponent(query)}#records`;
+  // 1. Zjistíme čistý identifikátor z názvu nebo case_id
+  const rawTitle = (ufoCase.title || "").replace(/Odtajněný spis:\s*/gi, "").trim();
+  const rawCaseId = (ufoCase.case_id || "").replace(/^UAP-/i, "").trim();
+  const rawFileNameUpper = (rawTitle || rawCaseId).toUpperCase();
+
+  // 2. Kontrola ve speciálním slovníku
+  if (SPECIAL_FILENAME_MAP[rawFileNameUpper]) {
+    const asset = SPECIAL_FILENAME_MAP[rawFileNameUpper];
+    return {
+      assetName: asset,
+      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
+    };
+  }
+
+  // 3. Pokud ufoCase již má platný asset_file_name (který nekončí příponou souboru)
+  if (
+    ufoCase.asset_file_name &&
+    ufoCase.asset_file_name.trim() !== "" &&
+    !/\.(pdf|mp4|jpg|png)$/i.test(ufoCase.asset_file_name.trim())
+  ) {
+    const asset = ufoCase.asset_file_name.trim();
+    return {
+      assetName: asset,
+      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
+    };
+  }
+
+  // 4. Prohledání souboru file_to_asset_mapping.json
+  const cleanNameNoExt = rawFileNameUpper.replace(/\.(PDF|MP4|JPG|PNG)$/i, "").trim();
+  
+  // Extrahujeme hlavní prefix (např. DOW-UAP-D098, FBI-UAP-D025, CIA-UAP-002, 18_100754)
+  const prefixMatch = cleanNameNoExt.match(/^([A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+|[A-Z0-9]+_[A-Z0-9]+)/i);
+  const prefix = prefixMatch ? prefixMatch[0].toUpperCase() : cleanNameNoExt;
+
+  const foundItem = (fileMapping as any[]).find((item: any) => {
+    if (!item) return false;
+    
+    // Shoda podle indexu (pokud ID odpovídá pořadí)
+    if (ufoCase.id !== undefined && item.index === Number(ufoCase.id)) return true;
+
+    // Shoda podle oficiálního ASSET názvu nebo row_title
+    const itemAsset = (item.asset_file_name || item.row_title || "").toUpperCase();
+    if (itemAsset === cleanNameNoExt) return true;
+    if (prefix && itemAsset.startsWith(prefix)) return true;
+
+    return false;
+  });
+
+  if (foundItem) {
+    const asset = foundItem.asset_file_name || foundItem.row_title;
+    if (foundItem.war_gov_search_url) {
+      const url = foundItem.war_gov_search_url.includes("#records") 
+        ? foundItem.war_gov_search_url 
+        : `${foundItem.war_gov_search_url}#records`;
+      return { assetName: asset, url };
+    }
+    return {
+      assetName: asset,
+      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
+    };
+  }
+
+  // 5. Fallback: Vyčistíme podtržítka a pošleme očištěný název
+  const fallbackQuery = cleanNameNoExt.replace(/_/g, " ");
+  return {
+    assetName: fallbackQuery,
+    url: `https://www.war.gov/UFO/?search=${encodeURIComponent(fallbackQuery)}#records`
+  };
 };
 
 export default function UFOAnalyticsDashboard() {
@@ -93,14 +171,17 @@ export default function UFOAnalyticsDashboard() {
 
   const filteredCases = cases.filter(c => {
     const q = searchFilter.toLowerCase();
+    const assetInfo = getAssetInfo(c);
     return (
       (c.id !== undefined && String(c.id).toLowerCase().includes(q)) ||
       (c.case_id && c.case_id.toLowerCase().includes(q)) ||
-      (c.asset_file_name && c.asset_file_name.toLowerCase().includes(q)) ||
       (c.title && c.title.toLowerCase().includes(q)) ||
-      (c.location && c.location.toLowerCase().includes(q))
+      (c.location && c.location.toLowerCase().includes(q)) ||
+      (assetInfo.assetName && assetInfo.assetName.toLowerCase().includes(q))
     );
   });
+
+  const currentAssetInfo = getAssetInfo(selectedCase);
 
   return (
     <div className="min-h-screen bg-[#070d1e] text-slate-100 p-4 md:p-8 font-sans">
@@ -233,41 +314,44 @@ export default function UFOAnalyticsDashboard() {
                     </td>
                   </tr>
                 ) : (
-                  filteredCases.map((c) => (
-                    <tr 
-                      key={String(c.id)} 
-                      id={`case-row-${c.id}`}
-                      onClick={() => setSelectedCase(c)} 
-                      className={`border-b border-slate-800/50 cursor-pointer transition ${
-                        selectedCase?.id === c.id 
-                          ? 'bg-cyan-950/40 border-l-4 border-l-cyan-400 text-white' 
-                          : 'hover:bg-slate-900/60 text-slate-300'
-                      }`}
-                    >
-                      <td className="py-2.5 px-3 text-cyan-400 font-bold whitespace-nowrap">{c.id}</td>
-                      <td className="py-2.5 px-3 max-w-xs truncate">
-                        <span className="font-semibold text-slate-200">{c.title}</span>
-                        {c.asset_file_name && (
-                          <span className="block text-[10px] text-slate-400 truncate mt-0.5">
-                            {c.asset_file_name}
+                  filteredCases.map((c) => {
+                    const rowAsset = getAssetInfo(c);
+                    return (
+                      <tr 
+                        key={String(c.id)} 
+                        id={`case-row-${c.id}`}
+                        onClick={() => setSelectedCase(c)} 
+                        className={`border-b border-slate-800/50 cursor-pointer transition ${
+                          selectedCase?.id === c.id 
+                            ? 'bg-cyan-950/40 border-l-4 border-l-cyan-400 text-white' 
+                            : 'hover:bg-slate-900/60 text-slate-300'
+                        }`}
+                      >
+                        <td className="py-2.5 px-3 text-cyan-400 font-bold whitespace-nowrap">{c.id}</td>
+                        <td className="py-2.5 px-3 max-w-xs truncate">
+                          <span className="font-semibold text-slate-200">{c.title}</span>
+                          {rowAsset.assetName && (
+                            <span className="block text-[10px] text-cyan-400/80 truncate mt-0.5">
+                              {rowAsset.assetName}
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-2.5 px-3 whitespace-nowrap">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950/80 text-rose-300 border border-rose-800/40">
+                            {c.status || "Unresolved"}
                           </span>
-                        )}
-                      </td>
-                      <td className="py-2.5 px-3 whitespace-nowrap">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-red-950/80 text-rose-300 border border-rose-800/40">
-                          {c.status || "Unresolved"}
-                        </span>
-                      </td>
-                      <td className="py-2.5 px-3 text-right whitespace-nowrap">
-                        <button 
-                          onClick={(e) => { e.stopPropagation(); setSelectedCase(c); }} 
-                          className="bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded text-[11px] font-medium transition shadow"
-                        >
-                          Detail
-                        </button>
-                      </td>
-                    </tr>
-                  ))
+                        </td>
+                        <td className="py-2.5 px-3 text-right whitespace-nowrap">
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); setSelectedCase(c); }} 
+                            className="bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded text-[11px] font-medium transition shadow"
+                          >
+                            Detail
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })
                 )}
               </tbody>
             </table>
@@ -286,15 +370,15 @@ export default function UFOAnalyticsDashboard() {
                   ID: {selectedCase.id}
                 </span>
               </h2>
-              {selectedCase.asset_file_name && (
+              {currentAssetInfo.assetName && (
                 <div className="text-xs font-mono text-cyan-300 mt-1">
-                  <span className="text-slate-400">Oficiální ASSET FILE NAME:</span> {selectedCase.asset_file_name}
+                  <span className="text-slate-400">Oficiální ASSET FILE NAME:</span> {currentAssetInfo.assetName}
                 </div>
               )}
             </div>
 
             <a 
-              href={getWarGovUrl(selectedCase)} 
+              href={currentAssetInfo.url} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-flex items-center gap-2 text-xs font-mono font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded transition shadow-md shadow-blue-600/30 shrink-0"
@@ -304,24 +388,24 @@ export default function UFOAnalyticsDashboard() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-  <div className="bg-slate-950/80 border border-slate-800 p-4 rounded text-xs font-mono">
-    <h3 className="text-slate-400 font-bold uppercase tracking-wider mb-2">
-      {lang === 'cs' ? 'Originál (Angličtina / OCR Senzorová data)' : 'Original (English / OCR Sensor Data)'}
-    </h3>
-    <p className="text-slate-300 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
-      {selectedCase.original_text || "Originální text záznamu nebyl nalezen."}
-    </p>
-  </div>
+            <div className="bg-slate-950/80 border border-slate-800 p-4 rounded text-xs font-mono">
+              <h3 className="text-slate-400 font-bold uppercase tracking-wider mb-2">
+                {lang === 'cs' ? 'Originál (Angličtina / OCR Senzorová data)' : 'Original (English / OCR Sensor Data)'}
+              </h3>
+              <p className="text-slate-300 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+                {selectedCase.original_text || "Originální text záznamu nebyl nalezen."}
+              </p>
+            </div>
 
- <div className="bg-slate-950/80 border border-cyan-500/20 p-4 rounded text-xs font-mono">
-  <h3 className="text-cyan-400 font-bold uppercase tracking-wider mb-2">
-    {lang === 'cs' ? 'Český překlad a geolokace (LLM AI)' : 'Czech Translation & Geolocation (LLM AI)'}
-  </h3>
-  <p className="text-slate-200 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
-    {selectedCase.translation_snippet || (selectedCase as any).czech_translation || "Automatická analýza a překlad spisu."}
-  </p>
-</div>
-</div>
+            <div className="bg-slate-950/80 border border-cyan-500/20 p-4 rounded text-xs font-mono">
+              <h3 className="text-cyan-400 font-bold uppercase tracking-wider mb-2">
+                {lang === 'cs' ? 'Český překlad a geolokace (LLM AI)' : 'Czech Translation & Geolocation (LLM AI)'}
+              </h3>
+              <p className="text-slate-200 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+                {selectedCase.translation_snippet || (selectedCase as any).czech_translation || "Automatická analýza a překlad spisu."}
+              </p>
+            </div>
+          </div>
         </section>
       )}
     </div>

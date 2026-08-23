@@ -25,8 +25,7 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
 
   let query = "";
   if (ufoCase.asset_file_name && ufoCase.asset_file_name.trim() !== "") {
-    // Ponecháváme uvozovky v původním znění (včetně typografických), 
-    // aby vyhledávání na war.gov našlo přesnou shodu v poli SEARCH.
+    // Ponecháváme uvozovky v původním znění pro přesnou shodu na war.gov
     query = ufoCase.asset_file_name.trim();
   } else if (ufoCase.title) {
     query = ufoCase.title
@@ -35,7 +34,8 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
       .trim();
   }
 
-  return `https://www.war.gov/UFO/?search=${encodeURIComponent(query)}`;
+  // Kombinace vyhledávacího query parametru a kotvy #records pro automatický scroll
+  return `https://www.war.gov/UFO/?search=${encodeURIComponent(query)}#records`;
 };
 
 export default function UFOAnalyticsDashboard() {

@@ -8,9 +8,13 @@ const DynamicMap = dynamic(() => import('./MapComponent'), {
   loading: () => <div className="flex h-full items-center justify-center text-slate-500">Načítám GIS modul...</div> 
 });
 
+// 1. ZMĚNA: Přidány položky asset_file_name a search_url ze Supabase
 interface UfoCase {
   id: string;
+  case_id?: string;
   title: string;
+  asset_file_name?: string;
+  search_url?: string;
   date: string;
   location: string;
   status: string;
@@ -27,49 +31,27 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-// POMOCNÁ FUNKCE: Chytrý generátor přesných vyhledávacích dotazů pro war.gov
+// 2. ZMĚNA: Přímé a spolehlivé sestavení odkazu na war.gov/UFO/?search=
 const getWarGovUrl = (ufoCase: UfoCase) => {
   if (!ufoCase) return "https://www.war.gov/UFO/";
 
-  let searchTerm = "";
-  // Odstraníme případné české prefixy, pokud by se do názvu dostaly
-  const rawName = ufoCase.title ? ufoCase.title.replace(/Odtajněný spis: |Senzorový záznam HUD\/FLIR: |Obrazový důkaz: |Záznam: /gi, "").trim() : "";
-  
-  // 1. Získání ROKU (4 číslice) ze spisu - toto je podle vládního webu nejspolehlivější klíč
-  let year = "";
-  if (ufoCase.date && ufoCase.date !== "N/A" && ufoCase.date !== "Unknown") {
-    const yearMatch = ufoCase.date.match(/\d{4}/);
-    if (yearMatch) {
-      year = yearMatch[0];
-    }
+  // A. Pokud máme v databázi předpřipravené URL, použijeme ho
+  if (ufoCase.search_url && ufoCase.search_url.startsWith("http")) {
+    return ufoCase.search_url;
   }
 
-  // 2. Detekce, zda se jedná o "neprůhledné" vládní ID (např. 059UAP00011.pdf)
-  const isOpaqueId = /^[0-9]+[A-Z]+[0-9]+(\.pdf)?$/i.test(rawName);
-
-  if (isOpaqueId) {
-    // Vládní web neumí hledat podle "059UAP00011". 
-    // Pošleme mu proto samotný ROK (např. "2001"), který záznamy spolehlivě vyfiltruje.
-    searchTerm = year || "UAP";
-  } else {
-    // U popisných názvů zkusíme přednostně rok, je to jistota.
-    if (year) {
-        searchTerm = year;
-    } else {
-        // Pokud rok nemáme, pokusíme se extrahovat klíčová slova z názvu souboru
-        let cleanName = rawName.replace(/\.(pdf|mp4|jpg|png|avi|mov)$/i, "");
-        if (cleanName.includes('_')) {
-          const parts = cleanName.split('_');
-          let mainPart = parts.length > 2 ? parts[2] : parts[1] || parts[0];
-          searchTerm = mainPart.replace(/-/g, ' ').trim();
-        } else {
-          searchTerm = cleanName;
-        }
-    }
+  // B. Použijeme oficiální ASSET FILE NAME
+  if (ufoCase.asset_file_name && ufoCase.asset_file_name.trim() !== "") {
+    return `https://www.war.gov/UFO/?search=${encodeURIComponent(ufoCase.asset_file_name.trim())}`;
   }
 
-  // Vrátíme bezpečně zakódovanou URL adresu pro hledací pole
-  return `https://www.war.gov/UFO/?search=${encodeURIComponent(searchTerm)}`;
+  // C. Fallback: vyčištěný název bez českých předpon
+  const cleanTitle = (ufoCase.title || "")
+    .replace(/Odtajněný spis:\s*/gi, "")
+    .replace(/\.(pdf|mp4|jpg|png)$/gi, "")
+    .trim();
+
+  return `https://www.war.gov/UFO/?search=${encodeURIComponent(cleanTitle)}`;
 };
 
 export default function UFOAnalyticsDashboard() {
@@ -121,7 +103,9 @@ export default function UFOAnalyticsDashboard() {
   }, [selectedCase]);
 
   const filteredCases = cases.filter(c => 
-    (c.id && c.id.toLowerCase().includes(searchFilter.toLowerCase())) ||
+    (c.id && String(c.id).toLowerCase().includes(searchFilter.toLowerCase())) ||
+    (c.case_id && c.case_id.toLowerCase().includes(searchFilter.toLowerCase())) ||
+    (c.asset_file_name && c.asset_file_name.toLowerCase().includes(searchFilter.toLowerCase())) ||
     (c.title && c.title.toLowerCase().includes(searchFilter.toLowerCase())) ||
     (c.location && c.location.toLowerCase().includes(searchFilter.toLowerCase()))
   );
@@ -162,7 +146,7 @@ export default function UFOAnalyticsDashboard() {
               <p className="text-xs text-slate-400 uppercase tracking-wider">{lang === 'cs' ? 'Stav systému' : 'System Status'}</p>
               <p className="text-sm font-semibold text-blue-400 mt-3 flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Live: Supabase DB
+                Live: Supabase DB (375 Spisů)
               </p>
             </div>
           </div>
@@ -210,10 +194,10 @@ export default function UFOAnalyticsDashboard() {
             <h2 className="text-xl font-semibold text-white">📋 {lang === 'cs' ? 'Katalog odtajněných spisů' : 'Declassified Files Catalog'}</h2>
             <input 
               type="text" 
-              placeholder={lang === 'cs' ? "Filtrovat ID, název, lokaci..." : "Filter ID, title, location..."}
+              placeholder={lang === 'cs' ? "Filtrovat ID, název, ASSET, lokaci..." : "Filter ID, title, ASSET, location..."}
               value={searchFilter} 
               onChange={(e) => setSearchFilter(e.target.value)} 
-              className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 w-full sm:w-64"
+              className="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-sm text-white focus:outline-none focus:border-blue-500 w-full sm:w-72"
             />
           </div>
           <div className="overflow-y-auto flex-1 bg-slate-900/50 rounded-lg border border-slate-700/60 custom-scrollbar">
@@ -221,7 +205,7 @@ export default function UFOAnalyticsDashboard() {
               <thead className="sticky top-0 bg-slate-900 text-slate-400 border-b border-slate-700 z-10">
                 <tr>
                   <th className="py-2.5 px-3">ID</th>
-                  <th className="py-2.5 px-3">{lang === 'cs' ? 'Název' : 'Title'}</th>
+                  <th className="py-2.5 px-3">{lang === 'cs' ? 'Název spisu' : 'Title'}</th>
                   <th className="py-2.5 px-3">Status</th>
                   <th className="py-2.5 px-3 text-right">Akce</th>
                 </tr>
@@ -244,7 +228,14 @@ export default function UFOAnalyticsDashboard() {
                       className={`border-b border-slate-700/50 cursor-pointer transition ${selectedCase?.id === c.id ? 'bg-blue-900/40 border-l-4 border-l-blue-500' : 'hover:bg-slate-700/40'}`}
                     >
                       <td className="py-2.5 px-3 font-mono text-blue-400 text-xs font-semibold">{c.id || "N/A"}</td>
-                      <td className="py-2.5 px-3 text-slate-200 truncate max-w-xs">{c.title}</td>
+                      <td className="py-2.5 px-3 text-slate-200 truncate max-w-xs">
+                        {c.title}
+                        {c.asset_file_name && (
+                          <span className="block text-[11px] text-slate-400 font-mono truncate">
+                            {c.asset_file_name}
+                          </span>
+                        )}
+                      </td>
                       <td className="py-2.5 px-3">
                         <span className={`px-2 py-0.5 rounded text-xs font-semibold border ${c.status === 'Resolved' ? 'bg-emerald-950 text-emerald-300 border-emerald-800/50' : 'bg-red-950 text-red-300 border-red-800/50'}`}>
                           {c.status || "Unknown"}
@@ -280,14 +271,22 @@ export default function UFOAnalyticsDashboard() {
                   {selectedCase.id || "ID chybí"}
                 </span>
               </h2>
-              {/* ODKAZ S FUNKCÍ PRO PŘESNÉ VYHLEDÁVÁNÍ */}
+              
+              {/* 3. ZMĚNA: Přímé zobrazení ASSET FILE NAME */}
+              {selectedCase.asset_file_name && (
+                <div className="text-xs font-mono text-cyan-300 mt-1.5">
+                  <span className="text-slate-400">ASSET FILE NAME:</span> {selectedCase.asset_file_name}
+                </div>
+              )}
+
+              {/* TLAČÍTKO S PŘESNÝM VYHLEDÁVÁNÍM NA WAR.GOV */}
               <a 
                 href={getWarGovUrl(selectedCase)} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-900/40 hover:bg-blue-800/60 text-blue-300 px-3 py-1.5 rounded transition border border-blue-700/50 shadow"
+                className="mt-3 inline-flex items-center gap-2 text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-2 rounded-md transition shadow-md shadow-blue-600/30"
               >
-                🌐 {lang === 'cs' ? 'Vyhledat originál ve vládní databázi war.gov' : 'Search original in war.gov database'}
+                🌐 {lang === 'cs' ? 'Detail případu: Paralelní analýza na war.gov' : 'Case Detail: Parallel analysis on war.gov'}
               </a>
             </div>
             <span className="text-xs text-slate-400 font-medium">📍 {selectedCase.location} | 📅 {selectedCase.date}</span>

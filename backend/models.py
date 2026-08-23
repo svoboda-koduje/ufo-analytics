@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-SQLAlchemy databázový model pro tabulku ufo_cases v Supabase.
+SQLAlchemy model pro Supabase tabulku ufo_cases.
 """
-
 from sqlalchemy import Column, BigInteger, String, Text, Float, Integer, DateTime
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
@@ -30,16 +29,3 @@ class UfoCase(Base):
     czech_translation = Column(Text, nullable=True)
     search_url = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-
-    # Dynamické aliasy pro zpětnou kompatibilitu s endpointy API
-    @property
-    def date(self):
-        return self.incident_date
-
-    @property
-    def translation_snippet(self):
-        return self.czech_translation
-
-    @property
-    def source_url(self):
-        return self.search_url

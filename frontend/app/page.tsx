@@ -381,9 +381,11 @@ export default function UFOAnalyticsDashboard() {
               href={currentAssetInfo.url} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="inline-flex items-center gap-2 text-xs font-mono font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded transition shadow-md shadow-blue-600/30 shrink-0"
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded transition shadow-md shadow-blue-600/30 shrink-0 text-center"
             >
-              🌐 {lang === 'cs' ? 'Detail případu: Paralelní analýza na war.gov' : 'Case Detail: Parallel analysis on war.gov'}
+              🌐 {lang === 'cs' 
+                ? 'Detail případu: Paralelní analýza na war.gov (Po načtení stránky scrollujte dolů až k vyhledávacímu poli)' 
+                : 'Case Detail: Parallel analysis on war.gov (After loading, scroll down to the search field)'}
             </a>
           </div>
 

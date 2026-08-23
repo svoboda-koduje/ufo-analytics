@@ -304,24 +304,24 @@ export default function UFOAnalyticsDashboard() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            <div className="bg-slate-950/80 border border-slate-800 p-4 rounded text-xs font-mono">
-              <h3 className="text-slate-400 font-bold uppercase tracking-wider mb-2">
-                {lang === 'cs' ? 'Originál (Angličtina / OCR Senzorová data)' : 'Original (English / OCR Sensor Data)'}
-              </h3>
-              <p className="text-slate-300 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
-                {selectedCase.original_text || "Originální text záznamu nebyl nalezen."}
-              </p>
-            </div>
+  <div className="bg-slate-950/80 border border-slate-800 p-4 rounded text-xs font-mono">
+    <h3 className="text-slate-400 font-bold uppercase tracking-wider mb-2">
+      {lang === 'cs' ? 'Originál (Angličtina / OCR Senzorová data)' : 'Original (English / OCR Sensor Data)'}
+    </h3>
+    <p className="text-slate-300 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+      {selectedCase.original_text || "Originální text záznamu nebyl nalezen."}
+    </p>
+  </div>
 
-            <div className="bg-slate-950/80 border border-cyan-500/20 p-4 rounded text-xs font-mono">
-              <h3 className="text-cyan-400 font-bold uppercase tracking-wider mb-2">
-                {lang === 'cs' ? 'Český překlad a geolokace (LLM AI)' : 'Czech Translation & Geolocation (LLM AI)'}
-              </h3>
-              <p className="text-slate-200 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
-                {selectedCase.translation_snippet || "Automatická analýza a překlad spisu."}
-              </p>
-            </div>
-          </div>
+  <div className="bg-slate-950/80 border border-cyan-500/20 p-4 rounded text-xs font-mono">
+    <h3 className="text-cyan-400 font-bold uppercase tracking-wider mb-2">
+      {lang === 'cs' ? 'Český překlad a geolokace (LLM AI)' : 'Czech Translation & Geolocation (LLM AI)'}
+    </h3>
+    <p className="text-slate-200 leading-relaxed whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+      {selectedCase.translation_snippet || selectedCase.czech_translation || "Automatická analýza a překlad spisu."}
+    </p>
+  </div>
+</div>
         </section>
       )}
     </div>

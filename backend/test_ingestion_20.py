@@ -19,19 +19,19 @@ if not OPENAI_API_KEY or not SUPABASE_URL or not SUPABASE_KEY:
     print("❌ CHYBA: V souboru .env chybí klíče pro OpenAI nebo Supabase!")
     exit(1)
 
-openai_client = OpenAI(api_key=OPENAI_API_KEY, timeout=40.0, max_retries=2)
+openai_client = OpenAI(api_key=OPENAI_API_KEY, timeout=35.0, max_retries=2)
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 INCOMING_DIR = Path(__file__).parent / "incoming_data"
 
 def pdf_page_to_base64(page):
-    """Převede první stranu skenu na optimalizovaný JPEG pro GPT-4o Vision OCR."""
+    """Převede stránku skenovaného PDF na optimalizovaný JPEG pro GPT-4o Vision."""
     try:
         pix = page.get_pixmap(dpi=120)
         img_bytes = pix.tobytes("jpeg")
         return base64.b64encode(img_bytes).decode('utf-8')
     except Exception as e:
-        print(f"   ⚠️ Chyba konverze stránky: {e}")
+        print(f"⚠️ Chyba konverze stránky: {e}")
         return None
 
 def extract_file_content(file_path):
@@ -51,13 +51,13 @@ def extract_file_content(file_path):
                 if len(raw_text) > 4000:
                     break
             
-            # Pokud je PDF čistý obrazový sken bez textu, vytvoříme Vision náhled
+            # Pokud je PDF naskenovaný obraz bez textu, převedeme 1. stranu na obrázek
             if len(raw_text.strip()) < 80 and len(doc) > 0:
                 img_b64 = pdf_page_to_base64(doc[0])
                 if img_b64:
                     images_b64.append(img_b64)
         except Exception as e:
-            print(f"   ⚠️ Chyba čtení PDF: {e}")
+            print(f"⚠️ Chyba při čtení PDF: {e}")
 
     elif ext in ('.jpg', '.jpeg', '.png'):
         file_type = "IMG"
@@ -66,7 +66,7 @@ def extract_file_content(file_path):
             with open(file_path, "rb") as f:
                 images_b64.append(base64.b64encode(f.read()).decode('utf-8'))
         except Exception as e:
-            print(f"   ⚠️ Chyba čtení obrázku: {e}")
+            print(f"⚠️ Chyba při čtení obrázku: {e}")
 
     elif ext == '.mp4':
         file_type = "VID"
@@ -83,33 +83,33 @@ def extract_file_content(file_path):
                     images_b64.append(base64.b64encode(buffer.tobytes()).decode('utf-8'))
                 cap.release()
         except Exception as e:
-            print(f"   ⚠️ Chyba čtení videa: {e}")
+            print(f"⚠️ Chyba při čtení videa: {e}")
 
     return raw_text.strip(), images_b64, file_type
 
 def analyze_with_openai(filename, raw_text, images_b64):
     system_prompt = (
         "Jsi hlavní vojenský a letecký analytik UAP/UFO odtajněných spisů Ministerstva války USA a AARO. "
-        "Tvým úkolem je vytáhnout přesná fakta z textu/skenu a poskytnout odborný český překlad. "
+        "Tvým úkolem je extrahovat skutečná fakta z dokumentu a poskytnout přesný odborný český překlad. "
         "Vracíš výhradně validní JSON objekt."
     )
 
     prompt_text = f"""Analyzuj odtajněný spis: {filename}
 Obsah textové vrstvy spisu:
 ---
-{raw_text[:3500] if raw_text else "Textová vrstva není přítomna, analyzuj přiložený obrazový dokument."}
+{raw_text[:3500] if raw_text else "Textová vrstva není přítomna, čti přiložený obrazový materiál."}
 ---
 
-Vrať JSON objekt s těmito přesnými klíči:
-- "agency": vládní instituce (např. "DEPARTMENT OF WAR", "CIA", "FBI", "USAF", "NASA", "DOE")
+Vrať JSON objekt s těmito klíči:
+- "agency": vládní instituce (např. "DEPARTMENT OF WAR", "CIA", "FBI", "USAF", "NASA")
 - "incident_date": datum incidentu (např. "1950, 1952" nebo "2001-10-30")
 - "incident_year": rok incidentu jako celé číslo (např. 1950)
-- "location": přesná lokalita nebo oblast (např. "MONTANA, UTAH", "KAZACHSTÁN", "PACIFIK")
+- "location": přesná lokalita nebo oblast (např. "MONTANA, UTAH", "KAZACHSTÁN")
 - "latitude": zeměpisná šířka (float, např. 46.8797, výchozí pro USA 38.8951)
 - "longitude": zeměpisná délka (float, např. -110.3626, výchozí -77.0364)
-- "status": "Unresolved" nebo "Resolved"
-- "original_text": SKUTEČNÝ, PODROBNÝ PŘEPIS NEBO STRUKTUROVANÝ EXTRAKT Z DOKUMENTU V ANGLIČTINĚ (přepiš konkrétní fakta, žádné zástupné věty).
-- "czech_translation": ODBORNÝ ČESKÝ PŘEKLAD A ANALÝZA se zachováním vojenské a letecké terminologie (Range Fouler, Thermal Crossover, Azimuth, FLIR, HUD).
+- "status": "Unresolved" (nevysvětleno) nebo "Resolved" (identifikováno)
+- "original_text": SKUTEČNÝ, PODROBNÝ PŘEPIS NEBO STRUKTUROVANÝ EXTRAKT Z DOKUMENTU V ANGLIČTINĚ (žádné obecné zástupné věty, přepiš konkrétní fakta a telemetrii z dokumentu).
+- "czech_translation": ODBORNÝ ČESKÝ PŘEKLAD A ANALÝZA se zachováním vojenské a letecké terminologie (Range Fouler, Thermal Crossover, Azimuth, FLIR, HUD, apod.).
 """
 
     user_content = [{"type": "text", "text": prompt_text}]
@@ -119,7 +119,7 @@ Vrať JSON objekt s těmito přesnými klíči:
             "image_url": {"url": f"data:image/jpeg;base64,{img}", "detail": "low"}
         })
 
-    for attempt in range(5):
+    for attempt in range(4):
         try:
             response = openai_client.chat.completions.create(
                 model="gpt-4o",
@@ -134,48 +134,60 @@ Vrať JSON objekt s těmito přesnými klíči:
         except Exception as e:
             err_str = str(e)
             if "429" in err_str or "rate limit" in err_str.lower():
-                wait_sec = (attempt + 1) * 4
+                wait_sec = (attempt + 1) * 3
                 print(f"   ⚠️ Rate limit (429). Čekám {wait_sec}s...")
                 time.sleep(wait_sec)
             else:
-                print(f"   ❌ Chyba OpenAI: {e}")
+                print(f"   ❌ Chyba OpenAI API: {e}")
                 return None
     return None
 
-def process_all_files():
+def run_test_20():
     if not INCOMING_DIR.exists():
-        print(f"❌ Složka {INCOMING_DIR} neexistuje!")
+        print(f"❌ Adresář {INCOMING_DIR} neexistuje!")
         return
 
-    # Načtení všech souborů ze složky incoming_data
+    # Načtení existujících řádků ze Supabase pro bezpečný update podle ID
+    print("📡 Načítám mapu existujících záznamů ze Supabase...")
+    try:
+        db_cases = supabase.table("ufo_cases").select("id, title, asset_file_name, case_id").execute().data
+    except Exception as e:
+        print(f"❌ Nelze se spojit se Supabase: {e}")
+        return
+
     supported_exts = ('.pdf', '.jpg', '.jpeg', '.png', '.mp4')
-    all_files = [f for f in sorted(INCOMING_DIR.iterdir()) if f.suffix.lower() in supported_exts]
-    total = len(all_files)
+    all_disk_files = [f for f in sorted(INCOMING_DIR.iterdir()) if f.suffix.lower() in supported_exts]
+    test_files = all_disk_files[:20]
 
-    print(f"\n🚀 SPUŠTĚNÍ KOMPLETNÍ ANALÝZY VŠECH {total} SOUBORŮ\n" + "=" * 65)
-    start_time = time.time()
+    print(f"\n🚀 SPUŠTĚNÍ TESTU PRO PRVNÍCH {len(test_files)} SOUBORŮ\n" + "=" * 60)
 
-    for idx, file_path in enumerate(all_files, 1):
+    for idx, file_path in enumerate(test_files, 1):
         filename = file_path.name
-        safe_id = filename.split('.')[0][:30].replace(" ", "-").replace("_", "-")
-        case_id = f"UAP-{idx:03d}-{safe_id}"
+        print(f"\n[{idx}/20] 📄 Soubor: {filename}")
 
-        print(f"\n[{idx}/{total}] ⚙️ Zpracovávám: {filename}")
+        # Nalezení existujícího řádku v DB
+        matched_row = None
+        for row in db_cases:
+            if filename in str(row.get("title", "")) or filename in str(row.get("asset_file_name", "")) or filename in str(row.get("case_id", "")):
+                matched_row = row
+                break
 
         raw_text, images_b64, file_type = extract_file_content(file_path)
-        analysis = analyze_with_openai(filename, raw_text, images_b64)
+        print(f"   ↳ Extrahováno znaků: {len(raw_text)} | Přiložených snímků: {len(images_b64)} | Typ: {file_type}")
 
+        analysis = analyze_with_openai(filename, raw_text, images_b64)
         if not analysis:
-            print(f"   ⚠️ Přeskakuji {filename} kvůli chybě analýzy.")
+            print(f"   ⚠️ Analýza OpenAI selhala, přeskakuji.")
             continue
 
-        row_data = {
-            "case_id": case_id,
-            "title": f"Odtajněný spis: {filename}",
-            "asset_file_name": filename,
-            "file_type": file_type,
+        print(f"   ✅ OpenAI analýza dokončena:")
+        print(f"      • Datum: {analysis.get('incident_date')} | Lokace: {analysis.get('location')} | Status: {analysis.get('status')}")
+        print(f"      • Originál (úryvek): {str(analysis.get('original_text', ''))[:120]}...")
+        print(f"      • Překlad (úryvek):  {str(analysis.get('czech_translation', ''))[:120]}...")
+
+        # Příprava dat pro zápis do Supabase
+        update_data = {
             "agency": str(analysis.get("agency", "DEPARTMENT OF WAR")),
-            "release_tag": "RELEASE 05",
             "incident_date": str(analysis.get("incident_date", "N/A")),
             "incident_year": int(analysis.get("incident_year", 2026)) if str(analysis.get("incident_year", "")).isdigit() else 2026,
             "location": str(analysis.get("location", "Neznámá lokace")),
@@ -183,22 +195,26 @@ def process_all_files():
             "longitude": float(analysis.get("longitude", -77.0364)) if analysis.get("longitude") else -77.0364,
             "status": str(analysis.get("status", "Unresolved")),
             "original_text": str(analysis.get("original_text", raw_text[:2000])),
-            "czech_translation": str(analysis.get("czech_translation", "Překlad se zpracovává.")),
-            "search_url": f"https://www.war.gov/UFO/?search={filename.split('.')[0]}"
+            "czech_translation": str(analysis.get("czech_translation", "Překlad se zpracovává."))
         }
 
         try:
-            supabase.table("ufo_cases").upsert(row_data, on_conflict="asset_file_name").execute()
-            print(f"   💾 Uloženo do Supabase ({analysis.get('location')}, {analysis.get('incident_date')})")
+            if matched_row:
+                supabase.table("ufo_cases").update(update_data).eq("id", matched_row["id"]).execute()
+                print(f"   💾 Aktualizován záznam v Supabase (ID {matched_row['id']}): {matched_row.get('case_id')}")
+            else:
+                update_data["case_id"] = f"UAP-{idx:03d}-{filename.split('.')[0][:30]}"
+                update_data["title"] = f"Odtajněný spis: {filename}"
+                update_data["asset_file_name"] = filename
+                update_data["file_type"] = file_type
+                supabase.table("ufo_cases").insert(update_data).execute()
+                print(f"   💾 Vložen nový záznam do Supabase: {filename}")
         except Exception as db_err:
-            print(f"   ❌ Chyba zápisu DB: {db_err}")
+            print(f"   ❌ Chyba zápisu do Supabase: {db_err}")
 
-        # Krátká pauza pro plynulý tok tokenů
-        time.sleep(1.2)
+        time.sleep(1.0)
 
-    elapsed = (time.time() - start_time) / 60
-    print("\n" + "=" * 65)
-    print(f"🎉 VŠECH {total} SOUBORŮ BYLO ÚSPĚŠNĚ ZPRACOVÁNO ZA {elapsed:.1f} MINUT!")
+    print("\n" + "=" * 60 + "\n🎉 TESTOVACÍ DÁVKA 20 SOUBORŮ DOKONČENA!")
 
 if __name__ == "__main__":
-    process_all_files()
+    run_test_20()

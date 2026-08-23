@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import type { UfoCase } from './MapComponent';
 
 const DynamicMap = dynamic(() => import('./MapComponent'), { 
   ssr: false, 
@@ -12,21 +13,6 @@ const DynamicMap = dynamic(() => import('./MapComponent'), {
   )
 });
 
-interface UfoCase {
-  id: string | number;
-  case_id?: string;
-  title: string;
-  asset_file_name?: string;
-  search_url?: string;
-  date: string;
-  location: string;
-  status?: string;
-  translation_snippet?: string;
-  original_text?: string;
-  latitude: number;
-  longitude: number;
-}
-
 interface Stats {
   total_cases: number;
   resolved_cases: number;
@@ -34,14 +20,11 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-// Přesné generování oficiálního query dotazu pro war.gov
 const getWarGovUrl = (ufoCase: UfoCase) => {
   if (!ufoCase) return "https://www.war.gov/UFO/";
 
-  // 1. Priorita: Vyhledávací dotaz z ASSET FILE NAME nebo kódu spisu
   let query = "";
   if (ufoCase.asset_file_name && ufoCase.asset_file_name.trim() !== "") {
-    // Odstranění uvozovek a přebytečných mezer
     query = ufoCase.asset_file_name.replace(/["“”]/g, "").trim();
   } else if (ufoCase.title) {
     query = ufoCase.title
@@ -50,7 +33,6 @@ const getWarGovUrl = (ufoCase: UfoCase) => {
       .trim();
   }
 
-  // 2. Sestavení platného tvaru https://www.war.gov/UFO/?search=DOTAZ
   return `https://www.war.gov/UFO/?search=${encodeURIComponent(query)}`;
 };
 
@@ -120,7 +102,6 @@ export default function UFOAnalyticsDashboard() {
 
   return (
     <div className="min-h-screen bg-[#070d1e] text-slate-100 p-4 md:p-8 font-sans">
-      {/* Záhlaví aplikace */}
       <header className="mb-6 border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-2">
@@ -142,7 +123,6 @@ export default function UFOAnalyticsDashboard() {
         </div>
       </header>
 
-      {/* KPI Karty metrik */}
       {stats && (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="bg-[#0c1633] border border-slate-800 p-4 rounded-lg shadow">
@@ -181,7 +161,6 @@ export default function UFOAnalyticsDashboard() {
         </div>
       )}
 
-      {/* Hlavní layout s mapou a katalogem */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* GIS Mapa */}
         <section className="lg:col-span-5 bg-[#0c1633] border border-slate-800 p-4 rounded-lg flex flex-col h-[520px] shadow">
@@ -208,7 +187,6 @@ export default function UFOAnalyticsDashboard() {
             <h2 className="text-sm font-mono text-cyan-300 font-bold flex items-center gap-2">
               📋 {lang === 'cs' ? 'Katalog odtajněných spisů' : 'Declassified Files Catalog'}
             </h2>
-            {/* Vyhledávač s tlačítkem pro rychlé zrušení filtru */}
             <div className="relative w-full sm:w-80">
               <input 
                 type="text" 
@@ -283,7 +261,7 @@ export default function UFOAnalyticsDashboard() {
                           onClick={(e) => { e.stopPropagation(); setSelectedCase(c); }} 
                           className="bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded text-[11px] font-medium transition shadow"
                         >
-                          {lang === 'cs' ? 'Detail' : 'Detail'}
+                          Detail
                         </button>
                       </td>
                     </tr>
@@ -295,7 +273,7 @@ export default function UFOAnalyticsDashboard() {
         </section>
       </div>
 
-      {/* Spodní panel: Paralelní rozbor a přímé vyhledávací tlačítko */}
+      {/* Spodní panel s paralelní analýzou */}
       {selectedCase && (
         <section className="mt-6 bg-[#0c1633] border border-slate-800 p-5 rounded-lg shadow">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 pb-4 border-b border-slate-800">
@@ -313,7 +291,6 @@ export default function UFOAnalyticsDashboard() {
               )}
             </div>
 
-            {/* Správně zformátované tlačítko otevírající ?search=DOTAZ na war.gov */}
             <a 
               href={getWarGovUrl(selectedCase)} 
               target="_blank" 

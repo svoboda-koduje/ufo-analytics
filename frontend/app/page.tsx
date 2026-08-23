@@ -378,27 +378,16 @@ export default function UFOAnalyticsDashboard() {
             </div>
 
             {/* Tlačítko pro paralelní analýzu s navigačním upozorněním */}
-<a
-  href={selectedCase?.war_gov_search_url || `https://www.war.gov/UFO/?search=${encodeURIComponent(selectedCase?.asset_file_name || '')}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex flex-col items-center justify-center gap-1 w-full md:w-auto px-5 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold rounded-lg shadow-lg hover:shadow-cyan-500/20 transition-all duration-200 text-center border border-cyan-400/40"
->
-  <div className="flex items-center gap-2 text-sm md:text-base font-bold uppercase tracking-wider">
-    <span>🔍</span>
-    <span>
-      {isEnglish 
-        ? "Case Detail: Parallel Analysis on war.gov" 
-        : "Detail případu: Paralelní analýza na war.gov"}
-    </span>
-  </div>
-  
-  <span className="text-[11px] md:text-xs font-normal text-slate-900 bg-cyan-300/60 px-2 py-0.5 rounded">
-    {isEnglish
-      ? "⚠️ Once loaded, scroll down to the SEARCH field"
-      : "⚠️ Po načtení stránky scrollujte dolů až k vyhledávacímu poli"}
-  </span>
-</a>
+<a 
+              href={currentAssetInfo.url} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center gap-2 text-xs font-mono font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded transition shadow-md shadow-blue-600/30 shrink-0 text-center"
+            >
+              🌐 {lang === 'cs' 
+                ? 'Detail případu: Paralelní analýza na war.gov (Po načtení stránky scrollujte dolů až k vyhledávacímu poli)' 
+                : 'Case Detail: Parallel analysis on war.gov (After loading, scroll down to the search field)'}
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">

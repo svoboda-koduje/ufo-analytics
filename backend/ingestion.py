@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 print("==================================================")
 print(" SPUŠTĚNÍ DÁVKOVÉ ETL INGESCE VŠECH UAP SOUBORŮ ")
@@ -12,7 +15,7 @@ LOCAL_DATA_DIR = os.path.join(BASE_DIR, "incoming_data")
 print(f"Složka s daty: {LOCAL_DATA_DIR}")
 
 # 1. Supabase připojení přes Session pooler (port 6543 pro spolehlivý průchod sítí)
-DATABASE_URL = "postgresql://postgres.qbvhzjzbxjihwjbfptrn:UfoAnalytics2026@aws-1-eu-west-1.pooler.supabase.com:5432/postgres"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 print("Testuji připojení k databázi Supabase...")
 try:
@@ -47,7 +50,7 @@ except ImportError:
         print("[INFO] PyMuPDF není k dispozici, PDF se zpracují bez textu.")
 
 # 3. Inicializace OpenAI klienta (využije tvé kredity)
-OPENAI_API_KEY = "sk-proj-jWX1RltluAGCed2ckSjcV-19Pzg5sKcTfwib2SubJughVlTZOS0X0URximkLQI3R6wQ2QaT3B1bkFJSiqFF121cubnKc04T98zXSZHp4GRY8FA11rxdj9_JZupcgimza4bd7bEKpXFd3hlermk_rZQA"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = None
 if OPENAI_API_KEY:
     try:

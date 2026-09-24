@@ -56,11 +56,12 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
       zoom: 2,
       minZoom: 1.5,
       maxBounds: [[-85, -180], [85, 180]],
-      attributionControl: false
+      attributionControl: true
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
     }).addTo(map);
 
     markersLayerRef.current = L.layerGroup().addTo(map);
@@ -83,22 +84,9 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
       c => typeof c.latitude === 'number' && typeof c.longitude === 'number' && !isNaN(c.latitude) && !isNaN(c.longitude)
     );
 
-    const coordCounts: { [key: string]: number } = {};
-
     validCases.forEach((c) => {
-      const baseKey = `${c.latitude.toFixed(2)}_${c.longitude.toFixed(2)}`;
-      const count = coordCounts[baseKey] || 0;
-      coordCounts[baseKey] = count + 1;
-
-      let lat = c.latitude;
-      let lng = c.longitude;
-
-      if (count > 0) {
-        const angle = count * 0.65;
-        const radius = 0.2 + (count * 0.05);
-        lat += Math.sin(angle) * radius;
-        lng += Math.cos(angle) * radius * 1.3;
-      }
+      const lat = c.latitude;
+      const lng = c.longitude;
 
       const isSelected = selectedCase?.id === c.id;
       const marker = L.marker([lat, lng], {
@@ -106,13 +94,13 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
         zIndexOffset: isSelected ? 1000 : 0
       });
 
-      marker.bindPopup(`
-        <div style="font-family: monospace; font-size: 11px; color: #0f172a; min-width: 140px;">
-          <strong style="color: #0284c7;">ID: ${c.id}</strong><br/>
-          <span style="font-weight: 600;">${c.title}</span><br/>
-          <span style="color: #64748b;">📍 ${c.location || 'N/A'}</span>
-        </div>
-      `);
+      const popup = document.createElement('div');
+      const heading = document.createElement('strong');
+      heading.textContent = c.title;
+      const place = document.createElement('p');
+      place.textContent = c.location || 'Místo neuvedeno';
+      popup.append(heading, place);
+      marker.bindPopup(popup);
 
       marker.on('click', () => {
         onMarkerClick(c);
@@ -127,9 +115,9 @@ export default function MapComponent({ cases, selectedCase, onMarkerClick }: Map
     if (!map || !selectedCase) return;
 
     if (
-      typeof selectedCase.latitude === 'number' && 
+      typeof selectedCase.latitude === 'number' &&
       typeof selectedCase.longitude === 'number' &&
-      !isNaN(selectedCase.latitude) && 
+      !isNaN(selectedCase.latitude) &&
       !isNaN(selectedCase.longitude)
     ) {
       map.flyTo([selectedCase.latitude, selectedCase.longitude], 5, {

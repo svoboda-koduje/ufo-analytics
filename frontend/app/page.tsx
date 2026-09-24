@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { UfoCase } from './MapComponent';
-import fileMapping from './file_to_asset_mapping.json';
+import { sourceFor } from './catalogue';
 
-const DynamicMap = dynamic(() => import('./MapComponent'), { 
-  ssr: false, 
+const DynamicMap = dynamic(() => import('./MapComponent'), {
+  ssr: false,
   loading: () => (
     <div className="flex h-full items-center justify-center text-slate-500 font-mono text-xs">
       Načítám GIS modul mapy...
@@ -21,99 +21,11 @@ interface Stats {
   unresolved_percentage: number;
 }
 
-// Speciální slovník pro nestandardně pojmenované stažené soubory
-const SPECIAL_FILENAME_MAP: Record<string, string> = {
-  "059UAP00011.PDF": "STATE DEPARTMENT UAP CABLE 003, TBILISI, GEORGIA, OCTOBER 30, 2001",
-  "059UAP00012.PDF": "STATE DEPARTMENT UAP CABLE 004, ASHGABAT, TURKMENISTAN, NOVEMBER 5, 2004",
-  "059UAP00013.PDF": "STATE DEPARTMENT UAP CABLE 005, MEXICO, SEPTEMBER 16, 2003",
-  "DOS-UAP-D1-CABLE-1-PAPUA-NEW-GUINEA-JANUARY-1985.PDF": "STATE DEPARTMENT UAP CABLE 001, PAPUA NEW GUINEA, JANUARY 28, 1985",
-  "DOS-UAP-D2-CABLE-2-KAZAKHSTAN-JANUARY-1994.PDF": "STATE DEPARTMENT UAP CABLE 002, KAZAKHSTAN, JANUARY 31, 1994",
-  "2024-04-30-COMPOSITE-SKETCH.PDF": "FBI SEPTEMBER 2023 SIGHTING - COMPOSITE SKETCH",
-  "SERIAL-3_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 003",
-  "SERIAL-4-REDACTED_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 004",
-  "SERIAL 5 REDACTED_REDACTED.PDF": "FBI SEPTEMBER 2023 SIGHTING - SERIAL 005",
-  "USPER-STATEMENT-REDACTED.PDF": "USPER STATEMENT ABOUT UAP SIGHTING",
-  "WESTERN_US_EVENT_SLIDES_5.08.2026.PDF": "WESTERN US EVENT",
-  "255_T_763_R1B_TRANSCRIPTS.PDF": "NASA-UAP-D003, GEMINI 7 TRANSCRIPT, 1965"
-};
-
-// Pomocná funkce pro vyhledání oficiálního ASSET názvu a sestavení URL na war.gov
-const getAssetInfo = (ufoCase: UfoCase | null) => {
-  if (!ufoCase) {
-    return {
-      assetName: "",
-      url: "https://www.war.gov/UFO/#records"
-    };
-  }
-
-  // 1. Zjistíme čistý identifikátor z názvu nebo case_id
-  const rawTitle = (ufoCase.title || "").replace(/Odtajněný spis:\s*/gi, "").trim();
-  const rawCaseId = (ufoCase.case_id || "").replace(/^UAP-/i, "").trim();
-  const rawFileNameUpper = (rawTitle || rawCaseId).toUpperCase();
-
-  // 2. Kontrola ve speciálním slovníku
-  if (SPECIAL_FILENAME_MAP[rawFileNameUpper]) {
-    const asset = SPECIAL_FILENAME_MAP[rawFileNameUpper];
-    return {
-      assetName: asset,
-      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
-    };
-  }
-
-  // 3. Pokud ufoCase již má platný asset_file_name (který nekončí příponou souboru)
-  if (
-    ufoCase.asset_file_name &&
-    ufoCase.asset_file_name.trim() !== "" &&
-    !/\.(pdf|mp4|jpg|png)$/i.test(ufoCase.asset_file_name.trim())
-  ) {
-    const asset = ufoCase.asset_file_name.trim();
-    return {
-      assetName: asset,
-      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
-    };
-  }
-
-  // 4. Prohledání souboru file_to_asset_mapping.json
-  const cleanNameNoExt = rawFileNameUpper.replace(/\.(PDF|MP4|JPG|PNG)$/i, "").trim();
-  
-  // Extrahujeme hlavní prefix (např. DOW-UAP-D098, FBI-UAP-D025, CIA-UAP-002, 18_100754)
-  const prefixMatch = cleanNameNoExt.match(/^([A-Z0-9]+-[A-Z0-9]+-[A-Z0-9]+|[A-Z0-9]+_[A-Z0-9]+)/i);
-  const prefix = prefixMatch ? prefixMatch[0].toUpperCase() : cleanNameNoExt;
-
-  const foundItem = (fileMapping as any[]).find((item: any) => {
-    if (!item) return false;
-    
-    // Shoda podle indexu (pokud ID odpovídá pořadí)
-    if (ufoCase.id !== undefined && item.index === Number(ufoCase.id)) return true;
-
-    // Shoda podle oficiálního ASSET názvu nebo row_title
-    const itemAsset = (item.asset_file_name || item.row_title || "").toUpperCase();
-    if (itemAsset === cleanNameNoExt) return true;
-    if (prefix && itemAsset.startsWith(prefix)) return true;
-
-    return false;
-  });
-
-  if (foundItem) {
-    const asset = foundItem.asset_file_name || foundItem.row_title;
-    if (foundItem.war_gov_search_url) {
-      const url = foundItem.war_gov_search_url.includes("#records") 
-        ? foundItem.war_gov_search_url 
-        : `${foundItem.war_gov_search_url}#records`;
-      return { assetName: asset, url };
-    }
-    return {
-      assetName: asset,
-      url: `https://www.war.gov/UFO/?search=${encodeURIComponent(asset)}#records`
-    };
-  }
-
-  // 5. Fallback: Vyčistíme podtržítka a pošleme očištěný název
-  const fallbackQuery = cleanNameNoExt.replace(/_/g, " ");
-  return {
-    assetName: fallbackQuery,
-    url: `https://www.war.gov/UFO/?search=${encodeURIComponent(fallbackQuery)}#records`
-  };
+// A display index is never a source identifier. Ambiguous matches remain searches.
+const getAssetInfo = (item: UfoCase | null) => {
+  const source = item ? sourceFor(item.title || '', item.asset_file_name) : undefined;
+  return { assetName: source?.asset_file_name || item?.asset_file_name || '',
+    url: source?.source_url || 'https://www.war.gov/UFO/?search=' + encodeURIComponent(item?.asset_file_name || item?.title || '') };
 };
 
 export default function UFOAnalyticsDashboard() {
@@ -136,7 +48,7 @@ export default function UFOAnalyticsDashboard() {
         if (Array.isArray(data) && data.length > 0) {
           setCases(data);
           setSelectedCase(data[0]);
-          
+
           const total = data.length;
           const resolved = data.filter((c: UfoCase) => c.status?.toLowerCase() === 'resolved').length;
           const unresolved = total - resolved;
@@ -185,20 +97,21 @@ export default function UFOAnalyticsDashboard() {
 
   return (
     <div className="min-h-screen bg-[#070d1e] text-slate-100 p-4 md:p-8 font-sans">
+      <a href="/badatelna" className="block mb-5 rounded-lg border border-cyan-500 bg-cyan-950 p-4 text-cyan-100 font-semibold">Otevřít český archiv všech šesti várek · popisy, originály, filtry a časová osa →</a>
       <header className="mb-6 border-b border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
           <h1 className="text-2xl md:text-3xl font-extrabold text-white flex items-center gap-2">
             <span>🛸</span> UFO / UAP Analytics Engine
           </h1>
           <p className="text-slate-400 text-xs md:text-sm mt-1">
-            {lang === 'cs' 
-              ? "Pokročilá badatelská analýza odtajněných spisů z portálu war.gov/UFO." 
+            {lang === 'cs'
+              ? "Pokročilá badatelská analýza odtajněných spisů z portálu war.gov/UFO."
               : "Advanced research analysis of declassified documents from war.gov/UFO."}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <button 
-            onClick={() => setLang(lang === 'cs' ? 'en' : 'cs')} 
+          <button
+            onClick={() => setLang(lang === 'cs' ? 'en' : 'cs')}
             className="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3.5 py-1.5 rounded text-xs font-mono transition shadow"
           >
             🌐 {lang === 'cs' ? 'English Version' : 'Česká verze'}
@@ -256,10 +169,10 @@ export default function UFOAnalyticsDashboard() {
             </span>
           </div>
           <div className="flex-1 rounded overflow-hidden border border-slate-800 bg-slate-950 relative">
-            <DynamicMap 
-              cases={filteredCases} 
-              selectedCase={selectedCase} 
-              onMarkerClick={(c: UfoCase) => setSelectedCase(c)} 
+            <DynamicMap
+              cases={filteredCases}
+              selectedCase={selectedCase}
+              onMarkerClick={(c: UfoCase) => setSelectedCase(c)}
             />
           </div>
         </section>
@@ -271,11 +184,11 @@ export default function UFOAnalyticsDashboard() {
               📋 {lang === 'cs' ? 'Katalog odtajněných spisů' : 'Declassified Files Catalog'}
             </h2>
             <div className="relative w-full sm:w-80">
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder={lang === 'cs' ? "Filtrovat ID, název, ASSET, lokaci..." : "Filter ID, title, ASSET, location..."}
-                value={searchFilter} 
-                onChange={(e) => setSearchFilter(e.target.value)} 
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
                 className="bg-slate-950 border border-slate-800 rounded px-3 py-1.5 pr-8 text-xs font-mono text-cyan-300 focus:outline-none focus:border-cyan-500 w-full"
               />
               {searchFilter && (
@@ -317,13 +230,13 @@ export default function UFOAnalyticsDashboard() {
                   filteredCases.map((c) => {
                     const rowAsset = getAssetInfo(c);
                     return (
-                      <tr 
-                        key={String(c.id)} 
+                      <tr
+                        key={String(c.id)}
                         id={`case-row-${c.id}`}
-                        onClick={() => setSelectedCase(c)} 
+                        onClick={() => setSelectedCase(c)}
                         className={`border-b border-slate-800/50 cursor-pointer transition ${
-                          selectedCase?.id === c.id 
-                            ? 'bg-cyan-950/40 border-l-4 border-l-cyan-400 text-white' 
+                          selectedCase?.id === c.id
+                            ? 'bg-cyan-950/40 border-l-4 border-l-cyan-400 text-white'
                             : 'hover:bg-slate-900/60 text-slate-300'
                         }`}
                       >
@@ -342,8 +255,8 @@ export default function UFOAnalyticsDashboard() {
                           </span>
                         </td>
                         <td className="py-2.5 px-3 text-right whitespace-nowrap">
-                          <button 
-                            onClick={(e) => { e.stopPropagation(); setSelectedCase(c); }} 
+                          <button
+                            onClick={(e) => { e.stopPropagation(); setSelectedCase(c); }}
                             className="bg-blue-600 hover:bg-blue-500 text-white px-2.5 py-1 rounded text-[11px] font-medium transition shadow"
                           >
                             Detail
@@ -377,16 +290,15 @@ export default function UFOAnalyticsDashboard() {
               )}
             </div>
 
-            {/* Tlačítko pro paralelní analýzu s navigačním upozorněním */}
-<a 
-              href={currentAssetInfo.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={currentAssetInfo.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-xs font-mono font-bold bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded transition shadow-md shadow-blue-600/30 shrink-0 text-center"
             >
-              🌐 {lang === 'cs' 
-                ? 'Detail případu: Paralelní analýza na war.gov (Po načtení stránky scrollujte dolů až k vyhledávacímu poli)' 
-                : 'Case Detail: Parallel analysis on war.gov (After loading, scroll down to the search field)'}
+              🌐 {lang === 'cs'
+                ? 'Otevřít originální záznam na war.gov'
+                : 'Open original record on war.gov'}
             </a>
           </div>
 

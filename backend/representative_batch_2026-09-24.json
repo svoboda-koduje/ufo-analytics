@@ -1,0 +1,147 @@
+{
+  "batch_id": "representative-237-2026-09-24",
+  "method": "Purposive cost sample, not a statistical random sample: complete documents, multiple agencies and eras, text and scanned pages; excludes already translated documents.",
+  "pages": 237,
+  "files": [
+    {
+      "sha": "e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819",
+      "name": "059UAP00012.pdf",
+      "pages": 5,
+      "ocr": 0,
+      "chars": 6521
+    },
+    {
+      "sha": "257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f",
+      "name": "059UAP00013.pdf",
+      "pages": 7,
+      "ocr": 0,
+      "chars": 10572
+    },
+    {
+      "sha": "5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f",
+      "name": "18_6369445_General_1948_Vol_1.pdf",
+      "pages": 28,
+      "ocr": 0,
+      "chars": 20310
+    },
+    {
+      "sha": "10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078",
+      "name": "341_110677_Numerical_File_5-2500.pdf",
+      "pages": 10,
+      "ocr": 10,
+      "chars": 19
+    },
+    {
+      "sha": "a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7",
+      "name": "CIA-UAP-002_Scientific-Advisory-Panel-on-Unidentified-Flying-Objects_Report_1952-1953.pdf",
+      "pages": 42,
+      "ocr": 1,
+      "chars": 41513
+    },
+    {
+      "sha": "3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8",
+      "name": "CIA-UAP-004-CASE_17708_CLOSED_AND_DR_LEON_DAVIDSON.pdf",
+      "pages": 1,
+      "ocr": 0,
+      "chars": 1888
+    },
+    {
+      "sha": "3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9",
+      "name": "CIA-UAP-010_REPORT_ON_CONVERSATIONS_WITH_SOVIET_SCIENTISTS_ON_SUBJECT_OF_UNIDENTIFIED_FLYING_OBJECTS_IS_THE_USSR.pdf",
+      "pages": 2,
+      "ocr": 2,
+      "chars": 0
+    },
+    {
+      "sha": "950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1",
+      "name": "DOW-UAP-D103_Project-Blue-Book-Photo-File-Relating-to-Tremonton-Film-Utah-1952.pdf",
+      "pages": 5,
+      "ocr": 2,
+      "chars": 593
+    },
+    {
+      "sha": "7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb",
+      "name": "DOW-UAP-D106_Mission-Report-Iraq-2022.pdf",
+      "pages": 6,
+      "ocr": 0,
+      "chars": 5940
+    },
+    {
+      "sha": "e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056",
+      "name": "DOW-UAP-D110_AAWSAP-Statement-of-Objectives-July-18-2008.pdf",
+      "pages": 4,
+      "ocr": 0,
+      "chars": 8242
+    },
+    {
+      "sha": "e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2",
+      "name": "DOW-UAP-D117_AAWSAP-DIRD-Metallic-Glasses-for-Aerospace-Applications-December-14-2009.pdf",
+      "pages": 30,
+      "ocr": 0,
+      "chars": 60972
+    },
+    {
+      "sha": "64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47",
+      "name": "DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "pages": 25,
+      "ocr": 0,
+      "chars": 58510
+    },
+    {
+      "sha": "5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1",
+      "name": "DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "pages": 4,
+      "ocr": 0,
+      "chars": 9725
+    },
+    {
+      "sha": "b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f",
+      "name": "DOW-UAP-D084_USArmy-Flying-Saucer-Study_1949.pdf",
+      "pages": 25,
+      "ocr": 21,
+      "chars": 2147
+    },
+    {
+      "sha": "ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884",
+      "name": "DOW-UAP-D63-Mission-Report-Strait-of-Hormuz-October-2020.pdf",
+      "pages": 8,
+      "ocr": 8,
+      "chars": 0
+    },
+    {
+      "sha": "22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f",
+      "name": "FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "pages": 2,
+      "ocr": 0,
+      "chars": 2715
+    },
+    {
+      "sha": "b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158",
+      "name": "ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "pages": 4,
+      "ocr": 1,
+      "chars": 3040
+    },
+    {
+      "sha": "18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591",
+      "name": "NASA-UAP-D2-Apollo-17-Transcript-1972.pdf",
+      "pages": 16,
+      "ocr": 0,
+      "chars": 16907
+    },
+    {
+      "sha": "aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443",
+      "name": "NASA-UAP-D4-Apollo-11-Technical-Crew-Debriefing-1969.pdf",
+      "pages": 11,
+      "ocr": 11,
+      "chars": 0
+    },
+    {
+      "sha": "bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb",
+      "name": "ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "pages": 2,
+      "ocr": 0,
+      "chars": 4641
+    }
+  ]
+}

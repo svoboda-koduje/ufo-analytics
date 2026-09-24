@@ -1,0 +1,10 @@
+{
+  "pages_checked": 237,
+  "translation_part_statuses": {
+    "translated": 145,
+    "partial": 92
+  },
+  "errors": [],
+  "flags_for_review": [],
+  "scope": "Structural checks and length heuristic; not exhaustive human verification."
+}

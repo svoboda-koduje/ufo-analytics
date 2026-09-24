@@ -1,0 +1,485 @@
+{
+  "batch_id": "representative-237-2026-09-24",
+  "sample_design": "Purposive cost sample, not a statistical random sample: complete documents, multiple agencies and eras, text and scanned pages; excludes already translated documents.",
+  "model": "gpt-5.4-2026-03-05",
+  "planned_pages": 237,
+  "stored_pages": 237,
+  "complete_documents": 20,
+  "sample_actual_cost_usd": 8.7821175,
+  "overall_accounted_usd": 14.5816605,
+  "states": {
+    "done": 268
+  },
+  "stratified_estimate": {
+    "mixed_standard": {
+      "corpus_pages": 8702,
+      "sample_complete_pages": 115,
+      "sample_cost_usd": 3.7825800000000003,
+      "per_page_usd": 0.032892000000000005,
+      "projected_pdf_cost_usd": 286.226184
+    },
+    "scan_heavy": {
+      "corpus_pages": 883,
+      "sample_complete_pages": 56,
+      "sample_cost_usd": 2.2655825000000003,
+      "per_page_usd": 0.04045683035714286,
+      "projected_pdf_cost_usd": 35.72338120535715
+    },
+    "dense_text": {
+      "corpus_pages": 1679,
+      "sample_complete_pages": 66,
+      "sample_cost_usd": 2.733955,
+      "per_page_usd": 0.0414235606060606,
+      "projected_pdf_cost_usd": 69.55015825757576
+    }
+  },
+  "files": [
+    {
+      "sha": "e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819",
+      "name": "059UAP00012.pdf",
+      "pages": 5,
+      "ocr": 0,
+      "chars": 6521,
+      "stratum": "mixed_standard",
+      "translated_pages": 5,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 6,
+        "accounted": 0.182515,
+        "actual": 0.182515,
+        "input_tokens": 19588,
+        "output_tokens": 8903
+      },
+      "call_states": {
+        "done": 6
+      }
+    },
+    {
+      "sha": "257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f",
+      "name": "059UAP00013.pdf",
+      "pages": 7,
+      "ocr": 0,
+      "chars": 10572,
+      "stratum": "mixed_standard",
+      "translated_pages": 7,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 8,
+        "accounted": 0.28278250000000005,
+        "actual": 0.28278250000000005,
+        "input_tokens": 27499,
+        "output_tokens": 14269
+      },
+      "call_states": {
+        "done": 8
+      }
+    },
+    {
+      "sha": "5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f",
+      "name": "18_6369445_General_1948_Vol_1.pdf",
+      "pages": 28,
+      "ocr": 0,
+      "chars": 20310,
+      "stratum": "mixed_standard",
+      "translated_pages": 28,
+      "partial_pages": 13,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 31,
+        "accounted": 0.8446775,
+        "actual": 0.8446775,
+        "input_tokens": 103157,
+        "output_tokens": 39119
+      },
+      "call_states": {
+        "done": 31
+      }
+    },
+    {
+      "sha": "10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078",
+      "name": "341_110677_Numerical_File_5-2500.pdf",
+      "pages": 10,
+      "ocr": 10,
+      "chars": 19,
+      "stratum": "scan_heavy",
+      "translated_pages": 10,
+      "partial_pages": 6,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 11,
+        "accounted": 0.5368225,
+        "actual": 0.5368225,
+        "input_tokens": 49201,
+        "output_tokens": 27588
+      },
+      "call_states": {
+        "done": 11
+      }
+    },
+    {
+      "sha": "a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7",
+      "name": "CIA-UAP-002_Scientific-Advisory-Panel-on-Unidentified-Flying-Objects_Report_1952-1953.pdf",
+      "pages": 42,
+      "ocr": 1,
+      "chars": 41513,
+      "stratum": "mixed_standard",
+      "translated_pages": 42,
+      "partial_pages": 8,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 46,
+        "accounted": 1.3037125,
+        "actual": 1.3037125,
+        "input_tokens": 169765,
+        "output_tokens": 58620
+      },
+      "call_states": {
+        "done": 46
+      }
+    },
+    {
+      "sha": "3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8",
+      "name": "CIA-UAP-004-CASE_17708_CLOSED_AND_DR_LEON_DAVIDSON.pdf",
+      "pages": 1,
+      "ocr": 0,
+      "chars": 1888,
+      "stratum": "dense_text",
+      "translated_pages": 1,
+      "partial_pages": 1,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 2,
+        "accounted": 0.052535000000000005,
+        "actual": 0.052535000000000005,
+        "input_tokens": 5078,
+        "output_tokens": 2656
+      },
+      "call_states": {
+        "done": 2
+      }
+    },
+    {
+      "sha": "3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9",
+      "name": "CIA-UAP-010_REPORT_ON_CONVERSATIONS_WITH_SOVIET_SCIENTISTS_ON_SUBJECT_OF_UNIDENTIFIED_FLYING_OBJECTS_IS_THE_USSR.pdf",
+      "pages": 2,
+      "ocr": 2,
+      "chars": 0,
+      "stratum": "scan_heavy",
+      "translated_pages": 2,
+      "partial_pages": 1,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 3,
+        "accounted": 0.1231675,
+        "actual": 0.1231675,
+        "input_tokens": 10993,
+        "output_tokens": 6379
+      },
+      "call_states": {
+        "done": 3
+      }
+    },
+    {
+      "sha": "950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1",
+      "name": "DOW-UAP-D103_Project-Blue-Book-Photo-File-Relating-to-Tremonton-Film-Utah-1952.pdf",
+      "pages": 5,
+      "ocr": 2,
+      "chars": 593,
+      "stratum": "mixed_standard",
+      "translated_pages": 5,
+      "partial_pages": 2,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 6,
+        "accounted": 0.12297000000000001,
+        "actual": 0.12297000000000001,
+        "input_tokens": 17328,
+        "output_tokens": 5310
+      },
+      "call_states": {
+        "done": 6
+      }
+    },
+    {
+      "sha": "7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb",
+      "name": "DOW-UAP-D106_Mission-Report-Iraq-2022.pdf",
+      "pages": 6,
+      "ocr": 0,
+      "chars": 5940,
+      "stratum": "mixed_standard",
+      "translated_pages": 6,
+      "partial_pages": 4,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 7,
+        "accounted": 0.23184000000000002,
+        "actual": 0.23184000000000002,
+        "input_tokens": 25278,
+        "output_tokens": 11243
+      },
+      "call_states": {
+        "done": 7
+      }
+    },
+    {
+      "sha": "e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056",
+      "name": "DOW-UAP-D110_AAWSAP-Statement-of-Objectives-July-18-2008.pdf",
+      "pages": 4,
+      "ocr": 0,
+      "chars": 8242,
+      "stratum": "dense_text",
+      "translated_pages": 4,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 5,
+        "accounted": 0.14043250000000002,
+        "actual": 0.14043250000000002,
+        "input_tokens": 16699,
+        "output_tokens": 6579
+      },
+      "call_states": {
+        "done": 5
+      }
+    },
+    {
+      "sha": "e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2",
+      "name": "DOW-UAP-D117_AAWSAP-DIRD-Metallic-Glasses-for-Aerospace-Applications-December-14-2009.pdf",
+      "pages": 30,
+      "ocr": 0,
+      "chars": 60972,
+      "stratum": "dense_text",
+      "translated_pages": 30,
+      "partial_pages": 1,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 33,
+        "accounted": 1.021635,
+        "actual": 1.021635,
+        "input_tokens": 128958,
+        "output_tokens": 46616
+      },
+      "call_states": {
+        "done": 33
+      }
+    },
+    {
+      "sha": "64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47",
+      "name": "DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "pages": 25,
+      "ocr": 0,
+      "chars": 58510,
+      "stratum": "dense_text",
+      "translated_pages": 25,
+      "partial_pages": 23,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 28,
+        "accounted": 1.216135,
+        "actual": 1.216135,
+        "input_tokens": 122716,
+        "output_tokens": 60623
+      },
+      "call_states": {
+        "done": 28
+      }
+    },
+    {
+      "sha": "5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1",
+      "name": "DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "pages": 4,
+      "ocr": 0,
+      "chars": 9725,
+      "stratum": "dense_text",
+      "translated_pages": 4,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 5,
+        "accounted": 0.18372750000000002,
+        "actual": 0.18372750000000002,
+        "input_tokens": 17595,
+        "output_tokens": 9316
+      },
+      "call_states": {
+        "done": 5
+      }
+    },
+    {
+      "sha": "b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f",
+      "name": "DOW-UAP-D084_USArmy-Flying-Saucer-Study_1949.pdf",
+      "pages": 25,
+      "ocr": 21,
+      "chars": 2147,
+      "stratum": "scan_heavy",
+      "translated_pages": 25,
+      "partial_pages": 19,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 28,
+        "accounted": 0.9409675000000001,
+        "actual": 0.9409675000000001,
+        "input_tokens": 115927,
+        "output_tokens": 43410
+      },
+      "call_states": {
+        "done": 28
+      }
+    },
+    {
+      "sha": "ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884",
+      "name": "DOW-UAP-D63-Mission-Report-Strait-of-Hormuz-October-2020.pdf",
+      "pages": 8,
+      "ocr": 8,
+      "chars": 0,
+      "stratum": "scan_heavy",
+      "translated_pages": 8,
+      "partial_pages": 7,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 9,
+        "accounted": 0.3328125,
+        "actual": 0.3328125,
+        "input_tokens": 31977,
+        "output_tokens": 16858
+      },
+      "call_states": {
+        "done": 9
+      }
+    },
+    {
+      "sha": "22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f",
+      "name": "FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "pages": 2,
+      "ocr": 0,
+      "chars": 2715,
+      "stratum": "mixed_standard",
+      "translated_pages": 2,
+      "partial_pages": 2,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 3,
+        "accounted": 0.096995,
+        "actual": 0.096995,
+        "input_tokens": 8810,
+        "output_tokens": 4998
+      },
+      "call_states": {
+        "done": 3
+      }
+    },
+    {
+      "sha": "b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158",
+      "name": "ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "pages": 4,
+      "ocr": 1,
+      "chars": 3040,
+      "stratum": "mixed_standard",
+      "translated_pages": 4,
+      "partial_pages": 3,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 5,
+        "accounted": 0.13207000000000002,
+        "actual": 0.13207000000000002,
+        "input_tokens": 15124,
+        "output_tokens": 6284
+      },
+      "call_states": {
+        "done": 5
+      }
+    },
+    {
+      "sha": "18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591",
+      "name": "NASA-UAP-D2-Apollo-17-Transcript-1972.pdf",
+      "pages": 16,
+      "ocr": 0,
+      "chars": 16907,
+      "stratum": "mixed_standard",
+      "translated_pages": 16,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 17,
+        "accounted": 0.5850175,
+        "actual": 0.5850175,
+        "input_tokens": 68593,
+        "output_tokens": 27569
+      },
+      "call_states": {
+        "done": 17
+      }
+    },
+    {
+      "sha": "aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443",
+      "name": "NASA-UAP-D4-Apollo-11-Technical-Crew-Debriefing-1969.pdf",
+      "pages": 11,
+      "ocr": 11,
+      "chars": 0,
+      "stratum": "scan_heavy",
+      "translated_pages": 11,
+      "partial_pages": 2,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 12,
+        "accounted": 0.3318125,
+        "actual": 0.3318125,
+        "input_tokens": 41711,
+        "output_tokens": 15169
+      },
+      "call_states": {
+        "done": 12
+      }
+    },
+    {
+      "sha": "bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb",
+      "name": "ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "pages": 2,
+      "ocr": 0,
+      "chars": 4641,
+      "stratum": "dense_text",
+      "translated_pages": 2,
+      "partial_pages": 0,
+      "has_dossier": true,
+      "complete_machine_output": true,
+      "calls": {
+        "n": 3,
+        "accounted": 0.11949,
+        "actual": 0.11949,
+        "input_tokens": 9696,
+        "output_tokens": 6350
+      },
+      "call_states": {
+        "done": 3
+      }
+    }
+  ],
+  "limitations": [
+    "Purposive sample; ranges are planning allowances, not statistical confidence intervals.",
+    "PDF estimate excludes video/audio, human expert review and hosting.",
+    "Machine output completeness does not imply every source passage is legible or translated without error.",
+    "Global budget includes prior catalogue work and pilot calls.",
+    "Costs use recorded API token usage at standard rates; cached-input discounts are not subtracted. Provider invoice is authoritative."
+  ]
+}

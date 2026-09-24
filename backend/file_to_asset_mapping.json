@@ -143,7 +143,13 @@
     "local_sha256": [
       "e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056",
+        "units": 4,
+        "url": "/research/e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/06/?release=06#DOW-UAP-D110-AAWSAP-Statement-of-Objectives-July-2008"
   },
@@ -329,7 +335,13 @@
     "local_sha256": [
       "e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2",
+        "units": 30,
+        "url": "/research/e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/06/?release=06#DOW-UAP-D117-AAWSAP-DIRD-Metallic-Glasses-for-Aerospace-Applications-December-2009"
   },
@@ -878,8 +890,71 @@
     "local_sha256": [
       "5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f",
+        "units": 28,
+        "url": "/research/5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Hlásené pozorování „létajících disků“ v Hobsonu v Ohiu v noci 8. května 1948. Počasí bylo tomuto velitelství neznámé. U objektu je na této stránce uveden kulatý tvar; počet objektů nebyl tomuto velitelství znám a velikost se ze země jevila jako devět palců v průměru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorovaný objekt či jev je popsán jako fosforeskující, s velmi vysokou rychlostí, kursem 90°, neznámou manévrovatelností, ve výšce 6 až 8 mil, s neznámým zvukem a s fosforeskující stopou na obloze.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování pana Lese Buchnera z Bakersfieldu: dva objekty měly 5. března 1948 mezi 16:10 a 16:55 padat k zemi z neznámého zdroje; byly popsány jako podobné padajícímu letadlu s kouřem a troskami, spatřené jihozápadním směrem k Buena Vista Lake.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování pana Denia, zaměstnance Pacific General Electric Company v Bakersfieldu: dva objekty měly 8. března 1948 spadnout k zemi z neznámého zdroje severně od Bakersfieldu; jeden se zdál být v plamenech a táhl se za ním červený a černý kouř.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#18_6369445_General_1948_Vol_1"
   },
   {
@@ -1072,8 +1147,337 @@
     "local_sha256": [
       "10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078",
+        "units": 10,
+        "url": "/research/10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Souhrn stránky popisuje dvě pozorování diskovitých letících objektů mezi AJATY a ADZHIKABUL. První objekt stoupal téměř svisle malou rychlostí, přičemž se jeho vnější povrch pomalu otáčel doprava; ve výšce asi 6000 stop prudce zrychlil směrem na sever. Asi o minutu později byl pozorován druhý objekt provádějící totéž. Údajná oblast vzletu měla být 1–2 míle jižně od železniční tratě a byly tam vidět dva téměř svislé paprsky světlometů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Citovaný kabel uvádí pozorování dvou kulatých či kruhových nekonvenčních letadel připomínajících létající disky nebo létající talíře, která téměř svisle vzlétla mezi Ajajat a Adzhikabul po odjezdu z Alyatu v oblasti Zakavkazska.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na letišti Dněpropetrovsk bylo podle kabelu hlášeno 42 zavalitých proudových stíhaček a jeden vícemotorový proudový bombardér s podrobným popisem tvaru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V Baku byl podle kabelu spatřen dlouhý vlak naložený mnoha výsadkovými plavidly velikosti plošinových vagonů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Skupina podle kabelu 42 kilometrů od Moskvy na silnici Moskva–Minsk spatřila radarové stanoviště předběžně určené jako jedna [nečitelné] nebo klec a jeden čtvercový stožár Freya.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování prvního objektu typu „létající talíř“ z levé strany vlaku mezi dvěma železničními zastávkami vlevo od Baku. Objekt měl být spatřen po odjezdu z AJIATY v 1910, vystoupal téměř svisle nebo v mírném oblouku, poté přešel do vodorovného letu a vysokou rychlostí zmizel napravo od vlaku. Podle textu se vnější povrch pomalu otáčel a ze spodní části mohly vycházet jiskry nebo plamen.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování druhého objektu téhož typu ze stejného vlaku. Text uvádí, že mezi prvním a druhým vzletem uplynula přibližně jedna minuta; i tento objekt byl spojován s téměř svislým stoupáním, následným rychlým odletem a s oblastí poblíž dvou světlometů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pokračující výpověď o pozorování kulatého diskovitého letounu: místo vzletu bylo asi jednu míli daleko; uvnitř disku byla dvě nehybná světla, zatímco vnější povrch se otáčel; objekt byl kulatý, bez výčnělků; po dosažení 2000 metrů odletěl velkou rychlostí zleva doprava; při stoupání se vnější část pomalu otáčela doprava a při vodorovném letu působil dojem „víření“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mimo Baku byl spatřen dlouhý vlak složený z plošinových vozů; na každém plošinovém voze bylo jedno vyloďovací plavidlo zakryté plachtami a v okolí byli viděni muži v nerozpoznané uniformě.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Nad Baku bylo spatřeno jedno proudové letadlo letící ve velké výšce, příliš vysoko na identifikaci.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na okraji Baku bylo po cestě z civilního letiště míjeno letiště, které průvodce označil za vojenské cvičné letiště; plk. Hathaway tam rozpoznal tmavě zelené transportní letouny.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Tři američtí pozorovatelé dorazili na letiště Dněpropetrovsk; byl popsán travnatý povrch letiště, jedna proudová bombardovací letadla a 42 velmi zavalitých proudových stíhaček.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "U Moskvy, u 42kilometrového ukazatele na silnici Moskva–Minsk, bylo pozorováno radarové stanoviště se dvěma radary.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V Tbilisi plk. Hathaway spatřil velký vrtulník připomínající banán, se dvěma velkými hlavními rotory na každém konci a s mnoha okny.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi Tbilisi a Soči během cesty vlakem skupina senátora Russella navázala kontakt s mužem jménem EGOROV; pasáž je zachycena jako součást popisu významné shody okolností související s hlášenými pozorováními v oblasti Arjaly.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Plk. Hathaway pozoroval asi 20 minut za Soči tank T-34 s úsťovou brzdou na kanónu; podle textu vypadal velmi odlišně od tanků, které předtím viděl v Koreji. Tank byl na plošinovém vagónu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Deset minut po odjezdu z Čopu vlak dorazil do prvního malého českého města, kde byl na pravé straně železnice zaznamenán „velký [nečitelné]“; text zde na stránce končí.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Po opuštění COP pozoroval plk. Hathaway na české straně hranice velmi rozsáhlá železniční seřaďovací nádraží se strážními věžemi, pěti kolejemi u hranice a rozdílem mezi plnými vozy vlevo a prázdnými vozy vpravo.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na trase uvedené jako KOSICE–POPRAD–ZILINA pozorovatel uvedl začátek elektrifikace krátce po COP a Hathaway se domníval, že mezi COP a Kosice byly dvě, možná tři koleje.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Od Kosice byly v horách pozorovány stavební práce s prefabrikovanými traťovými úseky, malými budovami, cívkami kabelů a kovovými stožáry; Hathaway soudil, že elektrifikace je téměř dokončena.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Za soumraku Hathaway míjel neznámé místo během cesty, přibližně jednu míli dlouhou oblast se strážními věžemi a vysokým plotem.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": "\"Just at dark, location enroute unknown, Hathaway passed by an area approximately one mile long with guard towers and a high fence.\"",
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Ručně kreslený profil proudového bombardéru na „Dněpropetrovském letišti“ s popsanými znaky: kokpit posunutý dopředu, části zakryté plachtou, výrazné šípovité křídlo, nízko posazená vodorovná ocasní plocha a stříbrná vyboulenina u ocasu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Schéma popisuje operaci přepínání/výměny železničního rozchodu v místě označeném „COP“, včetně přesunu českých podvozků k ruským podvozkům a uspořádání kolejí a technických prvků.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:10"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#341_110677_Numerical_File_5-2500"
   },
   {
@@ -2354,8 +2758,281 @@
     "local_sha256": [
       "a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7",
+        "units": 42,
+        "url": "/research/a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Bellefontaine v Ohiu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Tremontonu v Utahu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Great Falls v Montaně.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Isaaku v Montaně.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z oblasti Washingtonu, D. C.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Haneda A.F.B. v Japonsku.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Port Huronu v Michiganu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mezi podrobně projednávané případové spisy významných pozorování patřil případ z Presque Isle v Maine.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na stránce jsou jako příklad uvedeny případy „Foo Fighters“: nevysvětlené jevy pozorované piloty letadel během druhé světové války v evropském i dálněvýchodním válčišti, kdy „koule světla“ létaly poblíž letadel nebo s nimi a rychle manévrovaly.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:18"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování označené jako „Tremonton, Utah“, které panel považoval za významný případ kvůli filmovým záznamům Kodachrome a souvisejícímu rozboru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:21"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na stránce je shrnuto dřívější pozorování objektů na filmu: zástupci P.I.L. je pokládali za objekty, které nebyly ptáci, balóny ani letadla a které byly „samostatně svítící“; panel naproti tomu uvádí, že pozorované vlastnosti jsou slučitelné se slunečními odrazy a že mohlo jít o ptáky.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:22"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Text uvádí, že objekty v případu Great Falls byly pravděpodobně letadla a jasná světla byla odrazy; dále se uvádí silné podezření, že šlo o odrazy letadel známých z dané oblasti.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:23"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Text popisuje pozorování v Tremontonu a uvádí, že není platný důvod spojovat je s případem Great Falls; zároveň říká, že změna intenzity světel v Tremontonu byla příliš velká pro přijetí hypotézy P.I.L. o zdánlivém pohybu a velmi vysoké rychlosti v malých orbitálních drahách.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:23"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Stránka odkazuje na jedno konkrétní dříve probírané pozorování spojené s filmem z Tremontonu. Panel uvádí, že dostupná data by mohla stačit k jednoznačné identifikaci, pokud by byla doplněna srovnávacími testy s polyetylenovými „polštářovými“ balóny, analýzou letu ptáků a odrazových charakteristik a výpočtem zdánlivých sil „G“ podle drah objektů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:24"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Oficiálně hlášená nevysvětlená pozorování zahrnutá do mapy ATIC za rok 1952 vykazovala shluky v některých strategických oblastech, například v Los Alamos.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:25"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Je zmíněn jeden případ, kdy astronom odmítl přerušit svou expozici, aby vyfotografoval údajné pozorování v jiné části oblohy; text to uvádí jako argument pro možnost doplnit plánované astronomické programy o sledování neidentifikovaných objektů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:27"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na Palomar Mountain v Kalifornii byl v říjnu 1949 hlášen případ, kdy čítače kosmického záření vyšly na několik sekund mimo stupnici, zjevně v době vizuálního pozorování „V“ létajících talířů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:29"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Sdružení „Los Alamos Bird Watchers Association“ provádělo od srpna 1950 do ledna 1951 sérii pozorování, při nichž se koincidenční čítače kosmického záření chovaly podivně.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:29"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Text jako příklad významného případu zmiňuje pozorování v Tremontonu v Utahu, u něhož by při vyšetřování mohly být vyžadovány kontrolované experimenty.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:32"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#CIA-UAP-002-Scientific-Advisory-Panel-on-Unidentified-Flying-Objects-Report-1952-1953"
   },
   {
@@ -2453,7 +3130,13 @@
     "local_sha256": [
       "3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8",
+        "units": 1,
+        "url": "/research/3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#CIA-UAP-004-CASE-17708-CLOSED-and-DR-Leon-Davidson"
   },
@@ -2747,8 +3430,71 @@
     "local_sha256": [
       "3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9",
+        "units": 2,
+        "url": "/research/3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Jedna astronomka v observatoři Pulkovo zmínila, že slyšela o hlášeních pozorování neidentifikovaných objektů poblíž Kavkazu. Sama nevěděla o jejich studiu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "N. A. Kozyrev podle zprávy věděl o některých pozorováních v severní části SSSR; dodal, že zprávy o takových pozorováních se v sovětských novinách netisknou, protože nejsou považována za vědecká pozorování.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "I. K. Koval a několik dalších astronomů při pobytu na venkově jednoho večera pozorovali podivný načervenalý objekt prolétající oblohou; byli přesvědčeni, že nešlo ani o satelit, ani o meteorit. Bezprostředně jej však vyložili jako možný úlomek satelitu nebo rakety vracející se z oběžné dráhy a shořívající v atmosféře. L. I. Galkin toto pozorování potvrdil a připustil možnost, že objekt mohl být „talíř“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V severní části Kazachstánu byla opakovaně hlášena pozorování kulového blesku. Vyšetřovací tým z Univerzity v Alma-Atě následně zjistil, že šlo o odrazy automobilových světlometů od inverzní vrstvy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#CIA-UAP-010-Report-on-Conversations-with-Soviet-Scientists-on-Subject-of-Unidentified-Flying-Objects-in-the-USSR"
   },
   {
@@ -3631,8 +4377,855 @@
     "local_sha256": [
       "64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47",
+        "units": 25,
+        "url": "/research/64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Byla přijata hlášení od několika pilotů dopravních letadel, že byly spatřeny „zelené ohnivé koule“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Takzvaný incident na Starvation Peak: zelená či žlutozelená ohnivá koule se objevila okamžitě v plné intenzitě, letěla téměř vodorovně, zřejmě konstantní úhlovou rychlostí, a těsně před koncem dráhy se rozpadla na jasně zelené fragmenty. Trvala téměř přesně dvě sekundy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dřívější zelená ohnivá koule, kterou mluvčí v době prosincového incidentu vyšetřoval. Na této stránce je pouze uvedeno, že byla pozorována v noci 5. prosince.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Řečník shrnuje vlastní pozorování ohnivé koule v noci 12. prosince 1948 a uvádí, že podle jeho názoru nešlo o konvenční pád meteoru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na stránce je uveden další případ, v němž byla dráha ohnivé koule určitelná, datovaný na 20. prosince; bez uvedení roku a dalších podrobností.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"another December 20\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na stránce je zmíněn „velmi velký pád“ z 30. ledna 1949 jako jeden ze tří případů s určitelnou dráhou.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Diskuse popisuje jeden „zelený fireball“ a jeho pád z 30. ledna, jemuž jsou připisovány neobvyklé vlastnosti: dlouhá dráha, téměř konstantní rychlost, výrazná zelená barva a nepřítomnost slyšitelného zvuku; následně byla shromážděna pozorování z Nového Mexika a západního Texasu a na mapě byla odhadnuta dráha od oblasti jihozápadně od Amarilla k okolí Lubbocku v Texasu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the case of the green fireball on January 30th\"; \"In the case of the January 30th fall\"; \"it was definitely Sunday the 30th\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na mapě byla vedena hlášená zvuková pozorování v oblasti koncového bodu, avšak řečník uvádí, že po prověření vyloučili jejich souvislost s pádem meteoritu a přičítali je vrtání ropných vrtů a odstřelům dynamitem.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Poblíž „Amherst ?“ bylo hlášeno zvukové pozorování desetiletým chlapcem, ale následné šetření podle textu nenašlo potvrzení u členů rodiny ani u dalších obyvatel města; řečník se domnívá, že chlapec pravděpodobně slyšel odstřel dynamitem.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "U roswellského pozorování skupina pěti mužů poblíž ocelového komína údajně současně se sledováním zelené ohnivé koule slyšela zvuk podobný benzinové svařovací lampě; řečník to uvádí jako případ anomálního zvuku.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V případě texaského pádu řečník uvádí, že navzdory velké oblasti pozorovaného světla nezjistili jediný případ vyrušení zvířat; zmiňuje také hlášení o údajném meteoritu, který měl prorazit led na rybníku, ale při následném hledání nebyl žádný meteorit nalezen.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Řečník uvádí, že existuje deset případů, které podle něj jednoznačně zasluhují nejvážnější posouzení a jsou přísně analogické zeleným ohnivým koulím z noci 12. prosince.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the night of December 12\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Incident na Starvation Peak, uváděný jako jeden z případů dvou drah zelených ohnivých koulí určených z pozorování v Los Alamos; řečník uvádí pohyb východ-západ.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Texaská pozorování se podle řečníka opírají o mnoho pozorování vycvičenými pozorovateli a ukazují pohyb téměř přímo od severu k jihu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dvě dřívější ohnivé koule z 12. prosince a 20. prosince; jedna měla projít centrálně nad Los Alamos a druhá asi šest mil severně od středu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"those of December 12 and December 20\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Incident z 5. prosince, který kapitán Neef připomněl Dr. LaPazovi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the December 5th incident\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozoruhodná zelená záře spatřená texaskými pozorovateli 1. ledna 1948.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dřívější výskyty jasných zelených ohnivých koulí ne příliš daleko od oblasti Hanfordu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Denní výskyt jasných bílých objektů pohybujících se horizontálně v Memphisu v Tennessee; řečník výslovně říká, že tyto případy se netýkají zelených ohnivých koulí.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"in Memphis, Tennessee in May, 1948\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Je zmíněn pád meteoritu Tom, který byl veřejně mylně považován za ruskou bombu; mluvčí uvádí, že pozdější nález meteoritů prokázal, že šlo o obyčejný pád meteoritu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pilot letecké dopravy při letu poblíž Cherbourgu pozoroval jev popsaný jako „odrážející se meteorit“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Jedna osoba v Los Alamos, podle textu alespoň zčásti potvrzená čtyřmi dalšími osobami, viděla zelenou ohnivou kouli klesnout a poté vodorovně odplachtit pryč.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pan Hoyt popisuje pozorování zelené ohnivé koule: potvrdil její zelený odstín, uvedl noc 30. prosince 1948, čas přibližně pět minut před šestou, odhad výšky kolem 20 000 stop, dojem sestupné dráhy směrem na jih a dobu trvání asi 3 sekundy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:10"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LePaz odkazuje na zprávu Sgt. Kinsleyho z 2. prosince jako na první důkaz, který měl v souvislosti s uvažovaným vysvětlením pomocí Geminid.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"Sgt. Kinsley'o report on De~ember 2\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V noci 12. prosince byly podle textu pozorovány Geminidy, které přicházely pod velkými úhly k horizontu, přičemž se porovnávají se zelenými ohnivými koulemi a jejich horizontální drahou.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"on the night of December 12\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. Sherman Smith měl téže noci pozorovat další mimořádně jasnou modrou ohnivou kouli; přesný čas je ve sporu mezi přibližně 10:10 a pravděpodobně až 10:50.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"on the came night\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Tentýž sporovaný čas téhož pozorování je v textu alternativně uváděn jako kolem 10:10 podle paní Smithové.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"on the came night\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Kapitán Reef uvádí, že konkrétní případ „z 30. dne“ byl rozhodně viditelný z White Sands a že jej odtamtud viděli velitel Holloman, jeho manželka, jeden z jeho asistentů a asistentova manželka.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:12"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz popisuje případ ohnivé koule z 12. prosince a uvádí, že podle zvolené mapové rekonstrukce se odvíjí odhad její dráhy i rychlosti; v jedné variantě jde o dráhu, při níž pozorovatelé z Los Alamos a Starvation Peak viděli stejný bod křivky až do zmizení objektu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování z 30. ledna je v diskusi označeno jako první případ, který poskytl dlouhou dráhu objektu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V obecné rovině jsou „zelené ohnivé koule“ popsány jako jevy s odhadovanou rychlostí přibližně 3 až 12 mil za sekundu, délkou dráhy přes 100 mil v jednom případě a dobou trvání asi 5 až 14 sekund; zároveň je zdůrazněna absence zvuku a neobvyklost čistě zelené barvy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz odkazuje na roj z 9. října 1946 s velkým množstvím mimořádně jasných ohnivých koulí; uvádí, že Kaplan si je pamatoval jako modré nebo možná modrozelené, nikoli žlutozelené, a že on sám je pozoroval z B-29 ve výšce asi 20 000 stop.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:14"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V případě pádů v Norden County text uvádí, že byly slyšet až v blíže nečitelné lokalitě označené jako „[nečitelné] City“ a že otřásaly budovami i v takové vzdálenosti.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:14"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Další ne zcela čitelně označené pády byly podle textu slyšet až do vzdálenosti 300 mil od místa dopadu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": "were heard up to 300 miles from the point of impact",
+        "timezone": null,
+        "source_unit": "page:14"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V literatuře je zmíněno belgické pozorování z roku 1855 jako jeden z případů, kde nebyly hlášeny detonace ani dunění; řečník však uvádí, že by tento případ měl být vyloučen.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Jedno z poměrně nedávných pozorování, uváděné jako případ bez hlášených detonací a dunění; zároveň je řečeno, že bylo hlášeno svištění meteoritů při pádu vzduchem.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Další poměrně nedávné pozorování, uváděné jako případ bez hlášených detonací a dunění; zároveň je řečeno, že bylo hlášeno svištění meteoritů při pádu vzduchem.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Popsán je velký pád, který vypadal jako ohromný pád meteoritu nad oblastí rezervace Four Corners; navzdory rychlému příjezdu, opakovanému pozemnímu pátrání a důkladnému leteckému průzkumu nebyly nalezeny žádné stopy ani materiál.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Soubor 10 incidentů popsaných jako analogické zeleným ohnivým koulím, s hlášeními ověřenými dostatečným počtem nezávislých pozorovatelů, takže o jejich výskytu není pochybnost.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dva incidenty, o nichž se Dr. LaPaz zmínil, měly nastat před 5. prosincem; bez uvedení roku a přesného data.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"occurred before the 5th of December\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velmi pozoruhodný incident ze 4. srpna, zmíněný v souvislosti s dobou meteorického roje; rok není na této stránce uveden.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"A very remarkable one of the 4th of August\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Konkrétní pozorování z oblasti poblíž nečitelného místa v Oregonu; z textu plyne, že na jeho základě nelze určit směry, protože šlo o jednotlivé pozorování.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Incident z 1. ledna 1948, popsaný jako pozoruhodný zelený záblesk, který mohl mít i jinou interpretaci.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "U pozorovatelů zelených ohnivých koulí je zmíněno, že poblíž konce dráhy texaské ohnivé koule z 30. ledna bylo zaznamenáno, že úlomky pokračovaly klidně k bodu, kde se zdálo, že mají nižší rychlost, jak to ukazovala samotná zelená ohnivá koule.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:17"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz popisuje „texaský pád“ jako jeden z nejjasnějších pozorovaných bolidů podle celkové intenzity, na základě srovnání s Měsícem co do velikosti a intenzity.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:18"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "U incidentu na Starvation Peak bylo pozorování srovnáno s Venuší; podle Dr. LaPaze mělo jasnost přibližně hvězdné magnitudy minus 4, možná o něco vyšší. Pan Hoyt uvádí, že jev viděl v 17:55 a že noc byla velmi jasná a čistá.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "17:55",
+        "time_evidence": "At five minu·tea to eix.",
+        "timezone": null,
+        "source_unit": "page:18"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. Hanley uvádí, že v roce 1945 nebo 1946 pozoroval prakticky stejnou věc jako v dopise; tehdy se domnívali, že jde o římskou svíci, a barva byla podle něj rozhodně světle zelená.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:18"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Citovaný dopis se vztahuje k „jevům z 1. února“ a uvádí možnost, že svědci mohli vidět odraz spojený s pyrotechnikou a krásnou podívanou polární záře; autor dopisu dodává, že podle dosavadních poznatků jde stále o jev, nikoli o materiální věc.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"Received your interesting phenanena of l. J'ebruary\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:18"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Zmínka o dříve hlášeném pozorování na Aljašce; řečník poznamenává, že v daném ročním období tam bývá běžně viditelná polární záře.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:19"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Objekt, jehož jasnost byla podle pana Hoyta srovnatelná s jasností světlice vypuštěné z letadla; mluvčí soudí, že vysvětlení světlicí bylo vyloučeno.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:19"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Další hlášený případ: objekt byl z věže v Kirtland Fieldu pozorován na jihozápadě, z Arizony na jihovýchodě; z Kirtlandu měl bronzovou barvu, z Arizony zelenou, poté se obrátil přímo dolů a zmizel. Je zmíněna i změna směru, kterou se dosud nepodařilo došetřit.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:19"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz uvádí, že jev z 30. ledna byl zjevně dost jasný, svítivější než běžné meteority.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the January 30th one was\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:20"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz popisuje ohnivou kouli, kterou viděl 12. prosince, jako velmi jasnou, ale ne mimořádně.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the one I saw on December 12. That was a very bright fireball, but not extraordinarily so.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:20"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V noci 19. prosince proběhl pokus o fotografické sledování, ale nebylo nic pozorováno.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"the attempt that was made on the night of December 19\"; \"But on the night of the 19th nothing was observed.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:20"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V noci 20. dne došlo k incidentu, o němž se Dr. LaPaz domnívá, že mohl být vyfotografován, ale zařízení už bylo demontováno a nic nebylo získáno.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"The next night, however, the night of the 20th there was an incident which I believe might have been photographed, but by that time the equipment had been disbanded and nothing was obtained.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:20"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Zmínka o takzvaném meteorickém kráteru, který měl být předmětem mezinárodního vyšetřování IAU.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:21"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz uvádí, že ve zveřejňovaných meteorických poznámkách našel jediný případ ohnivé koule, u níž jeden z pozorovatelů zmínil zelenou barvu; současně však tento případ hodnotí jako obyčejnou ohnivou kouli bez ničeho neobvyklého. Uvádí také přibližně stanovenou výšku asi 199 kilometrů od počátečního bodu a zhruba 100 pro konečný bod.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:22"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz zmiňuje nejjasnější historicky zaznamenaný pád meteoritu, který nastal 20. června 1908, a uvádí pro něj odhad světelného výkonu řádu 10^18 až 10^19 ergů za sekundu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:24"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Dr. LaPaz zmiňuje také „texaský pád“ a uvádí, že pravděpodobně nebyl ani 100 000krát tak jasný.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:24"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na stránce je shrnuto hodnocení pozorovaného jevu: mohl by být hmotným tělesem nebo elektronovým jevem; proti meteorickému vysvětlení jsou uváděny zejména dlouhá horizontální dráha a nepřítomnost hluku, přičemž LaPaz říká, že nic podobného nezná z pádů meteoritů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:25"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/04/?release=04#DOE-UAP-D004-Los-Alamos-Conference-on-Aerial-Phenomena-1949"
   },
   {
@@ -5691,8 +7284,71 @@
     "local_sha256": [
       "ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884",
+        "units": 8,
+        "url": "/research/ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "V 1829Z subjekt [začerněno]/[1.4a] pozoroval 1× UAP; další podrobnosti jsou odkázány na „OBSERVATION LINE 1“, která v tomto výřezu chybí.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Ve 12:44 bylo pozorováno 1× U/I letadlo na ranveji letiště Abu Musa Island Airfield.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Ve 13:44 bylo na letišti Abu Musa Island Airfield pozorováno 1× U/I letadlo, vyhodnocené jako ATR 72-500.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V 16:57 byl pozorován 1× „POSS NASER WAP“ zakotvený poblíž „BUSHERH IRIN BOATYARD“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#DOW-UAP-D063-Mission-Report-Strait-of-Hormuz-October-2020"
   },
   {
@@ -5938,8 +7594,71 @@
     "local_sha256": [
       "5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1",
+        "units": 4,
+        "url": "/research/5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Během dvou dnů v říjnu 2023 šest zvláštních agentů federálních bezpečnostních složek oznámilo pozorování „sfér vypouštějících jiné sféry“ poblíž citlivého stanoviště národní bezpečnosti na západě Spojených států přibližně za soumraku. Podle shrnutí se světélkující oranžová „mateřská sféra“ opakovaně objevovala na jednu až dvě sekundy, vypouštěla dvě až čtyři menší červené „sféry“ a mizela; červené „sféry“ měly vykazovat zdánlivě koordinovaný horizontální pohyb, zjevné změny výšky, v jednom případě i nehybný setrvávající stav po několik hodin, a jevy byly popsány jako tiché.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Hlášený jev je na této straně popsán jako tichý, se setrváváním na místě, přičemž oranžová „mateřská koule“ nebo více takových koulí zjevně periodicky „vypouštěly“ menší červené „koule“; popisy agentů byly konzistentní z více pozorovacích úhlů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Stránka shrnuje hlášená pozorování jevů: část aktivity může odpovídat vojenským letounům vypouštějícím infračervené klamné světlice, avšak u části pozorování radarová a ADS-B data neukazují žádné známé letadlo; v nejméně jednom případě byla hlášena červená „koule“ nehybná po několik hodin.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na této stránce je popsáno, že oznamovatelé/agenti sledovali jev z různých úhlů; v některých případech byl popsán nehybný projev jako „setrvávání na místě“ a alespoň jeden z červených „orbů“ měl přetrvávat po dobu několika hodin. Uvádí se také hlášená morfologie „mateřských orbů“.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#DOW-UAP-D077-AARO-Unresolved-Case-Analysis-Update-Western-United-States-Event"
   },
   {
@@ -6408,7 +8127,13 @@
     "local_sha256": [
       "b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f",
+        "units": 25,
+        "url": "/research/b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#DOW-UAP-D084-US-Army-Flying-Saucer-Study_1949"
   },
@@ -7310,8 +9035,29 @@
     "local_sha256": [
       "950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1",
+        "units": 5,
+        "url": "/research/950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Během jízdy po silnici byla 7 mil severně od Tremontonu v Utahu pozorována skupina objektů kroužících v přibližné formaci; text uvádí, že chyběly referenční body pro odhad rychlosti, vzdálenosti a velikosti.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/06/?release=06#DOW-UAP-D103-Project-Blue-Book-Photo-File-Relating-to-Tremonton-Film-Utah-1952"
   },
   {
@@ -7472,8 +9218,43 @@
     "local_sha256": [
       "7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb",
+        "units": 6,
+        "url": "/research/7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Ve 20:26Z při skenování bodu zájmu v okolí částečně začerněných souřadnic posádka periodicky pozorovala UAP létající sporadicky v cílové oblasti 92AS. Podle MTS se pohybovaly rychlostmi 80–180 mph, jejich výšku nebylo možné určit a velikost byla odhadnuta na 1–2 metry. UAP nebránily misi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "V cílové oblasti 92AS byly periodicky pozorovány UAP letící sporadicky; podle textu se pohybovaly různými rychlostmi mezi 80 a 180 MPH, jejich výšku se nepodařilo určit, velikost byla odhadnuta na 1–2 metry a nebránily misi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/06/?release=06#DOW-UAP-D106-Mission-Report-Iraq-2022"
   },
   {
@@ -17687,8 +19468,29 @@
     "local_sha256": [
       "6e05171abaf2e9652035f276b683dab78bf8d0964d66bbed5022be7425bacee3"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "6e05171abaf2e9652035f276b683dab78bf8d0964d66bbed5022be7425bacee3",
+        "units": 1,
+        "url": "/research/6e05171abaf2e9652035f276b683dab78bf8d0964d66bbed5022be7425bacee3.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Na statickém monochromatickém snímku se zaměřovacím křížem je poblíž středu vidět malý tmavý nepravidelný objekt.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A001"
   },
   {
@@ -17739,8 +19541,29 @@
     "local_sha256": [
       "7f7133940153eee809eb6389316bbd1b17bcb29059685c3f2d0e2ef67c4e33b8"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "7f7133940153eee809eb6389316bbd1b17bcb29059685c3f2d0e2ef67c4e33b8",
+        "units": 1,
+        "url": "/research/7f7133940153eee809eb6389316bbd1b17bcb29059685c3f2d0e2ef67c4e33b8.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Na zobrazeném snímku je uprostřed zaměřovače vidět malý tmavý kruhový nebo téměř kruhový útvar na skvrnitém pozadí.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A002"
   },
   {
@@ -17791,7 +19614,13 @@
     "local_sha256": [
       "33fca4826934033f9043827d452bec1b9e3448c04bbcb19ea6d0ce61ee7d1635"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "33fca4826934033f9043827d452bec1b9e3448c04bbcb19ea6d0ce61ee7d1635",
+        "units": 1,
+        "url": "/research/33fca4826934033f9043827d452bec1b9e3448c04bbcb19ea6d0ce61ee7d1635.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A003"
   },
@@ -17843,8 +19672,29 @@
     "local_sha256": [
       "211a0cf5a12935c616541d2536237ca50e23a00e52d035eef4d50343dc997f69"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "211a0cf5a12935c616541d2536237ca50e23a00e52d035eef4d50343dc997f69",
+        "units": 1,
+        "url": "/research/211a0cf5a12935c616541d2536237ca50e23a00e52d035eef4d50343dc997f69.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Na snímku je vidět zaměřovací osnova a malý tmavý přibližně kruhový bod mírně vpravo dole od jejího středu. Další okolnosti pozorování nejsou z tohoto výřezu samy o sobě zjistitelné.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A004"
   },
   {
@@ -17895,7 +19745,13 @@
     "local_sha256": [
       "66b9b9de53f1dc02577773bb9ddc5ca3e8519c9429c1158f6a1519e516d5a0e2"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "66b9b9de53f1dc02577773bb9ddc5ca3e8519c9429c1158f6a1519e516d5a0e2",
+        "units": 1,
+        "url": "/research/66b9b9de53f1dc02577773bb9ddc5ca3e8519c9429c1158f6a1519e516d5a0e2.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A005"
   },
@@ -17947,8 +19803,29 @@
     "local_sha256": [
       "0686b305215d5a6ffe009dfbb06a6c7797d28e34880dfc682f4726ba7db30270"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "0686b305215d5a6ffe009dfbb06a6c7797d28e34880dfc682f4726ba7db30270",
+        "units": 1,
+        "url": "/research/0686b305215d5a6ffe009dfbb06a6c7797d28e34880dfc682f4726ba7db30270.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Na monochromatickém snímku je uprostřed zaměřovací osnovy zachycen malý tmavý přibližně kruhový objekt.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A006"
   },
   {
@@ -18072,7 +19949,13 @@
     "local_sha256": [
       "8554d8c9285918762503bc164a820b9a3731397c3814943e74ae5e1d98bf9c80"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "8554d8c9285918762503bc164a820b9a3731397c3814943e74ae5e1d98bf9c80",
+        "units": 1,
+        "url": "/research/8554d8c9285918762503bc164a820b9a3731397c3814943e74ae5e1d98bf9c80.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#FBI-Photo-A008"
   },
@@ -19565,8 +21448,43 @@
     "local_sha256": [
       "22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f",
+        "units": 2,
+        "url": "/research/22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Svědek uvedl, že v pracovní den na začátku února 2022 on a další čtyři vojáci spatřili nad horou Cheyanne nehybně visící velmi zvláštní objekt. Objekt byl popsán jako matně bílý nebo špinavě bílý, nekovově působící, oválný, ve vodorovné poloze, se zakřiveným vykrojením na spodní straně a „fazolovitého tvaru“. Nebyl slyšet žádný zvuk.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pět mužů pozorovalo objekt, který podle jejich názoru nedriftoval ve větru, protože po dobu přibližně 3–5 minut neměnil polohu vzhledem k sedlu hory. Objekt byl popsán jako pokrytý křížícími se liniemi nebo žebry tvořícími abstraktní polygonální vzor. Po krátkém odvrácení zraku objekt zmizel a svědci jej už znovu nenašli.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D001-FD-302-Unresolved-UAP-Report-Colorado-Springs-2022"
   },
   {
@@ -20264,7 +22182,13 @@
     "local_sha256": [
       "0d38bc499e9bd038abac04160b5480c24b08e9c7e27156b41b8128025fc02ccf"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "0d38bc499e9bd038abac04160b5480c24b08e9c7e27156b41b8128025fc02ccf",
+        "units": 1,
+        "url": "/research/0d38bc499e9bd038abac04160b5480c24b08e9c7e27156b41b8128025fc02ccf.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D014-Digital-Rendering-Narrative-Statement-1-1-Western-United-States-Event-2023"
   },
@@ -20316,7 +22240,13 @@
     "local_sha256": [
       "1a963146cfb52cdfec75068f2996dec57125ed1e7af883a124ff9ee040d9abb7"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "1a963146cfb52cdfec75068f2996dec57125ed1e7af883a124ff9ee040d9abb7",
+        "units": 1,
+        "url": "/research/1a963146cfb52cdfec75068f2996dec57125ed1e7af883a124ff9ee040d9abb7.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D015-Digital-Rendering-Narrative-Statement-1-2-Western-United-States-Event-2023"
   },
@@ -20368,7 +22298,13 @@
     "local_sha256": [
       "b1e7c92ade168f3fee8e9a29bd44a4adb9101f00660510ca97b03e2c89d17b79"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "b1e7c92ade168f3fee8e9a29bd44a4adb9101f00660510ca97b03e2c89d17b79",
+        "units": 1,
+        "url": "/research/b1e7c92ade168f3fee8e9a29bd44a4adb9101f00660510ca97b03e2c89d17b79.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D016-Digital-Rendering-Narrative-Statement-2-1-Western-United-States-Event-2023"
   },
@@ -20420,7 +22356,13 @@
     "local_sha256": [
       "915709912f3612b41870ff6513dd3820d1f6f7b02cf09481f4128cd15b62b6f3"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "915709912f3612b41870ff6513dd3820d1f6f7b02cf09481f4128cd15b62b6f3",
+        "units": 1,
+        "url": "/research/915709912f3612b41870ff6513dd3820d1f6f7b02cf09481f4128cd15b62b6f3.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D017-Digital-Rendering-Narrative-Statement-2-2-Western-United-States-Event-2023"
   },
@@ -20472,7 +22414,13 @@
     "local_sha256": [
       "8bd2f3385d375a75b20abd211bc3e2f232d5fe7c418b3cad457ec571cd1ec10b"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "8bd2f3385d375a75b20abd211bc3e2f232d5fe7c418b3cad457ec571cd1ec10b",
+        "units": 1,
+        "url": "/research/8bd2f3385d375a75b20abd211bc3e2f232d5fe7c418b3cad457ec571cd1ec10b.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D018-Digital-Rendering-Narrative-Statement-2-3-Western-United-States-Event-2023"
   },
@@ -20524,7 +22472,13 @@
     "local_sha256": [
       "623e02b31165d3a59f50ac19169d381750f00f79fedb3a3f762f5e1fc23e4c3d"
     ],
-    "analyses": [],
+    "analyses": [
+      {
+        "sha256": "623e02b31165d3a59f50ac19169d381750f00f79fedb3a3f762f5e1fc23e4c3d",
+        "units": 1,
+        "url": "/research/623e02b31165d3a59f50ac19169d381750f00f79fedb3a3f762f5e1fc23e4c3d.json"
+      }
+    ],
     "events": [],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#FBI-UAP-D019-Digital-Rendering-Narrative-Statement-2-4-Western-United-States-Event-2023"
   },
@@ -21957,8 +23911,43 @@
     "local_sha256": [
       "b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158",
+        "units": 4,
+        "url": "/research/b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Pět příslušníků Armády USA ve Fort Carson pozorovalo vzdušný objekt nad a mírně za siluetou Cheyenne Mountain. Objekt byl popsán jako zhruba o velikosti velkého tryskového letounu, hranatý a nesymetrický, zcela nehybný asi 300–500 stop nad horou, s mírně průsvitným třpytivě bílým vzhledem; po 30–180 sekundách náhle zmizel.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Svědci viděli vzdušný objekt; text současně uvádí, že v době tohoto pozorování nebyla v hoře Cheyenne ani v jejím okolí zaznamenána žádná aktivní letadla nebo balóny.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/03/?release=03#ICA-UAP-D001-Analysis-Colorado-Springs-UAP-Incident-2022"
   },
   {
@@ -22206,8 +24195,435 @@
     "local_sha256": [
       "18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591",
+        "units": 16,
+        "url": "/research/18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Během manévrování posádka hlásí několik velmi jasných částic nebo úlomků, které plují kolem; některé vypadají velké, jasné, zubaté, hranaté a překlápějí se.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Posádka a řídicí středisko probírají jasné fragmenty poblíž kosmické lodi. Fragmenty jsou popsány jako kusy nějakého materiálu, velmi jasné, převážně statické nebo jen velmi pomalu se překlápějící. Zaznívají nejisté úvahy, že by mohlo jít o kusy ledu nebo odlupující se nátěr, snad související se S-IVB či S-II.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "CMP hlásí, že občas přes jeho okénko přeletí úlomek pohybující se podstatně vyšší rychlostí než ostatní.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "03:38",
+        "time_evidence": "00 03 38 01",
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "CMP a LMP hovoří o viditelném poli částic za okénkem; CMP uvádí, že mezi úlomky není patrný žádný vzájemný pohyb.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "03:38",
+        "time_evidence": "00 03 38 01",
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "CDR popisuje pozorované částice jako ploché, vločkám podobné, některé až o velikosti 6 palců; většina podle něj poblikává a zřejmě se vzdalují od kosmické lodi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "03:38",
+        "time_evidence": "00 03 38 01",
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "CMP během procedur po oddělení upozorňuje na viditelný „nepořádek“ slovy „Pane jo, podívej na ten nepořádek!“, bez dalšího upřesnění povahy jevu v tomto výřezu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel popisuje, že během první noci při ležení v posteli pozoroval periferní jevy typu horizontu, několik sérií stop a zvlášť výrazný velmi jasný záblesk mezi očima, přirovnaný ke světlometu vlaku. Současně uvádí, že kvůli ospalému stavu nedokáže odhadnout četnost těchto jevů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel uvádí, že „dnes“ viděl jevy, které se zableskly a osvětlily horizont, a jiné, které se rozsvítily periferně. Pilot velitelského modulu dodává, že před dneškem nic takového nikdy neviděl.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel uvádí, že oni dané jevy či objekty viděli a že podle něj není pochyb, že „tam jsou“; zároveň naznačuje, že je mohl přehlédnout při předchozí cestě.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pilot lunárního modulu sděluje, že zřejmě zahlédl S-IVB za a nad lodí vzhledem k Zemi a směru letu a že při pohledu monokulárem to opravdu vypadá jako S-IVB.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mluvčí uvádí, že sleduje jasný objekt, který podle něj není blízkou částicí; objekt se jeví jako vzdálený a zřejmě rotuje, protože bliká.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel hlásí pravidelně se objevující záblesky a uvádí, že při pohledu zpět k Zemi vidí ve vzdálenosti něco hmotného; následně upřesňuje, že nejde o částici připomínající hvězdu, ale o fyzický objekt v dálce, a posádka se jej snaží zaměřit vzhledem k oknu a osám kosmické lodi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel hlásí pozorovaný jev, který právě prošel určitou rovinou kosmické lodi, a popisuje jeho rytmické střídání velmi jasného a matného záblesku.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "18:51",
+        "time_evidence": "02 18 51 32",
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP uvádí, že pozorovaný objekt podle něj souvisí se stupněm S-IVB a zvonem motoru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "18:52",
+        "time_evidence": "02 18 52 18",
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP popisuje, že před několika otočkami viděl objekt mnohem jasněji a zřejmě z boku, zatímco nyní bliká spíše čelně a není tak jasný; zároveň dodává, že podobného jevu si všímali asi 24 hodin a dříve jej považoval za jinou částici.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "18:55",
+        "time_evidence": "02 18 55 24",
+        "timezone": null,
+        "source_unit": "page:9"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP popisuje oblačnou linii ve tvaru jedle směřující k Havaji s hřibovitým vzorem nahoře a vykládá ji jako rozhraní dvou velkých vzduchových hmot se společným pohybem od jihu k severu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "18:56",
+        "time_evidence": "02 18 56 53",
+        "timezone": null,
+        "source_unit": "page:10"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP uvádí, že za chvíli pravděpodobně uvidí velmi koncentrovanou intenzivní bouři; popis je však přerušen a nedokončen.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "18:58",
+        "time_evidence": "02 18 58 27",
+        "timezone": null,
+        "source_unit": "page:10"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování meteorologické situace nad oblastí Šalomounových ostrovů a Nového Zélandu; mluvčí uvádí těsně stočený bouřkový systém, viditelnost Nového Zélandu, pravděpodobnou vysokou cirrovitou oblačnost nad Jižním ostrovem a poměrně jasný Severní ostrov.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Velitel hlásí dva zábleskující objekty mimo loď. Uvádí, že by mohlo jít o panely SLA, ale není si jistý; objekty mají podobnou intenzitu, poměrně pravidelné jasné a slabé záblesky a jsou od sebe široce oddělené.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "20:55",
+        "time_evidence": "02 20 55 22",
+        "timezone": null,
+        "source_unit": "page:11"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP popisuje, že podle jeho odhadu by cyklonální cirkulace na severním konci oblačného pásma byla zhruba nad Havajskými ostrovy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:12"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP uvádí, že hlavní fronta, o níž dříve mluvili jako o ležící východně a jižně od Japonska, postoupila dál a je asi 20 stupňů zeměpisné délky od Havajských ostrovů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:12"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "CC hlásí, že v havajské oblasti není nic nepříznivého, pouze hodně větru, silné a přízemní větry a drsný povrch, a že tam není žádná špatná oblačnost.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:12"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP uvádí, že bod nulové fáze je soustředěn kousek jižně od poruchy poblíž Šalomounových ostrovů a že nepozoruje zřetelnou změnu jeho intenzity oproti dřívějšku.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:12"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mluvčí potvrzuje poruchu v oblasti Šalomounových ostrovů; další mluvčí uvádí, že dnes je zřetelnější než včera, už dříve vykazovala silnou cirkulaci a začíná se uzavírat.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "21:04",
+        "time_evidence": "02 21 04 23",
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Austrálie je popsána jako obecně velmi jasná, s rozptýlenou oblačností v severovýchodních částech; podle satelitní fotografie z posledních několika dnů to tam vypadá pěkně.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": "Austrálie",
+        "country_evidence": "Australia in general is still very clear except in the northeastern portions where it looks like they have got scattered clouds; but it looks like a pretty night - over Australia.",
+        "time_local": "21:04",
+        "time_evidence": "02 21 04 23",
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pro oblast Hickam a Hilo jsou uvedeny standardní podmínky: rozptýlená oblačnost ve 3500, porušená ve 4500 a možná jedna či dvě dešťové přeháňky; jinak běžná tropická oblačnost.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "21:07",
+        "time_evidence": "02 21 07 05",
+        "timezone": null,
+        "source_unit": "page:13"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Mluvčí uvádí, že stále sledují Oceanus Procellarum a že se v okénku 3 na severozápadě začíná objevovat Grimaldi, popsaný jako velmi nápadná tmavá oblast a jedna z nejtmavších oblastí měsíčního moře, které viděli; oblast je přinejmenším na fotografiích srovnána s Tsiolkovským.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "15:33",
+        "time_evidence": "03 15 33 25",
+        "timezone": null,
+        "source_unit": "page:14"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP popisuje vizuální vzhled měsíčního povrchu v zemském svitu: jas vysočin západně od Procellara, kontrast čerstvých kráterů, útvar Rima Gamma a světlé víry v měsíčních mořích.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "15:33",
+        "time_evidence": "03 15 33 44",
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP popisuje západní okraj moře Procellarum poblíž Grimaldiho jako velmi nepravidelný a uvádí, že začíná vidět stíny v kráterech.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": "15:36",
+        "time_evidence": "03 15 36 35",
+        "timezone": null,
+        "source_unit": "page:15"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "LMP hlásí, že spatřil záblesk na měsíčním povrchu severně od Grimaldiho, později upřesněný jako jasný malý záblesk a tenký pruh světla poblíž kráteru severně od okraje Grimaldiho.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:16"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#NASA-UAP-D002-Apollo-17-Transcript-1972"
   },
   {
@@ -22353,8 +24769,155 @@
     "local_sha256": [
       "aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443",
+        "units": 11,
+        "url": "/research/aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Aldrin uvádí, že první neobvyklou věc, kterou viděli, spatřili asi jeden den po odletu nebo poměrně blízko Měsíce; objekt měl značný rozměr, a proto na něj použili monokulár.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Posádka popisuje pozorování jasnějšího objektu viditelného z okna. Uvažovala, že by mohlo jít o S-IVB, ale objekt se jim přes monokulár jevil jako trochu ve tvaru písmene L, „jako otevřený kufr“, a zdál se být v jejich blízkosti a značných rozměrů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:3"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Posádka probírá dřívější pozorování objektu, jehož tvar byl obtížně určitelný. Pouhým okem byl na hranici rozlišovací schopnosti; v rozostřeném sextantu se jevil jako válec, případně jako dva spojené prstence. Collins jej popisuje jako dutý válec, který se přetáčel a při změně zaostření vypadal jako tvar otevřené knihy.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Posádka rozebírá dříve pozorovaný objekt. Uvádí, že v určitém období se domnívali, že má tvar válce, zvažovali souvislost se S-IVB, ale nedospěli k závěru, co objekt byl, jak byl velký ani jak daleko byl. Jsou si poměrně jisti, že nešlo o součást vypouštění moči, a připouštějí možnost, že mohlo jít o materiál uvolněný z LM nebo jiné části kosmické lodi, například mylar, panel či část vysoce ziskové antény.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Aldrin popisuje opakované malé záblesky uvnitř kabiny pozorované při zhasnutých světlech, později také dvojité záblesky a někdy čáru bez směru pohybu; předběžně odhaduje, že by mohlo jít o průnik nějakého objektu do kosmické lodi, ale bez větší opory pro tento závěr.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:6"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozorování drobných světelných jevů uvnitř kosmické lodi, které Aldrin odlišuje od jisker statické elektřiny a u nichž zvažuje, zda nesouvisely se směrem Slunce; Armstrong uvádí, že podobné světlo také viděl, ale přisuzoval je pronikání slunečního světla kolem okenních krytů.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:7"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Aldrin popisuje opakované záblesky viděné v kabině; někdy po minutě až dvou, někdy dva během 10 sekund, přibližně asi jeden za minutu. Uvádí, že to nebyl optický klam. Armstrong jako možné vysvětlení navrhuje neutron nebo jinou atomární částici ve viditelném spektru.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:8"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Při návratu od Měsíce bylo zaznamenáno jedno drobné pozorování: obraz Marsu se zdál přicházet z oblasti, odkud přicházet nemohl, protože byl v temné části Měsíce; pozorovatel to výslovně hodnotí jako optickou iluzi.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:10"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Na oběžné dráze kolem Měsíce po vzletu, při přibližování k CDH a když Země vystoupila nad měsíční horizont, byl pozorován zřejmě poměrně jasný zdroj světla; popis na této stránce končí uprostřed věty.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:10"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Při návratu ve velitelském modulu během přibližování k Zemi posádka pozorovala jasný zdroj světla. Po použití monokuláru se jevil jako odraz Slunce od poměrně hladké vodní plochy, například jezera, spíše než jako laser, i když mluvčí jej nadále považuje za neobvyklý kvůli jeho jasnosti na takovou vzdálenost.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:11"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#NASA-UAP-D004-Apollo-11-Technical-Crew-Debriefing-1969"
   },
   {
@@ -24179,8 +26742,99 @@
     "local_sha256": [
       "bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb",
+        "units": 2,
+        "url": "/research/bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Vypravěč uvádí, že po radarovém upozornění z JOC změnili kurz a následovala série blízkých setkání s UAP trvající déle než hodinu.",
+        "year": 2025,
+        "year_evidence": "In late 2025, during early evening daylight hours, I – a senior U.S. intelligence officer – along with a colleague and two pilots, departed our Joint Operations Center (JOC) in a helicopter.",
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Pozemní týmy podle textu na FLIR pozorovaly UAP popsané jako „super-hot“, nízko nad zemí, pohybující se vysokou rychlostí na východ a poté na jih; objekt se měl rozdělit na dva a později se přiblížit k vrtulníku.",
+        "year": 2025,
+        "year_evidence": "In late 2025, during early evening daylight hours, I – a senior U.S. intelligence officer – along with a colleague and two pilots, departed our Joint Operations Center (JOC) in a helicopter.",
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:1"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Svědek uvádí, že v dálce pozorovali nespočet oranžových koulí rojících se do všech směrů na pozadí hory po několik minut.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Při visení přibližně 700 stop AGL svědek a piloti pozorovali dvě velké oválné oranžové koule s bílým nebo žlutým středem, nehybné blízko vrtulníku nad rovinou rotoru po pravé straně; následně se pod nimi rozsvítily další koule do útvaru „T“ a po 10–15 sekundách zmizely.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Svědek uvádí, že přímo nad stíhacími letouny se objevoval stejný typ koulí, které se rozsvěcovaly jedna po druhé ve vodorovné formaci, odpovídaly rychlosti i letové dráze stíhaček a po 10–15 sekundách mizely; to se několikrát opakovalo.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Svědek dále uvádí, že kolem vrtulníku několik minut pozorovali oranžové koule rozhořívající se a zhasínající tak, že před zmizením vytvořily zřetelný trojúhelník.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/02/?release=02#ODNI-UAP-D001-USPER-Narrative-Senior-USIC-Official"
   },
   {
@@ -24481,8 +27135,29 @@
     "local_sha256": [
       "e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819",
+        "units": 5,
+        "url": "/research/e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Prezident UOU Ovezberdy Muradov uvedl, že s ním turkmenská armáda a vládní orgány konzultovaly záhadné jevy v turkmenském vzdušném prostoru, ale že v Turkmenistánu nebyla žádná potvrzená pozorování UFO.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:2"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#State-Department-UAP-Cable-004-Ashgabat-Turkmenistan-November-5-2004"
   },
   {
@@ -24532,8 +27207,99 @@
     "local_sha256": [
       "257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f"
     ],
-    "analyses": [],
-    "events": [],
+    "analyses": [
+      {
+        "sha256": "257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f",
+        "units": 7,
+        "url": "/research/257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f.json"
+      }
+    ],
+    "events": [
+      {
+        "kind": "observation",
+        "description_cs": "Zločinci zavraždili v Chilpancingu státního delegáta FGR v Guerreru Fernanda Garcíu Fernándeze při jízdě do kanceláře; první zprávy uváděly koordinovanou střelbu ze dvou vozidel.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"Criminals assassinated the state delegate of the Federal Attorney General's Office (FGR) in Guerrero, Fernando Garcia Fernandez, while he drove his vehicle to his office in Chilpancingo September 12.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Text uvádí, že během jednoho týdne v polovině září byli v Guerreru zabiti dva žalobci, po útocích na další dva v červenci a srpnu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"Criminals killed two Guerrero prosecutors within a week's time mid-September following attacks against two other prosecutors in July (ref B) and August.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Zločinci unesli z domu další osobu a poté ji zabili, ale věta je na této stránce nedokončená a identita oběti zde není uvedena.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:4"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Podle textu bylo v Coyuca de Catalán nalezeno tělo regionálního prokurátora generální prokuratury státu Guerrero pro region Tierra Caliente, Víctora Manuela Salase Cuadrase, s přibližně 50 střelnými ranami.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"in Coyuca de Catalan September 9, according to Proceso. Security officials found Salas' body with approximately 50 gunshot wounds.\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Média uvedla, že při samostatném incidentu z konce srpna uneslo 20 ozbrojených komandos Patricii Jacqueline Salgado, nedávno jmenovanou vedoucí prokurátorku FGE v Coyuca de Catalán; úřady ji později nalezly živou.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": "\"In a separate late August incident, media reported 20 armed commandos kidnapped Patricia Jacqueline Salgado\"",
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      },
+      {
+        "kind": "observation",
+        "description_cs": "Experti při slyšení uvedli a předložili Kongresu dvě údajná těla mimozemšťanů a videa setkání mexických pilotů s rychle se pohybujícími létajícími objekty během letu.",
+        "year": null,
+        "year_evidence": null,
+        "date_iso": null,
+        "date_evidence": null,
+        "country_cs": null,
+        "country_evidence": null,
+        "time_local": null,
+        "time_evidence": null,
+        "timezone": null,
+        "source_unit": "page:5"
+      }
+    ],
     "war_gov_search_url": "https://www.war.gov/UFO/release/01/?release=01#State-Department-UAP-Cable-005-Mexico-September-16-2003"
   },
   {

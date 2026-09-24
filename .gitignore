@@ -10,3 +10,6 @@ env/
 .env
 backend/incoming_data/*
 !backend/incoming_data/.gitkeep
+.env.*
+!.env.example
+backend/local_state/

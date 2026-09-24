@@ -1,0 +1,6 @@
+# Offline archive inventory and extraction only; no cloud credentials required.
+pymupdf>=1.24,<2
+opencv-python-headless>=4.10,<6
+openai>=1.68,<4
+pydantic>=2,<3
+python-dotenv>=1,<2

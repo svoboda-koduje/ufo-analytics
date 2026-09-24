@@ -1,0 +1,90 @@
+<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UAP · Česká badatelna</title><style>
+:root{color-scheme:light;font:15px/1.55 system-ui;color:#182b3b;background:#edf2f5}*{box-sizing:border-box}body{margin:0}header{padding:25px 32px;background:#102f42;color:white}header p{color:#b5cddc;margin:5px 0}h1{margin:0;font-size:28px}.bar{padding:18px 32px;background:white;display:flex;gap:12px;align-items:center;flex-wrap:wrap}input[type=search]{font:inherit;padding:12px;border:1px solid #adbdc8;border-radius:6px;flex:1;min-width:220px}button{font:inherit;background:#087c83;color:white;border:0;border-radius:6px;padding:10px 16px;cursor:pointer}button:disabled{opacity:.5;cursor:wait}main{display:grid;grid-template-columns:340px minmax(0,1fr);gap:20px;padding:20px 32px}aside{max-height:78vh;overflow:auto}#detail{min-width:0}article,.card{background:white;border-radius:10px;padding:18px;margin-bottom:12px}aside button{display:block;background:white;color:#213f51;text-align:left;width:100%;margin-bottom:8px;border:1px solid #d3dfe6;overflow-wrap:anywhere}aside button.active{border:2px solid #087c83;background:#e1f3f1}small,.muted{color:#5e7280;overflow-wrap:anywhere}h2{font-size:20px;overflow-wrap:anywhere;margin-top:0}.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}.pair img{width:100%;height:auto;border:1px solid #d7e2e8}.text{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.65 system-ui}.tag{display:inline-block;background:#e5f2ed;padding:3px 8px;border-radius:4px;font-size:12px;margin-right:6px}.note{border-left:4px solid #c48d21;padding:12px;background:#fff8e9}.metrics{font-size:13px;color:#526772}#status{padding:0 32px 12px;background:white}summary{cursor:pointer;padding:8px 0}label{cursor:pointer}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.hit{display:block;text-align:left;background:#e3edf4;color:#23485c;width:100%;margin:8px 0}a{color:#087c83}.empty{padding:45px;text-align:center;color:#607585}@media(max-width:900px){main{grid-template-columns:1fr;padding:14px}aside{max-height:280px}.pair{grid-template-columns:1fr}header,.bar{padding:18px}}
+
+.filters{padding:0 32px 16px;background:white;display:flex;gap:12px;flex-wrap:wrap}
+.filters label{font-size:12px;color:#526772;display:flex;flex-direction:column;gap:4px}
+.filters input,.filters select{padding:8px;border:1px solid #adbdc8;border-radius:5px;font:14px system-ui;background:white;color:#182b3b}
+.filters input[type=number]{width:100px}.coverage{padding:0 32px 12px;background:white;font-size:13px;color:#526772}
+.intro{border-top:4px solid #087c83}.context{background:#eff6f8;padding:12px;border-radius:6px}
+.research{font-size:16px;line-height:1.75}.research h3{margin-bottom:8px}.event{border-left:3px solid #087c83;padding:10px 14px;background:#eff6f8;margin:10px 0}
+.secondary{background:#e1ebef;color:#244556}.pair img{position:sticky;top:10px}.source{margin-top:16px;border-top:1px solid #d7e2e8;padding-top:8px}.pill{padding:2px 7px;border-radius:4px;background:#dcefea;color:#175c50;font-size:12px}
+@media(max-width:900px){.filters,.coverage{padding-left:18px;padding-right:18px}.pair img{position:static}}
+</style>
+<header><h1>UAP / UFO · Česká badatelna</h1><p>České čtení archivních pramenů, souvislosti a doložené události.</p></header>
+<div class="bar"><input id="search" type="search" placeholder="Hledat česky i v původních dokumentech…" aria-label="Vyhledávání"><button id="find">Vyhledat</button><span id="count"></span></div>
+<div class="filters">
+<label>Rok události od<input id="year_from" type="number" min="1" max="9999"></label>
+<label>Rok události do<input id="year_to" type="number" min="1" max="9999"></label>
+<label>Země události<select id="country"><option value="">Všechny země</option></select></label>
+<label>Čas ve zdroji od<input id="time_from" type="time"></label>
+<label>Čas ve zdroji do<input id="time_to" type="time"></label>
+<label>Typ zdroje<select id="kind"><option value="">Všechny typy</option><option value="pdf">PDF</option><option value="image">Obrázek</option><option value="video">Video</option></select></label>
+<label>Český obsah<select id="ready"><option value="">Všechny soubory</option><option value="yes">Alespoň část připravena</option><option value="no">Zatím nepřipraven</option></select></label>
+<button id="reset" class="secondary">Zrušit filtry</button></div>
+<div id="coverage" class="coverage"></div><div id="status" role="status">Načítám uložené výsledky…</div>
+<main><aside id="catalog"></aside><div id="detail"><article class="empty">Vyberte soubor. Hotový český obsah se načítá bez čekání na AI.</article></div></main>
+<script>
+const token='__SESSION_TOKEN__';
+let selected=null,currentPage=1,polling=false,searchSeq=0,detailSeq=0;
+const filterIds=['year_from','year_to','country','time_from','time_to','kind','ready'];
+const $=id=>document.getElementById(id);
+const node=(tag,text,cls)=>{const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(cls)e.className=cls;return e;};
+const plural=(n,a,b,c)=>n+' '+(n===1?a:n>=2&&n<=4?b:c);
+const sourceName=k=>k.startsWith('page:')?'Strana '+k.split(':')[1]:'Snímek '+k.split(':')[1];
+async function api(url,options){const r=await fetch(url,options);const data=await r.json();if(!r.ok)throw Error(data.error||'Chyba požadavku');return data;}
+function sourceLink(sha,key,label){const b=node('button',label||sourceName(key),'secondary');b.onclick=async()=>{await detail(sha,key.startsWith('page:')?Math.ceil(Number(key.split(':')[1])/20):1);document.getElementById('unit-'+key)?.scrollIntoView({behavior:'smooth'});};return b;}
+async function catalog(preserveDetail=false){
+ const seq=++searchSeq;const params=new URLSearchParams({q:$('search').value});for(const id of filterIds)if($(id).value)params.set(id,$(id).value);
+ try{const d=await api('/api/assets?'+params);if(seq!==searchSeq)return;
+ $('count').textContent=plural(d.assets.length,'soubor','soubory','souborů');
+ const country=$('country').value;$('country').replaceChildren(new Option('Všechny země',''));for(const c of d.countries)$('country').add(new Option(c,c));$('country').value=country;
+ $('coverage').textContent='Český obsah: '+d.coverage.files_with_czech+' souborů alespoň zčásti. Filtry událostí pokrývají jen již zpracované a citací doložené údaje; neznámé údaje se při filtrování vynechají. Čas se porovnává tak, jak je uveden ve zdroji, bez převodu pásem; pásmo ověřte v detailu. Rozpočet dávky: '+d.budget.accounted_usd.toFixed(3)+' / '+d.budget.limit_usd.toFixed(2)+' USD.';
+ $('catalog').replaceChildren();for(const a of d.assets){const b=node('button',undefined,a.sha256===selected?'active':'');b.dataset.sha=a.sha256;b.append(node('strong',a.name),node('br'),node('small',({pdf:'PDF',image:'Obrázek',video:'Video'}[a.kind]||a.kind)+' · '+(a.pages?plural(a.pages,'strana','strany','stran'):a.kind==='video'?Math.round(a.seconds||0)+' s':'obrázek')),node('br'),node('span',a.czech_units?'Česky: '+(a.kind==='pdf'?a.czech_units+' / '+a.pages+' stran':a.kind==='video'?plural(a.czech_units,'snímek','snímky','snímků'):'obrazový rozbor')+(a.czech_partial_units?' · místy nečitelné':''):'Český obsah zatím nepřipraven',a.czech_units?'pill':'muted'));b.onclick=()=>detail(a.sha256,1);$('catalog').append(b);}
+ if(!d.assets.length)$('catalog').append(node('p','Žádná shoda v dosud zpracovaných údajích. Zrušte nebo rozšiřte filtry.'));
+ if(!preserveDetail){
+  const eventMatches=d.assets.flatMap(a=>a.matching_events.map(e=>({...e,sha:a.sha256,name:a.name})));
+  if(eventMatches.length){const box=node('article');box.append(node('h2','Události odpovídající všem filtrům'));for(const e of eventMatches){const c=node('div',undefined,'event');c.append(node('strong',e.name),node('p',e.description_cs),node('p',[e.year,e.country_cs,e.time_local,e.timezone].filter(x=>x!==null).join(' · ')),sourceLink(e.sha,e.source_unit));box.append(c);}$('detail').replaceChildren(box);}
+  else if(d.hits.length){const box=node('article');box.append(node('h2','Shody v textu (nejvýše '+d.hit_limit+')'));for(const h of d.hits){const name=d.assets.find(a=>a.sha256===h.sha256)?.name||'';const b=sourceLink(h.sha256,h.unit_key,name+' · '+sourceName(h.unit_key)+' · '+h.excerpt);b.className='hit';box.append(b);}$('detail').replaceChildren(box);}
+  else if(params.size>1||$('search').value){$('detail').replaceChildren(node('article','Vyberte soubor z filtrovaného seznamu.'));}
+ }
+ }catch(e){$('status').textContent=e.message;}
+}
+function eventCard(e){const c=node('div',undefined,'event');c.append(node('strong',e.description_cs),node('p','Událost: '+(e.date_iso||e.year||'datum neuvedeno')+' · '+(e.country_cs||'země neuvedena')+' · '+(e.time_local||'čas neuveden')+(e.timezone?' '+e.timezone:'')));
+ const evidence=node('details');evidence.append(node('summary','Citace pro kontrolu údajů'));for(const [field,label] of [['year_evidence','Rok'],['date_evidence','Datum'],['country_evidence','Země'],['time_evidence','Čas']])if(e[field])evidence.append(node('p',label+': „'+e[field]+'“'));c.append(evidence);return c;}
+async function detail(sha,page){
+ selected=sha;currentPage=page;const seq=++detailSeq;
+ try{const d=await api('/api/asset/'+sha+'?page='+page);if(seq!==detailSeq)return;
+ for(const b of $('catalog').querySelectorAll('button'))b.classList.toggle('active',b.dataset.sha===sha);
+ const root=$('detail');root.replaceChildren();const head=node('article',undefined,'intro');head.append(node('h2',d.name));
+ head.append(node('p',d.research.ready?'České zpracování: '+d.research.ready+' / '+d.count+(d.metadata.kind==='video'?' snímků. ':' stran/obrázků. ')+(d.research.partial?'Část přepisu je nečitelná. ':'')+'Strojové zpracování bez odborné revize.':'Český obsah tohoto souboru ještě nebyl připraven. Po prvním zpracování zůstane uložený a další čtení bude okamžité.','note'));
+ if(d.metadata.kind==='video')head.append(node('p','Zobrazené popisy se týkají pouze vybraných snímků. Zvuk a pohyb mezi snímky nejsou vyhodnoceny.','note'));
+ const actions=node('div',undefined,'actions');const run=node('button','Připravit české čtení a rozbor');run.disabled=d.budget.remaining_usd<=0;
+ run.onclick=()=>start(sha,'research',false,run);actions.append(run);head.append(actions);
+ head.append(node('p','Čtení uložených výsledků je bez dalších API volání. Příprava odešle text a náhledy do OpenAI a čerpá ze schváleného limitu '+d.budget.limit_usd.toFixed(2)+' USD.','muted'));
+ const tech=node('details');tech.append(node('summary','Originál, OCR a technické údaje'));const force=document.createElement('input');force.type='checkbox';const label=node('label');label.append(force,document.createTextNode(' Znovu číst obraz i přes existující textovou vrstvu'));const local=node('button','Zpracovat místně (bez API)','secondary');local.onclick=()=>start(sha,'analyze',force.checked,local);tech.append(node('p','SHA-256: '+sha,'muted'),label,node('p','Nové OCR zneplatní překlady odvozené ze starého přepisu.','muted'),local);head.append(tech);root.append(head);
+ if(d.source){const s=d.source,t=s.translation;const info=node('article');info.append(node('h2','Popis vládního katalogu'),node('p',t?.title_cs||s.asset_file_name));const link=node('a','Otevřít originální záznam ↗');link.href=s.source_url;link.target='_blank';link.rel='noopener noreferrer';info.append(link,node('p','Český překlad popisu vydavatele, nikoli nezávislý závěr ani překlad celého souboru.','note'),node('p',t?.description_cs||'Český katalogový popis zatím není připraven.','text'));const en=node('details');en.append(node('summary','Původní anglický popis'),node('p',s.description_en,'text'));info.append(en);root.append(info);}
+ if(d.dossier){const overview=node('article',undefined,'intro');overview.append(node('span','Přehled celého zpracovaného zdroje','tag'),node('h2','O čem soubor pojednává'),node('p',d.dossier.overview_cs,'text'),node('p',d.dossier.context_cs,'context'));for(const f of d.dossier.findings){const point=node('div',undefined,'event');point.append(node('p',f.text_cs));for(const key of f.source_units)point.append(sourceLink(sha,key));overview.append(point);}if(d.dossier.limitations_cs.length){const limits=node('details');limits.append(node('summary','Omezení souhrnu'));for(const t of d.dossier.limitations_cs)limits.append(node('p',t));overview.append(limits);}root.append(overview);}
+
+ if(!d.units.length)root.append(node('article','Stránky/snímky se připraví při prvním zpracování.'));
+ for(const u of d.units){const card=node('article');card.id='unit-'+u.key;card.append(node('h2',u.page?'Strana '+u.page:'Snímek v čase '+u.timestamp_seconds.toFixed(2)+' s'));
+ const pair=node('div',undefined,'pair'),picture=node('div'),words=node('div',undefined,'research');
+ if(u.has_preview){const img=document.createElement('img');img.loading='lazy';img.alt=u.page?'Originál strany '+u.page:'Zdrojový videosnímek';img.src='/api/preview?'+new URLSearchParams({sha,key:u.key,version:u.version});picture.append(img);}else picture.append(node('p','Náhled vytvoří příprava českého čtení.','muted'));
+ if(u.research){for(const [i,r] of u.research.parts.entries()){
+  if(u.research.parts.length>1)words.append(node('h3','Část '+(i+1)+' / '+u.research.parts.length));
+  words.append(node('span','Český rozbor','tag'),node('h3','Co tato část obsahuje'),node('p',r.summary_cs),node('p',r.context_cs,'context'));
+  if(r.document_date)words.append(node('p','Datum dokumentu: '+r.document_date+' (není automaticky datem události)','muted'));
+  if(r.observations_cs.length){const ul=node('ul');for(const t of r.observations_cs)ul.append(node('li',t));words.append(ul);}
+  for(const e of r.events)words.append(eventCard(e));
+  words.append(node('h3',r.translation_status==='no_text'?'Obraz bez čitelného textu':r.translation_status==='partial'?'Český překlad · nečitelné části označeny':'Český překlad'),node('div',r.translation_cs||'Zdroj neobsahuje rozpoznatelný text. Popis obrazu je uveden výše.','text'));
+  if(r.limitations_cs.length){const limits=node('div',undefined,'note');limits.append(node('strong','Co ze zdroje nelze spolehlivě určit'));for(const t of r.limitations_cs)limits.append(node('p',t));words.append(limits);}
+ }}else words.append(node('p','České čtení této stránky/snímku ještě není připravené. Použijte tlačítko nahoře.','note'));
+ const original=node('details',undefined,'source');original.append(node('summary','Původní text a OCR pro kontrolu'));if(u.text)original.append(node('h3','Původní textová vrstva'),node('div',u.text,'text'));const a=u.analysis;if(a){if(a.ocr.text)original.append(node('h3','OCR přepis'),node('div',a.ocr.text,'text'));if(a.ocr.mean_confidence!=null)original.append(node('p','Skóre OCR '+a.ocr.mean_confidence+'/100','muted'));if(a.ocr.error)original.append(node('p','OCR této jednotky selhalo.','note'));const m=a.metrics;original.append(node('p','Náhled: '+m.width_pixels+' × '+m.height_pixels+' px · jas '+m.mean_brightness_0_255+' · kontrast '+m.contrast_stddev,'metrics'),node('p',m.note,'metrics'));}words.append(original);pair.append(picture,words);card.append(pair);root.append(card);
+ }
+ const nav=node('article'),prev=node('button','Předchozí'),next=node('button','Další');prev.disabled=page<=1;next.disabled=page*20>=d.count;prev.onclick=()=>detail(sha,page-1);next.onclick=()=>detail(sha,page+1);nav.append(prev,document.createTextNode(' Přehled '+page+' / '+Math.max(1,Math.ceil(d.count/20))+' '),next);root.append(nav);
+ }catch(e){$('status').textContent=e.message;}
+}
+async function start(sha,kind,force,button){button.disabled=true;try{await api('/api/'+kind+'/'+sha,{method:'POST',headers:{'Content-Type':'application/json','X-Local-Token':token},body:JSON.stringify({force})});$('status').textContent='Příprava zahájena. Výsledky se ukládají průběžně.';poll();}catch(e){$('status').textContent=e.message;}finally{button.disabled=false;}}
+async function poll(){if(polling)return;polling=true;try{let j;do{j=await api('/api/job');$('status').textContent=j.state==='idle'?'Uložené české výsledky se zobrazují bez dalšího generování.':j.message;if(j.state==='running')await new Promise(r=>setTimeout(r,1500));}while(j.state==='running');if(j.sha256){await catalog(true);if(selected===j.sha256)await detail(selected,currentPage);}}catch(e){$('status').textContent=e.message;}finally{polling=false;}}
+$('find').onclick=()=>catalog();$('search').addEventListener('keydown',e=>{if(e.key==='Enter')catalog();});for(const id of filterIds)$(id).onchange=()=>catalog();$('reset').onclick=()=>{for(const id of filterIds)$(id).value='';$('search').value='';catalog();};catalog();poll();
+</script></html>

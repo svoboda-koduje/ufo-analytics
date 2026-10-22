@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-22",
+  "pdf_files": 267,
+  "pdf_pages": 11264,
+  "saved_pdf_pages": 10105,
+  "complete_pdf": 262,
+  "remaining_pdf_pages": 1159,
+  "remaining_pdf_dossiers": 5,
+  "partial_readability_pdf_pages": 3765,
+  "source_records": 447,
+  "release06_records": 72,
+  "exported_files": 282,
+  "exported_units": 10124,
+  "api_calls_this_release": 0,
+  "structural_audit_errors": 0,
+  "structural_audit_warnings": 1
+}

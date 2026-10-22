@@ -4,7 +4,7 @@ export type SourceRecord = {
  release:string; release_date:string; agency:string; incident_date:string; incident_location:string;
  document_type:string; description_en:string; related_ids:string[]; local_filenames:string[]; catalog_years?:number[];
  translation?:{title_cs:string; description_cs:string; location_cs:string; country_cs:string|null; country_evidence:string|null; category:string; date_kind:string};
- analyses?:{sha256:string;units:number;url:string}[];
+ analyses?:{sha256:string;units:number;url:string;complete?:boolean;expected_units?:number|null;partial_units?:number;scope?:string}[];
  events?:{year:number|null;time_local:string|null;timezone?:string|null;country_cs:string|null;description_cs:string}[];
 };
 export const records=data as unknown as SourceRecord[];

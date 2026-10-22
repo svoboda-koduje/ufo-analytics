@@ -1,0 +1,1877 @@
+{
+  "batch_id": "all-pdf-approved-500",
+  "scope": "All 267 PDFs; existing complete dossiers reused; images and videos excluded.",
+  "total_limit_usd": 500,
+  "pages": 11264,
+  "files": [
+    {
+      "sha": "968c266f780e1f69abf1bca70aa0edcb094bc61c38d6743e01de335775af347c",
+      "name": "059UAP00011.pdf",
+      "pages": 5,
+      "ready_pages": 5,
+      "dossier": true
+    },
+    {
+      "sha": "e1b27f7e274549e540de4cf77f9aae131cedcf3847819edd594a9825c4cad819",
+      "name": "059UAP00012.pdf",
+      "pages": 5,
+      "ready_pages": 5,
+      "dossier": true
+    },
+    {
+      "sha": "257e2388f838975fcee0b00a381059e903e64018b7aafb7a12e5392437154f5f",
+      "name": "059UAP00013.pdf",
+      "pages": 7,
+      "ready_pages": 7,
+      "dossier": true
+    },
+    {
+      "sha": "373070ab867b592e5d76cd063f50887a00b7653d2ae4b86a6d988155ecd7c993",
+      "name": "18_100754_ General 1946-7_Vol_2.pdf",
+      "pages": 28,
+      "ready_pages": 28,
+      "dossier": true
+    },
+    {
+      "sha": "5479dd8f1138ef43c8bcf51481fe83df06d1704bdc54244d893c21cf0aad926f",
+      "name": "18_6369445_General_1948_Vol_1.pdf",
+      "pages": 28,
+      "ready_pages": 28,
+      "dossier": true
+    },
+    {
+      "sha": "b18179d90564ecae48fbca58e945894633ac9c37f49f5781a9406a389b457663",
+      "name": "2024-04-30-Composite-Sketch.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b6a51b4cd1c09ff6ab811422d1af98173d1a2ba9193ee426b9b060e4cb9eea30",
+      "name": "255_413270_UFO's_and_Defense_What_Should_we_Prepare_For.pdf",
+      "pages": 94,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1fe6258aa15843c8b5fba5dfc7da7b1939113201ab6710a183209c942790a6e0",
+      "name": "255_t_763_r1b_transcripts.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d64b69da88d045bb6aab4360ef7532b03b38a4950f98ca5656d728ea4cbdbc90",
+      "name": "331_120752_Numeric_Files_1944–1945_37153_German_Armament_Equipment_Documents.pdf",
+      "pages": 17,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "fc5b1c8ab566157080d8137cdbbbf7f2c3d74e7e1fae52d49dcd5c44b06237ba",
+      "name": "341_110448_Records_Relating_to_the_Collection_and_Dissemination_of_Intelligence_1948-1955-TS_CONT_No.2_2-5300-2-5399.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "10e3ba274b83d7733c2f7fac755656cc427930b647f003b7a367b58f520cb078",
+      "name": "341_110677_Numerical_File_5-2500.pdf",
+      "pages": 10,
+      "ready_pages": 10,
+      "dossier": true
+    },
+    {
+      "sha": "9d159600731338100b6b9c8565971b68aac644476fd766ade9d6bf126cfd3c7b",
+      "name": "342_HS1-416511228_box186_319.1-Flying-Discs-1949.pdf",
+      "pages": 143,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c1c48d35943e6522fc285592453136526b6e41fed23b61a0e81ac61b68d8bde6",
+      "name": "38_143685_box7_Incident_Summaries_1-100.pdf",
+      "pages": 209,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "23482936d9dbf8dee014f3b0e1e12462731e617894c724aca6bcb688a01e277c",
+      "name": "38_143685_box7_Incident_Summaries_101-172.pdf",
+      "pages": 178,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b24365329f506d92acfae313f0ed3aef2060de17d72bf61b6c91bc035bf7dd95",
+      "name": "38_143685_box7_Incident_Summaries_173-233.pdf",
+      "pages": 144,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "cddcc196385c373ef7fd55fee4c196bfad531860a05777786cf6d90a2fd7dabd",
+      "name": "59_214434_SP_16_[7.18.1963].pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2539850305227baf0b3bb487cbf41f5834eca2b188dc2d65849fdb06b683bd13",
+      "name": "59_64634_711.5612[7-2852.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "36b00fdf99e456dff9a507db7fd90fadb995db235650966f14b77279095fcc6a",
+      "name": "65_HS1-101634279_100-DE-18221_Serial_844.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3fc7a74876b36b328bca96953fd73049b063cc0b50ad412c7a32900c83539d89",
+      "name": "65_HS1-101634279_100-DE-26505.pdf",
+      "pages": 15,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6768eb6e15f7566057b77aad159767ca87e2846493a645e015ad8e06fdb759be",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_1.pdf",
+      "pages": 185,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b13552c6b558408ef1e28a46158e6a45a62d74c3aac6074f74abb23bcab76fbe",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_10.pdf",
+      "pages": 184,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b79da2d091ae8e1637f58d91602758feef2341aba3c90addd9c1487cdef58109",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_2.pdf",
+      "pages": 194,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ba72ac1879acea2f3c87f6bf40983f3b5f39f03038e1b59f907d136b0f02eab4",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_3.pdf",
+      "pages": 190,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c3a722892229c6da31db714aabfbe19ad86b82732258114a596cc076ea69d526",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_4.pdf",
+      "pages": 214,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ed97686fb1301e3a12e19d91f833f31da5b97065ef85560fc6d8fce7b7c2265d",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_5.pdf",
+      "pages": 209,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7620094802463bc97ea365b0e15438dd236739db15f0edc689aebd83a9f6a938",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_6.pdf",
+      "pages": 271,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "350806816e58095e0a8f89808fc1af246d6c9a005e63e49e28829b040963a5c2",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_7.pdf",
+      "pages": 205,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ad2fd32949337143a56a9089a193e22f953edb28b1ee07a9ad8c5330bb1b9aa1",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_8.pdf",
+      "pages": 217,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c0a322f3544e3ba6c95257b89b2fd3aec3249c7a5d8f419e3f1826facea40a08",
+      "name": "65_HS1-834228961_62-HQ-83894_Section_9.pdf",
+      "pages": 290,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "77043137eec2494bbeeb945c2cf8674ce343617e3c4d14ab17a69806c58dae6a",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_130.pdf",
+      "pages": 126,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0df8c23b9c7710c849ebffc9d17edf3299e3f2876554ac8aa64bc5822e97150c",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_153.pdf",
+      "pages": 9,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "fafb11efae96654a947177809349c9e10d0149d87c23f5f3af18a57e0b5dfae3",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_164.pdf",
+      "pages": 137,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a61357a986698132d1704002b5eea63f687be0ef214013941fe670da1a9d3914",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_220.pdf",
+      "pages": 15,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b557b29df1c6f2c5ff8fa51e5cafb9ef9b61672a38ec0522658a1a13efb8bcae",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_403.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "88c6b1c82931a1ddcb25c9c8797d8631bb31588f02e7a98717362556335274fc",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_438.pdf",
+      "pages": 40,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2ca8cede91d8fd7964cda2338decd999a5bbff19a662b35352f0d965a46a3999",
+      "name": "65_HS1-834228961_62-HQ-83894_Serial_449.pdf",
+      "pages": 18,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ed6e3824974865fe91667f834c2aba6e3f3d503a5913928dfefb62425279d2e4",
+      "name": "65_HS1-834228961_62-HQ-83894_SUB_A.pdf",
+      "pages": 124,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a56e49ed5dd5fbb00b70101762b3eb9bb6148aeb380163ece648d377dfa5e5c7",
+      "name": "CIA-UAP-002_Scientific-Advisory-Panel-on-Unidentified-Flying-Objects_Report_1952-1953.pdf",
+      "pages": 42,
+      "ready_pages": 42,
+      "dossier": true
+    },
+    {
+      "sha": "3a11822b45f559acc6063304bdbf16977a21dc86ca3a7a743c1a60e40f98b8d1",
+      "name": "CIA-UAP-003-THE_CENTRAL_INTELLIGENCE_AGENCY_AND_OVERHEAD_RECONNAISSANCE-THE_U-2_AND_OXCART_PROGRAMS_1954-1974.pdf",
+      "pages": 406,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3e03f61e60ce007256731bcb7119d15829cee3d532b21336c7c06177c19414c8",
+      "name": "CIA-UAP-004-CASE_17708_CLOSED_AND_DR_LEON_DAVIDSON.pdf",
+      "pages": 1,
+      "ready_pages": 1,
+      "dossier": true
+    },
+    {
+      "sha": "85e84eb491e2331aebecb0ea021eb64d67795dc4c25197ca293ddfcffc81dee9",
+      "name": "CIA-UAP-005-GERMAN_SCIENTISTS_ ARTICLE_ON_FLYING_DISCS.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "eaa9a2e8a96ab61bf2a4e1bac1a68b6a896f2fec16fb2b11a158072d9e9ba58e",
+      "name": "CIA-UAP-006_Sighting_of_Unconventional_Aircraft.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "855a0d73d1e9c0fc1b8999aee6fd4186f1539c1b7f7f3d60c4ed60ea35dd35f8",
+      "name": "CIA-UAP-007_Current_Status_of_Unidentified_Flying_Objects_UFO_Project.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3e8ee13c5fa8d61a646144adcf3469b728339c11d6303a1f1b98f1ef1827799e",
+      "name": "CIA-UAP-008_SPECULATIVE_PAPER_BY_N_KARDASHEV_AND_A_SAKHAROV.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d2ff89273ce8bf19a5e9962b210e3954d4e0153ac493a5c9d8c2c140af6a5c17",
+      "name": "CIA-UAP-009-UNKNOWN-FLYING_OBJECTS_OBERVED_OVER_BUDAPEST.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3abdbd131944fb847ec6eda8bf7f3f12684812bec71ea27c22ab5c3bb2ed4eb9",
+      "name": "CIA-UAP-010_REPORT_ON_CONVERSATIONS_WITH_SOVIET_SCIENTISTS_ON_SUBJECT_OF_UNIDENTIFIED_FLYING_OBJECTS_IS_THE_USSR.pdf",
+      "pages": 2,
+      "ready_pages": 2,
+      "dossier": true
+    },
+    {
+      "sha": "b5a4f68efde9027964d44f4b6f1d0c83a57d44a842c3030f2fd8a58e5f115baf",
+      "name": "CIA-UAP-011-The_Sary_Shagan_Weapons_Testing_Range.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "490841ebe7487b3e7386ca5fa22c256b678fafa58aa79fae925bf9fe72771c28",
+      "name": "CIA-UAP-012-Combatting_Fatigue_in_Crewmembers.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6004fb66d76ccf50c3f0729bd218efcd4485395e8491e88b1bf257fc2ea36733",
+      "name": "CIA-UAP-013-Report_of_Unusual_Flying_Object_Sightings_and_Attendant_Scientific_Activity.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a1eefc277c9c98450d4d5cf6dde3e191184a38db541b82a767804ab503926a6c",
+      "name": "CIA-UAP-014_British_Activity_in_the_Field_of_Unidentified_Flying_Objects.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "90e05e77fc088c29758c2ddda514c0c12f317e5686ee213d348db2f9da152ee3",
+      "name": "CIA-UAP-015-Project_Blue_Book_Special_Report_No_14.pdf",
+      "pages": 312,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c6c33cf9f578f24210e3d6454139f20279d025f6d25b4bc6bf3cc3d27865e7fe",
+      "name": "CIA-UAP-016-Sightings_of_Unidentified_Flying_Ojbects_in_Ladakh_Nepal_Sikkim_and_Bhutan.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4332ebe48c3fcb1ef53e9186d90f38142e8465f553388a5d8dff277c87a92b16",
+      "name": "CIA-UAP-017_Placement_on_High_Alert_Due_to_Perceived_Aggressive_Foreign_Posturing.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1f6d1a95647dbd14d34534db4c71654e4b437c61a160df24fc142ef60790b730",
+      "name": "CIA-UAP-018_Report_of_Unusual_Flying_Object_Sightings_and_Attendant_Scientific_Activity.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a91a8665371816b5463dff7de2f1c4c02ac449ba122d088b2898592c82dba9dc",
+      "name": "CIA-UAP-019-Australian_Dept_of_Defense_Scientific_and_Intel_Aspects_of_the_UFO_Problem.pdf",
+      "pages": 19,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d3039ed486d8400be3263c0c438b199abfdb8ac030156baff1536f007349d315",
+      "name": "CIA-UAP-D001_Intelligence_Information_Report_USSR_1973.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "973be877f06b55373da6c7a1022ca25345fdeb7864414fe4ae29d83ef963b7e9",
+      "name": "CIA-UAP-D020_Memorandum-on-Unconventional-Aircraft-Sightings_1955.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e2640e79f3733d5ed3e8aebd510f130f5601555f306eefee5e1c08a24d002ad0",
+      "name": "CIA-UAP-D021_Analysis-of-Unconventional-Aircraft-Sightings_1955.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "358b0d2e45ff0320f4e4ad689f0c918362d6c5d36be765d386018d279d835b01",
+      "name": "CIA-UAP-D022_Unidentified-Flying-Object-Reported-near-Puerto-Rico_1965.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "aba51f51191bbcd37dc1f591171b6edc78c9bfb9632cfed8fae6a8bf1d61ca40",
+      "name": "CIA-UAP-D023_Briefing-Notes-for-Mr-Walter-Elder.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "941f95a0ae621f3dbba1ff63dbaea54ed6396dbcc5f434cd5341e833d15f923a",
+      "name": "DOW-UAP-D102_Project-Blue-Book-File-on-Tremonton-Film-Utah-1952.pdf",
+      "pages": 156,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "950cc1f3d5a9b4f74c1342784a846a2cd2d2dae95f825b89839ac229292e6fa1",
+      "name": "DOW-UAP-D103_Project-Blue-Book-Photo-File-Relating-to-Tremonton-Film-Utah-1952.pdf",
+      "pages": 5,
+      "ready_pages": 5,
+      "dossier": true
+    },
+    {
+      "sha": "640912a325f5c611ebecfe8f969a28689c32ea40031ad30bd6b9fd47c2abece7",
+      "name": "DOW-UAP-D104_Final-Personnel-Record-for-Newhouse-Delbert-C-US-Navy-1957.pdf",
+      "pages": 585,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a3523ac3e2dd1b457feeb2309b005e2088dcc4efb8c2738b1e822c54308658ea",
+      "name": "DOW-UAP-D105_US-Air-Force-Flying-Discs-File-September-December-1952.pdf",
+      "pages": 253,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7143a38cc6c53316cd0b9bb5df8c8e17aec24b5c1a78751323cede85bac3abdb",
+      "name": "DOW-UAP-D106_Mission-Report-Iraq-2022.pdf",
+      "pages": 6,
+      "ready_pages": 6,
+      "dossier": true
+    },
+    {
+      "sha": "731d38a850d1293fde776a864270602b2191b0348915800785d131abae96bc4c",
+      "name": "DOW-UAP-D107_Mission-Report-Middle-East-2025.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "9ffec164725f15d4a1d75c680fceae367b6813119d183f52df33a91c23ee116c",
+      "name": "DOW-UAP-D108_Mission-Report-Middle-East-2025.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bcb2dc4da3380db92c5f0a234087f0bda0f29d1d14421c42ef3d29d5461dfa92",
+      "name": "DOW-UAP-D109_Mission-Report-Middle-East-2022.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e4f6eff0ec5c6a35e5832d4ae881ddad68c148650df77d447064c7180fafe056",
+      "name": "DOW-UAP-D110_AAWSAP-Statement-of-Objectives-July-18-2008.pdf",
+      "pages": 4,
+      "ready_pages": 4,
+      "dossier": true
+    },
+    {
+      "sha": "1ddd6264f57e0e606d78a8b6717bfe66599e9a729538726d9afdf94c420ac940",
+      "name": "DOW-UAP-D111_AAWSAP-Solicitation-and-Original-Order-September-22-2008.pdf",
+      "pages": 59,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e855036eff934384ffa6fdb044debcae5ef4758788cb318a238ebf6d2e0fe505",
+      "name": "DOW-UAP-D112_AAWSAP-Contract-Modification-P00001-September-2-2009.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "cc0858e8869c329a26c690088f1204b36e54b10f162ee2ba36ee99828131df38",
+      "name": "DOW-UAP-D113_AAWSAP-Contract-Modification-P00002-February-2-2010.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6998e57cacab3b6e53950843c67ac165c9f0cfd49972edf4dafd822eed804eb0",
+      "name": "DOW-UAP-D114_AAWSAP-Contract-Modification-P00003-May-18- 2010.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "26a9191f7438d2600515a5ec02f6841f5aaf8896711b3a97ad4dd399b5e755ed",
+      "name": "DOW-UAP-D115_AAWSAP-Contract-Modification-P00004-May-18-2010.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "98ae5282f5f2e44aa0237278099a99495b30108d049718dd68a4e27d0b3d96b6",
+      "name": "DOW-UAP-D116_AAWSAP-Contract-Modification-P00005-September-28-2010.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e773fe838b690aab4ce30feb3e431bbeb84e152f4420e8c75a0685f61a9351a2",
+      "name": "DOW-UAP-D117_AAWSAP-DIRD-Metallic-Glasses-for-Aerospace-Applications-December-14-2009.pdf",
+      "pages": 30,
+      "ready_pages": 30,
+      "dossier": true
+    },
+    {
+      "sha": "372ce27196ee34604096282d74c5ce5cbcaec8c63a56fdb6fcc934f3db215eff",
+      "name": "DOW-UAP-D118_AAWSAP-DIRD-Aerospace-Applications-of-Programmable-Matter-December-14-2009.pdf",
+      "pages": 20,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "535c4e3cb92b7519c109da7d3ba173bae036463e5661ff6040ae37f8c9f8ce31",
+      "name": "DOW-UAP-D119_AAWSAP-DIRD-Biomaterials-January-7-2010.pdf",
+      "pages": 32,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1a3c2675997f3b701e14c623b33b2741c3d8764f52fd9309e1928a85e11e8ac0",
+      "name": "DOW-UAP-D120_AAWSAP-DIRD-Materials-for-Advanced-Aerospace-Platforms-January-12-2010.pdf",
+      "pages": 27,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "78f1b9b7fb7fb967f6b3e5f05bb03e26dff864b32b8d4d5ce12e02da12e8378b",
+      "name": "DOW-UAP-D121_AAWSAP-DIRD-Pulsed-High-Power-Microwave-Source-Technology-January-28-2010.pdf",
+      "pages": 37,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e603ffbc39458140aadf4610b048d44c2162ca4feb4492b1ea9270b1da8508da",
+      "name": "DOW-UAP-D122_AAWSAP-DIRD-Invisibility-Cloaking-Theory-and-Experiments-March-2-2010.pdf",
+      "pages": 29,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "96294b90e769ff43e4153438331153aa62fb01bc4345af61647fa06503801b82",
+      "name": "DOW-UAP-D123_AAWSAP-DIRD-Positron-Aerospace-Propulsion-March-2-2010.pdf",
+      "pages": 35,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "861270e395ef20b92991c8dc65d5ad5a05f21b62507d358225b66210e6ac4fff",
+      "name": "DOW-UAP-D124_AAWSAP-DIRD-Space Access-Where-Weve-Been-and-Where-We-Could-Go-March-8-2010.pdf",
+      "pages": 56,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "21f1dfda6f9e1e8e605eb44254052d7ae7446becea06347f2350b1a9bf4bc8a3",
+      "name": "DOW-UAP-D125_AAWSA-DIRD-Inertial-Electrostatic-Confinement-Fusion-March-10-2010.pdf",
+      "pages": 72,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "087bbb392b8396590724d5eb7d39f15cac23924f8fb411723b807b2665ea9241",
+      "name": "DOW-UAP-D126_AAWSAP-DIRD-Advanced-Nuclear-Propulsion-for-Manned-Deep-Space-Missions-March-11-2010.pdf",
+      "pages": 37,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "82e20719abce348ceccaac0d313e2fd314d09582e7f1fdb4638b3997190ee0d9",
+      "name": "DOW-UAP-D127_AAWSAP-DIRD-An-Introduction-to-the-Statistical-Drake-Equation-March-11-2010.pdf",
+      "pages": 55,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "771e64fee31722953ce9038100499d0d81d199e3249b43d656d3734aebb1a45f",
+      "name": "DOW-UAP-D128_AAWSAP-DIRD-Anomalous-Acute-and-Subacute-Field-Effects-on-Human-Biological-Tissues-March-11-2010.pdf",
+      "pages": 38,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f4ca1d6db66a984eff37e7cc00de6aeb6e0965d26259d66a86cc1486ff3f80fe",
+      "name": "DOW-UAP-D129_AAWSAP-DIRD-Metallic-Spintronics-March-23-2010.pdf",
+      "pages": 27,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6df90d61b653620ef55ca9ccaefad11a227079a8b20c94b038a1ef819b92bb07",
+      "name": "DOW-UAP-D130_AAWSAP-DIRD-Technological-Approaches-to-Controlling-External-Devices-March-23-2010.pdf",
+      "pages": 36,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "224275259e7e168019c69abd955f80ee6417649a47c5036e4783e0969e863c43",
+      "name": "DOW-UAP-D131_AAWSAP-DIRD-The-Role-of-Superconductors-in-Gravity-Research-March-23-2010.pdf",
+      "pages": 16,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "21fa15c3f23e131d4998947f6cdba50e6d014b35a8242abddc6e1869a797c86d",
+      "name": "DOW-UAP-D132_AAWSAP-DIRD-Advanced-Space-Propulsion-Based-on-Vacuum-Spacetime Metric-Engineering-March-29-2010.pdf",
+      "pages": 17,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a659c5a968138e6165f0fb8274dc948dd35cc09d80298f792714207341336aa5",
+      "name": "DOW-UAP-D133_AAWSAP-DIRD-The-Space-Communication-Implications-of-Quantum-Entanglement-and-Nonlocality-March-30-2010.pdf",
+      "pages": 32,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "52e47ca04c0de85d1c6f8ee86103e69803785fddd0ec19daa20b38cb190e0309",
+      "name": "DOW-UAP-D134_AAWSAP-DIRD-Maverick-Inventor-Versus-Corporate-Inventor-Where-Will-the-Next-Major-Innovations-Arise-March-30-2010.pdf",
+      "pages": 19,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a97c6847c520fdf7455bfd0d8829df910ac5aeaf6f0f7fb4186c66935ce45a33",
+      "name": "DOW-UAP-D135_ AAWSAP-DIRD-Antigravity-for-Aerospace-Applications-March-30-2010-V2.pdf",
+      "pages": 44,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2591290fb5d0d89adc126b967246a9261ac85b627d0c1b348ab8190fba00abf3",
+      "name": "DOW-UAP-D136_AAWSAP-DIRD-Biosensors-and-BioMEMS-A-Survey-of-the-Present-Field-March-31-2010.pdf",
+      "pages": 45,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d397fc90f994bc6002c98c9ff8de02fb91007c8357076a51eabce30ee2ac5974",
+      "name": "DOW-UAP-D137_AAWSAP-DIRD-State-of-the-Art-and-Evolution-of-High-Energy-Lasers-March-31-2010.pdf",
+      "pages": 31,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4f597da9196813b852baa502bb3fdd002f5aeca84db868caba2e8c5aa23dda9c",
+      "name": "DOW-UAP-D138_AAWSAP-DIRD-Warp-Drive-Dark-Energy-and-the-Manipulation-of-Extra-Dimensions-April-2-2010.pdf",
+      "pages": 33,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e0cb6838bbdc1b8b1ebde201c51ffa5d8681a037661d0d9207d63745f9c71611",
+      "name": "DOW-UAP-D139_AAWSAP-DIRD-Traversable-Wormholes-Stargates-and-Negative-Energy-April-6-2010.pdf",
+      "pages": 42,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "66b1ad17754bb67875831a87826cfba04ca3633ca740b3c0e232dbb9f052bb81",
+      "name": "DOW-UAP-D140_AAWSAP-DIRD-High-Frequency-Gravitational-Wave-Communications-April-6-2010.pdf",
+      "pages": 57,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c92a15a1927db0248dba6b6485d96f21d9fae82bad36c99e9ec2f3fd16737c98",
+      "name": "DOW-UAP-D141_AAWSAP-DIRD-Metamaterials-for-Aerospace-Applications-April-6-2010.pdf",
+      "pages": 38,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c1829e999532e5239362f9d1a96527157240fddeb7bfb87310e3c522d9a6eb17",
+      "name": "DOW-UAP-D142_AAWSAP-DIRD-Concepts-for-Extracting-Energy-from-the-Quantum-Vacuum-April-6-2010.pdf",
+      "pages": 57,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2e88690520b8175d657e18b9ba3de5b9e07c9be21b304a044e2e1d48f5cb9193",
+      "name": "DOW-UAP-D143_AAWSAP-DIRD-Laser-Lightcraft-Nanosatellites-November-1-2010.pdf",
+      "pages": 77,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "909566d201f1613d9ad5fc338aff4668a0331ca740670904f24eeb9175bef7bf",
+      "name": "DOW-UAP-D144_AAWSAP-DIRD-Cockpits-in-the-Era-of-Breakthrough-Flight-November-1-2010.pdf",
+      "pages": 57,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "122ea541032e427492ba1bc11e569a3f667cdc8654fdbe08d4f52cc04039842a",
+      "name": "DOW-UAP-D145_AAWSAP-DIRD-Aneutronic-Fusion-Propulsion-I-November-1-2010.pdf",
+      "pages": 50,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e37ba50e7e0fc9dc8ee7c6ececc3ee39ef3d3a104763e8bd312ad552a94c750d",
+      "name": "DOW-UAP-D146_AAWSAP-DIRD-Aneutronic-Fusion-Propulsion-II-November-1-2010.pdf",
+      "pages": 36,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7871aadc94fd87fa3ee486168d1e9bc4d85cc96a0af5e0dea9483ff487f6b0e7",
+      "name": "DOW-UAP-D147_AAWSAP-DIRD-Ultracapacitors-as-Energy-and-Power-Storage-Devices-November-1-2010.pdf",
+      "pages": 34,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "5586486eaafe104a32a83964ae2f1849432838e01b59308200b5b6f48aeeb490",
+      "name": "DOW-UAP-D148_AAWSAP-DIRD-Detection-and-High-Resolution-Tracking-of-Vehicles-at-Hypersonic-Velocities-November-20-2010.pdf",
+      "pages": 46,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a885a20dcb94555eb91adaddb3461313f8a79a6289de3fe1aa9530cc0aaa6aca",
+      "name": "DOW-UAP-D149_AAWSAP-DIRD-MHD-Air-Breathing-Propulsion-and-Power-for-Aerospace-Applications-November-21-2010.pdf",
+      "pages": 32,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "decf55cd5ddbb9dbd437466c7d3557ffc02a4cde5fafdfabc19fca8ce180bc28",
+      "name": "DOW-UAP-D150_AAWSAP-DIRD-Quantum-Computing-and-Utilizing-Organic-Molecules-in-Automation-Technology-December-10-2010.pdf",
+      "pages": 54,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7535e88d474d47ec980b7e35a394f532b297aafb1e32170e044bcc1a7b016402",
+      "name": "DOW-UAP-D151_AAWSAP-DIRD-Cognitive-Limits-on-Simultaneous-Control-of-Multiple-Unmanned-Spacecraft-December-15-2010.pdf",
+      "pages": 31,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "de517f7ce71816704e5f989936587eeade1400f339bc0cb01a14733180b41172",
+      "name": "DOW-UAP-D152_AAWSAP-DIRD-Negative-Mass-Propulsion-January-3-2011.pdf",
+      "pages": 43,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bc2dc83edc60634dd69e8cb0dd2acdc3e1e1bfe598a70bcd6feb462a7422183e",
+      "name": "DOW-UAP-D153_AAWSAP-DIRD-Quantum-Tomography-of-Negative-Energy-States-in-the-Vacuum-January-11-2011.pdf",
+      "pages": 51,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0c1c5adfd3ca9cebcc7e5183dbff32538376ce62f075b51756f9b822f8de9e55",
+      "name": "DOW-UAP-D154_Transcript-of-a-Presentation-by-Captain-Edward-J-Ruppelt-1952.pdf",
+      "pages": 19,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b79812908c2835d7ee838a9713885fda67f610233d4eb030d637ff99f5b7f0e5",
+      "name": "DOW-UAP-PR130_Unresolved-UAP-Report-Iraq-2022.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e1eb779d07e32f2ee6e8cc4b17a56f52bd373136a742130d7fae3443adca3853",
+      "name": "DOW-UAP-PR131_Unresolved-UAP-Report-Iraq-2022.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "79ac7b9e0a6f7148b99a9b9e889fdac323b5b102eedb0b28ecf1f96f90605b46",
+      "name": "LLE-UAP-D001_Transcript-of-an-Unresolved-UAP-Report-Colorado-October-2023.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4c007724fa7325d211123c153e1ed3eb989635302a6d2cd8757319d7f69358de",
+      "name": "DOE-UAP-D001_PANTEX_Image.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "324a9795356cc793ede04a2494fa2eb18be10847baa490f605a22572c75f51ec",
+      "name": "DOE-UAP-D002_JamesTuck_Correspondence.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "89ecb1163e42d3e8a215033b88e87ae3befe82a8dad1db112fae7e760bb756f4",
+      "name": "DOE-UAP-D003_Pajarito_Astronomers.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "64f70db72f3747cfdc512f78f16b0ac33a0876b39dbf7dddf07ab870ba1b1a47",
+      "name": "DOE-UAP-D004_Los-Alamos-Conference-on-Aerial-Phenomena_1949.pdf",
+      "pages": 25,
+      "ready_pages": 25,
+      "dossier": true
+    },
+    {
+      "sha": "249cd9f5b85c4a92dc819d65e1dad180744479d1c8a68ebbc202ade66facbcbb",
+      "name": "DOE-UAP-D005_Pantex-Unidentified-Object-Incident-Report_2015.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1259083d422e420b63cfe864fa75abd6c883193d12d605ac1880d2093d8d7335",
+      "name": "DOS-UAP-D001_Diplomatic-Cable_Brazil_November-14-1963.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3c9e5cf5f15c62e89826b482af3820ebe9914f9d3442f0d652f2ff1019c8f4c4",
+      "name": "DOS-UAP-D002_Diplomatic-Cable_Brazil_November-20-1963.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "566894d9cb31e15818e87d54e848a634ddd711aa7fb9ed72402d4a759e3a3bf8",
+      "name": "DOS-UAP-D1-Cable-1-Papua-New-Guinea-January-1985.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e1d583556594e3e98f0ceea5598760c9d122283c4582f7d5f6c6c9ad96ad76e3",
+      "name": "DOS-UAP-D2-Cable-2-Kazakhstan-January-1994.pdf",
+      "pages": 3,
+      "ready_pages": 3,
+      "dossier": true
+    },
+    {
+      "sha": "ec72132902a2f50d2ab032031386710fef1d1ae1face0226a90243f61d9347b4",
+      "name": "DOW-UAP-D017_General_Correspondence_Of_Sandia.pdf",
+      "pages": 116,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "5eb571dbfd4faa81c2b52266e0e0ea933cde481325f8548aefac5b9b09eb42d1",
+      "name": "DOW-UAP-D077_Unresolved-Case-Analysis-Update_Western-United-States-Event.pdf",
+      "pages": 4,
+      "ready_pages": 4,
+      "dossier": true
+    },
+    {
+      "sha": "284e470d213a798271fd7ade00d345cd17d4d5fca154db1e3ca5a04f34cc3bbe",
+      "name": "DOW-UAP-D078_Notional-Map_Western-United-States-Event.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "670dbdbe40e70fa5f46485273d8f2c0eef7e604a7487416343ebec8bfc5f30c1",
+      "name": "DoW-UAP-D079_Narrative-1_Western-US-Event.pdf",
+      "pages": 2,
+      "ready_pages": 2,
+      "dossier": true
+    },
+    {
+      "sha": "2b011f25bb6fed4870766506b5799374cb3589d747c29e4227bab99ee779665b",
+      "name": "DoW-UAP-D080_Narrative-2_Western-US-Event.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3c369f9660a3528455b6140d03dfef6bc94b1cf430b85ce26938e5adf1dd1e9d",
+      "name": "DoW-UAP-D081_Narrative-3_Western-US-Event.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d522d9a289caaa7b2c9143bc1e80aa37764066791097824ffeb898b500200e1e",
+      "name": "DoW-UAP-D082_Narrative-4_Western-US-Event.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ad70e6d8f9091d432dd89d9cd803734c0a297f16cb211311feb609fb435ff360",
+      "name": "DoW-UAP-D083_Narrative-5_Western-US-Event.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b2e4554e261e980c10251e927942300342081109a50b4ef61dc37946deade80f",
+      "name": "DOW-UAP-D084_USArmy-Flying-Saucer-Study_1949.pdf",
+      "pages": 25,
+      "ready_pages": 25,
+      "dossier": true
+    },
+    {
+      "sha": "43f3553b900cf8cceab5575edc33e14e6b6e980764ae78f979be664829efb089",
+      "name": "DOW-UAP-D085_Transmission-of-CIA-Scientific-Advisory-Panel-Rept_1953.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f96457d53f3cd65aec3fc539e7138cc42a5ea962654a83c75abbd0f13d54383c",
+      "name": "DOW-UAP-D086_USNavy-Report-of-Flying-Discs_1948.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8004ab172820cb1e35c195b32badf6ede8b5cf12d27c474e54c8788bc14815a9",
+      "name": "DOW-UAP-D087_US-AirForce_Analysis-of-Flying-Objects-in-the-US_1-100.pdf",
+      "pages": 253,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0d53232bd0d23672c053bbdac4241e5693eae4d156b8c709e109de31191da117",
+      "name": "DOW-UAP-D088_US-AirForce_Analysis-of-Flying-Objects-in-the-US_101-172.pdf",
+      "pages": 210,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3ad2058e00a44e2bb5453648be0eac0dd1a2ff40deeeb2707a19cc59b11ee685",
+      "name": "DOW-UAP-D089_Range-Fouler-Debrief_Eastern-US_2020.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1bd82107a638e44f4f6011aaf6fb323bcdd36334a59980a5c19a5aad9ff69b52",
+      "name": "DOW-UAP-D090_Range-Fouler-Debrief_Eastern-US_2019.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d13ab718a436af2d13d1e3060e49239528b174829ba4ea89003f27da3ea3d7be",
+      "name": "DOW-UAP-D091_Range-Fouler-Debrief_Atlantic-Ocean_2020.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "9c774fcb34ca56cf1b8da8bfe0413f42c6014c096215966c0fd919be5d77ec52",
+      "name": "DOW-UAP-D092_DAF-Committee-to-Review-Project-Bluebook_1966-1967.pdf",
+      "pages": 85,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6a94a4548eac7933948fad4706e161c6a251bf5eaa9d05d70981b40cb1e80745",
+      "name": "DOW-UAP-D093_Analysis-of-Flying-Object-Incidents-in-the-US_1948.pdf",
+      "pages": 67,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "59a30983288868000d7c82bf863a2af475834ad14b984fbe9e4b8bd521aaa1cb",
+      "name": "DOW-UAP-D094_Analysis-of-Flying-Object-Incidents-in-the-US_1949.pdf",
+      "pages": 34,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "9c7629703ed55608b29000e490ac91be260e6088587f9048d7412593233878f9",
+      "name": "DOW-UAP-D095_Joint-US-Canadian-Aviation-Projects-and-UFO-Sighting-Reports_1954-1955.pdf",
+      "pages": 57,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2c64dc1cd88ac9717cad81ecee9518af9310bebf5fc51596b85737374e2bf4cf",
+      "name": "DOW-UAP-D096_Correspondence-Relating-to-Project-Blue-Book_1955.pdf",
+      "pages": 220,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4e191615a53faf81a49721ec594aee5f8c909026348a830025329d847a857e60",
+      "name": "DOW-UAP-D097_Project-Sign-Progress-Report_1948.pdf",
+      "pages": 45,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a8f271bb7bae396631eb3e35070fab285eb0d3258041b042b1a5a6b3e0d9c4f1",
+      "name": "DOW-UAP-D098_Film-Analysis-of-Unidentified-Objects_1953.pdf",
+      "pages": 23,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "59bdcb1406b50d7dab7f13dbce940eb247a0724c744100d34f9a53ea3209e2f4",
+      "name": "DOW-UAP-D099_Intelligence-Review-of-Ghost-Rocket-Incidents_1947.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f9deed9063306b0c45a5a0f6b754db6967f7dc3a0ed66097f154be4b0f033399",
+      "name": "DOW-UAP-D10-Mission-Report-Middle-East-May-2022.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4052303ee0d521c15656b65fed3075734c83332ec5db319c744f0dbe53b8ec90",
+      "name": "DOW-UAP-D100_Air-Materiel-Command-Report-on-UFOs_1947-1948.pdf",
+      "pages": 245,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "926f4cf9a852d77bca34e8e7370c4a9da386610a6ba799e060de71c2339b0e92",
+      "name": "DOW-UAP-D101_IIR_Unresolved-UAP-Report-Gulf-of-Oman_2021.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "00afb60938d05101a62d0af41fdfc6749612fcea806d90d5a1035a9dc874afb5",
+      "name": "DOW-UAP-D12-Mission-Report-Iraq-May-2022.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1822564fbae08f152ad4541c8d067a6ec3b6014c4b4eb8209604e1facb5e1bb3",
+      "name": "DOW-UAP-D14-Mission-Report-Iraq-May-2022.pdf",
+      "pages": 9,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b3b3f023d70bcce3178de9fe6a019ea6db5e5145bc7e28a49308442e190ef817",
+      "name": "DOW-UAP-D16-Mission-Report-Syria-July-2022.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4752dd830144b21c3055a2fea8b44c551445b41622c27db64fb0fa07c2dcd93d",
+      "name": "DOW-UAP-D18-Mission-Report-Iraq-December-2022.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "46701a48cefa62a834941f073aa47234bcd5358b1ecc53bfa58cfc7cb5aeec41",
+      "name": "DOW-UAP-D19-Mission-Report-Syria-February-21-2023.pdf",
+      "pages": 10,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "71ca8826db94d61583083ef8465a6902564532dcab7d49d0d2db3e86aaf85b2f",
+      "name": "DOW-UAP-D20-Mission-Report-Iraq-2023.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ea1cd5296143f378db533066b524c32c1ecfbfd43d74ec6be7d832c20fa271bb",
+      "name": "DOW-UAP-D23-Mission-Report-United-Arab-Emirates-October-2023.pdf",
+      "pages": 9,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bd5478d2e420f6ff46fb06014e39027e1caa415f55efdc9bd70a849ff6990356",
+      "name": "DOW-UAP-D25-Mission-Report-Greece-January-2024.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "86275421f64583566fcc32b7422c5d991b35dd7d3700e01d3fcf24b279fff243",
+      "name": "DOW-UAP-D27-Mission-Report-United-Arab-Emirates-October-2023.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e12c00b3e2d64e35eef5623499e6eb23b1bc21d304523c75d28d3f474d91d77e",
+      "name": "DOW-UAP-D28-Mission-Report-East-China-Sea-2024.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "58219b8000454aa27424ead9530bf80420365a587b95d4c770a5dce916783b45",
+      "name": "DOW-UAP-D3-Mission-Report-Arabian-Gulf-2020.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "fd4deb1e48fcfa7fd2370b6459877882e6d6fdd0226ecaa881a45fba690172df",
+      "name": "DOW-UAP-D32-Mission-Report,-Syria-October-2024.pdf",
+      "pages": 10,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7078d96f334dbf396e0e0a141f943009fe2191cd20842e16ee381bcbc2776c43",
+      "name": "DOW-UAP-D33-Mission-Report-Greece-October-2023.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b4f4f4ce6dc7687a543905990671f999cd6c5a9e579159bfda501bf6d04f4445",
+      "name": "DOW-UAP-D35-Mission-Report-Greece-October-2023.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "90b353682ba2181149054d0911b7553e58e959438dd4de531a06fc387a332f85",
+      "name": "DOW-UAP-D38-Range-Fouler-Debrief-Middle-East-May-2020.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "857deb5a9363aad6e7604c828574d1f44caa0128b3ee0cb5a69204cbcd95d269",
+      "name": "DOW-UAP-D4-Mission-Report-Arabian-Gulf-2020.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d52431b354af55b1e86cb454e61fd61993af3b023a38f2d9e014a9c9d18d16b4",
+      "name": "DOW-UAP-D42-Range-Fouler-Debrief-Japan-2023.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c5cfbc8bacca29db64346aaa03846a6e36eab01ac09e1e93d8d50028593cf3f9",
+      "name": "DOW-UAP-D44-Range-Fouler-Arabian-Sea-October-2020.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0dc72877cdf9cc3a1645c3c9d282928922b00e8fd9ffd7b1daf66f46c72b2071",
+      "name": "DOW-UAP-D48-Report-September-1996.pdf",
+      "pages": 181,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0dd7855ac3c69e39a9752c53fe6ba3e851d617e28adfcbf07c3ec93907877cf7",
+      "name": "DOW-UAP-D49-Launch-Summary-February-2000.pdf",
+      "pages": 113,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "af150a6b5139abc632446c9d5999fd5abc4f3c476c6245f173faabb6e2132d10",
+      "name": "DOW-UAP-D5-Mission-Report-Arabian-Gulf-2020.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "10c11e9bf4d6686159da48e3d9388e7d3afe4ae8b1e79725ec6c63ccc491e537",
+      "name": "DOW-UAP-D50-Email-Correspondence-INDOPACOM-April-2025.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f21f4ae91e51810bfa8a6fce6c422f2bbf99c6277871846c642f987954c042f6",
+      "name": "DOW-UAP-D51-Email-Correspondence-Pacific-Time-Zone-March-2023.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "90570293e61c9b228e557b2e83f6e32821f5cf13879b0c5b83c1b8b58153f510",
+      "name": "DOW-UAP-D52-Email-Correspondance-NA-August-2024.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "03b730443d7be1c67478fc26da8ed664cb48b97acdb817caca3b04fd9b9b82a8",
+      "name": "DOW-UAP-D54-Mission-Report-Mediterranean-Sea-NA.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f5885b95b57a81c08f0595c02950a07c250db050562520c52fb74f2195787166",
+      "name": "DOW-UAP-D55-Mission-Report-Syria-November-2016.pdf",
+      "pages": 1,
+      "ready_pages": 1,
+      "dossier": true
+    },
+    {
+      "sha": "9127fb5a81efacf030df4dc6290d02bcdf4c8512cf1809b6eccfe6cf16a77f31",
+      "name": "DOW-UAP-D56-Range-Fouler-Debrief-Arabian-Sea-August-2020.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2565433b0ac938d6123c611be75b30ec6cf99c192e71dbf4ef53c40a6852ca00",
+      "name": "DOW-UAP-D57-Mission-Report-Gulf-of-Aden-September-2020.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c2bd370cdadc2f17649830713d55731aa22ceb76940fd64ae7ffc86fc0559261",
+      "name": "DOW-UAP-D58-Range-Fouler-Debrief-NA-October-2020.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0f898352417d0447b3720c6eda131ac0cbe7e4cf90b8d1ceab60a431fa835457",
+      "name": "DOW-UAP-D6-Mission-Report-Arabian-Gulf-2020.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "39126406547c89dbc81112c5638612858fcfe7e38179dd89e6d725dc6cee13b1",
+      "name": "DOW-UAP-D60-Mission-Report-Persian-Gulf-August-2020.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "4ce20fc566edf4a3dcb8a8abd7a5dcd91046069f9e35f83912ad757c8c8be1b9",
+      "name": "DOW-UAP-D61-Mission-Report-Persian-Gulf-August-2020.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "36708d3c6121b00c55394ac4a648fbcbe5411c8b2c00ea8f42f9ca0e502c6b13",
+      "name": "DOW-UAP-D62-Mission-Report-Strait-of-Hormuz-September-2020.pdf",
+      "pages": 9,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ad3b37eb9fbd20e6dc75152e486514e58ff8a1edde3d32615887ea0d19727884",
+      "name": "DOW-UAP-D63-Mission-Report-Strait-of-Hormuz-October-2020.pdf",
+      "pages": 8,
+      "ready_pages": 8,
+      "dossier": true
+    },
+    {
+      "sha": "8422fceb10b2eafcab525690cc9aff6827fc78d5ae5e34b44174d9cc78abbb7c",
+      "name": "DOW-UAP-D64-Mission-Report-Iran-November-2020.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bfbc281190a14c522d854c0cf2699f82de419e8f8a455949871ccdc9175bf423",
+      "name": "DOW-UAP-D65-Mission-Report-Persian-Gulf-July-2020.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c4cae44b6ac7b4f4916ddff140d47b1e2a6ddc80ed72985877c07401d17fd76a",
+      "name": "DOW-UAP-D7-Mission-Report-Arabian-Gulf-2020.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "30708df4aa8484c668d3c3694560f5b57d5a10b6b3da1cfb826a925d9cc806e1",
+      "name": "DOW-UAP-D74-Mission-Report-Syria-November-2023.pdf",
+      "pages": 10,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "672b79390fe6595828c71e1f3df8cb0a2290f0658c36ed724e17ea167233b771",
+      "name": "DOW-UAP-D75-Mission-Report-Gulf-of-Aden-July-2024.pdf",
+      "pages": 8,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "0a8548a845c3b45f90ee512bdfd8eac1af073072228e7e4d24e779d12025886c",
+      "name": "DOW-UAP-D8-Mission-Report-Djibouti-2025.pdf",
+      "pages": 7,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "d6614ddb85556a5ad5476be15798b97f16fc3396e42ceffd993548d1e3201389",
+      "name": "DOW-UAP-PR20.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "63654bcd90c0515f30e31ed511a12a05f170ff4470e3d8a6f40fca12012a1adb",
+      "name": "EOP-UAP-D001_NASC-Inquiry-into-Bahia-Brazil-Incident_November-13-1963.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6a456b9add3f4f6d87e39fa26698261bd86c654fd9d812d3a6cbd869d2b4de85",
+      "name": "FBI-Photo-B1.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8195bb3076df73633e568307823bd2ff2ab53c50e8a427122e41db0c26e0cf53",
+      "name": "FBI-Photo-B10.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "aad2a8d88ab6e1dae78467b1b8d4226424ecf19ec3f67eb9e9fc56a0dd38bda9",
+      "name": "FBI-Photo-B11.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1c4afdbae5c62023ed0c3cdf1272d864d851b5e178a2565ec8b744927c58c7ac",
+      "name": "FBI-Photo-B12.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "259b451d1355deb3c7f63a640641231859fe482ee7929b243727adf78716b64d",
+      "name": "FBI-Photo-B13.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "31c9299629c77d05de4acd549edfd548841baacc8460fd1fec9c683082f5239d",
+      "name": "FBI-Photo-B14.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "92e6279262cc580978f5fd2bf9a0d1f1eb0e22326e6c2354fec861f174c7d611",
+      "name": "FBI-Photo-B15.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a9abc1e6d69201bd0954a34170c2e70407b377b1791497666c13b580c7ac7a8f",
+      "name": "FBI-Photo-B16.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f2d96af041ac6d451eb716109e2fd606d6071e7504f91e429ad6e8d5ae654745",
+      "name": "FBI-Photo-B17.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "64c4b8d8df93af933cc16efc183c27a4262284d0dffe2ca5f6479a32fa536eb0",
+      "name": "FBI-Photo-B18.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "43fc008a99501f57a114be1246ba3cae6004b734d2609c2f7eb6611b9209e509",
+      "name": "FBI-Photo-B19.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "861e37148d76359fb10e52eb7c2f17760f60ca0977ef0ad1079c5cda11b19530",
+      "name": "FBI-Photo-B2.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "97112a6fe175f0458412961285976b9384b31eceb540fe00abbe1bd28e51ceaa",
+      "name": "FBI-Photo-B20.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "52b81ee21a3bfc5ecce1777d6e91d85aabe8bb905dab1963a793dd4787005214",
+      "name": "FBI-Photo-B21.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8dd6f06197acb06f90d60387ecb21367c23b4f67c1011641a5be6e43f842a922",
+      "name": "FBI-Photo-B22.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "921e5ea0a0b4264d6aabfecee036fc924bf11dd9c6212873122c0fa457de194a",
+      "name": "FBI-Photo-B23.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8af86cd09af935b39d650d4db78adac5802600abc427f1683cc58cc44cf4bb42",
+      "name": "FBI-Photo-B24.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8a58dbdbe84dc4f29f131c9c471354ac9a4cac9276bc2503eb09a6b9eb215f09",
+      "name": "FBI-Photo-B3.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b9b413c19731ce7d48c503c45cc8d00fd1be08154e0321cbf18b9a3613e31c7d",
+      "name": "FBI-Photo-B4.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "9048f6d63441caa23ca385c07340399b34a3c70cd9d21da4f79fd73da57aafac",
+      "name": "FBI-Photo-B5.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c70c7334e7b8f38701fc9951e356cc702c194caaeae12f6e5a41c1bf0c2463e9",
+      "name": "FBI-Photo-B6.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "829f0a7381883c14261023832fedb51259a06d50eae7ba13ca21b9b9c5b45713",
+      "name": "FBI-Photo-B7.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bb60e830904c747b7a2a7f43b655d2c02534894529b74f36447d1a4b8f537701",
+      "name": "FBI-Photo-B8.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "86017c6972e7e6e110d86be0667a324d28b8d6c3e37d9fdb8acedddf3fd9dd02",
+      "name": "FBI-Photo-B9.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "22528109268e1ed19d3a10f35d91b66077b674315c283e3ba6e3714743c41f4f",
+      "name": "FBI-UAP-D001_FD-302_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "pages": 2,
+      "ready_pages": 2,
+      "dossier": true
+    },
+    {
+      "sha": "f73ffa1579ecc8916492166021bac801e421f058779127e8bb4bf1ded02cc3a1",
+      "name": "FBI-UAP-D002_FD-1057_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e067ec3753f24fbe26501a3932bce900124efea19ce5f949368f1b74d95fb53d",
+      "name": "FBI-UAP-D003_Digital-Rendering_Unresolved-UAP-Report_ColoradoSprings_2022.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "24438d15d989c8b1dc90087c6babd258981a3a1bc16d8fd17e0e44d366561da7",
+      "name": "FBI-UAP-D004_FD-1057-02_Northeastern-US_2024.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "c33b63109ce1e9d53f700c00d05728cb53bd17d863b1e2e81a40486ceb9f978e",
+      "name": "FBI-UAP-D005_FD-1057-04_Northeastern-US_2024.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "953c2aa10c0e560ea11b131cc64ef6962671649eec743cf3ab0f24698c0fc1b7",
+      "name": "FBI-UAP-D006_FD-1057-05_Northeastern-US_2024.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "f5cfb310e3064e34c55c4b1a256285da71050915ff3559ea70529b101f248c5c",
+      "name": "FBI-UAP-D007_FD-1057-06_Northeastern-US_2024.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "abcbc0042ec0f228c81cff200fb59f82f8b8b1374e8c4e5d0e8b2f32160bef8b",
+      "name": "FBI-UAP-D008_FD-1057-07_Northeastern-US_2024.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b5513dea063f469efff564cf92a72e088e325e03211f2fd85fbaee5d6ed7f4c4",
+      "name": "FBI-UAP-D009_FD-302-67_Northeastern-Orb-Sighting_2026.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b612cbe81c33546e3cea6f047ada247df054cbb294a84977d4600a0c72ffeb4d",
+      "name": "FBI-UAP-D010_FD-302-71_Northeastern-Orb-Sighting_2026.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "aaf14409fe2a6b8577345394b399e8ccfa36a0571c6205eb6b5da82b53e6876b",
+      "name": "FBI-UAP-D011_DFBI-Correspondence-Referral_1949.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "04195d918cf49bc4d32b050060f12dbd16bac2cb79b83e2d70b63543a1b68630",
+      "name": "FBI-UAP-D012_Newark-Field-Office_1952-1967.pdf",
+      "pages": 66,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "50f1e4af35a5c630f283e10be33e17935ee9e61672506571267248ed2f4583ce",
+      "name": "FBI-UAP-D013_WA-UFO-Investigation_1952-1960.pdf",
+      "pages": 55,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e91344aaa3cae8760bb695db30416048d94d333d3cf8e616dfd878ef60731379",
+      "name": "FBI-UAP-D014_Correspondence-Relating-to-UFO-Sightings_1967_1974.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "949c9dc80fb247c6ea12d6750cebe629f00c37930f9572a9d0ef43365d5d4489",
+      "name": "FBI-UAP-D024_FD-302_Airborne-Lights-and-Triangle_2002_2023-2024.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a6eb053699dcf7c2fdfe2d37bd4be8ef980c58e3f5595c7bee41ab1f7450bfe0",
+      "name": "FBI-UAP-D026_FD-302_Dark-Translucent-Triangle_2023.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "207f31090a4f187a365c552d45b1e0f3eb2aa47541dd9a8b0d1f7b5769c5d0ab",
+      "name": "FBI-UAP-D027_Digital-Rendering_Dark-Translucent-Triangle_2023.pdf",
+      "pages": 5,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "6a1c229de51ed47cff5de843b0cc4592e1ff691f1ed20254ada15d267e0942bb",
+      "name": "FBI-UAP-D028_FD-302_Dark-Triangle-with-Lights_2011.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "1ac0068c5a4f77c1bb2029971fc5e768d84ea921e3ac3122701746e548b12f06",
+      "name": "FBI-UAP-D030_FD-302_Large-Triangle-with-Red-Lights_2023.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "04684f8e8e0d9292e273b8e3152be6a22e195ce25f9c4a92b21c25b1813bd1e1",
+      "name": "FBI-UAP-D032_FD-302_Slow-moving-Objects_2026.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bea21a52d0bfcf82ca2845628f39aeaaeccb447a924babfd448ab89a57f5eb02",
+      "name": "FBI-UAP-D033_FD-302_Thermally-Elevated-Aerial-Object_2026.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "df8741ec7bee9778646142e3c2c55c050e3c58d067fa1049683ccd1126f0110a",
+      "name": "FBI-UAP-D037_FD-302_Multiple-Red-Lights_2026.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "53e69e5d6dbe46fc435574c3f0246fcdfbbd537928a8a6c46c3f35752f68133e",
+      "name": "FBI-UAP-D038_Digital-Rendering-1_Multiple-Red-Lights_2026.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "491d158803934b9c4e5de46ee51388cd9eff8a8aba2cf17dfcc9d957a8952ebd",
+      "name": "FBI-UAP-D039_Digital-Rendering-2_Multiple-Red-Lights_2026.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "978ac7226c7ec06f4561c3986732183e3bf2aa4f07c03430daa9111a20eec77e",
+      "name": "FBI-UAP-D040_FD-302_Multiple-Red-Lights_2026.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "7416fff9cc1cb0e19e5d1f5b6efc2b031ea986403a049e3d6fa38d7965fa79e9",
+      "name": "FBI-UAP-D041_Digital-Rendering-1_Multiple-Red-Lights_2026.pdf",
+      "pages": 6,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8ccb25fd8f47cdec75cc384bcf7db137c842931428472664fecfd04db69f6a2f",
+      "name": "FBI-UAP-D042_Digital-Rendering-2_Multiple-Red-Lights_2026.pdf",
+      "pages": 1,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "b98b58a326ea413b5fd332ba56e81869bf83e2606a744335882d0115f8d77158",
+      "name": "ICA-UAP-D001_Analysis_Colorado-Springs-UAP-Incident.pdf",
+      "pages": 4,
+      "ready_pages": 4,
+      "dossier": true
+    },
+    {
+      "sha": "35e904ddb6652ca72281ff13cf00f71d9563aab3672e399273335215bebb5184",
+      "name": "NASA-UAP-D015_Astronaut-Scientific-Debriefings_1962-1963.pdf",
+      "pages": 216,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "ca596a44820b275f3e3ba41ddabd9ed8f124b68f8c3207d4c34d8afb1a48a94c",
+      "name": "NASA-UAP-D016_Preliminary-Gemini-4-Crew-Debriefing_Part1_1965.pdf",
+      "pages": 340,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2be20f887d364078d11c7340380c21800348ac84beb5722c5932ef0be3e57c57",
+      "name": "NASA-UAP-D017_Preliminary-Gemini-4-Crew-Debriefing_Part2_1965.pdf",
+      "pages": 290,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "5f073d6c4ae822a8213d56fbccef9d14a82e6b75bc318dbe2ccfe9c5945ddeee",
+      "name": "NASA-UAP-D018_Gemini-4_Experiment-Debriefing_1967.pdf",
+      "pages": 224,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "fd3b139e6b9ad4e3b697561f1712541e54668617fe8be72f9214124e4325c793",
+      "name": "NASA-UAP-D019_Gemini-5-Technical-Debriefing_Part1_1965.pdf",
+      "pages": 223,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "a54a4d12ac77b4f7ef5bbfc6ccd81f06c91168746c7bb176c554d23f6eb859b2",
+      "name": "NASA-UAP-D020_Gemini-5-Technical-Debriefing_Part2_1965.pdf",
+      "pages": 325,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "e192e501e6be5c87ead3793856245b07d2749682a211b3bd977d58bb22cd60c7",
+      "name": "NASA-UAP-D021_Gemini-7-Technical-Debriefing_1965.pdf",
+      "pages": 222,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "971d604c8a91acb14a05b818e07f1c6530faf73845dd98f3cdbe0ede6d85c4b8",
+      "name": "NASA-UAP-D022_Gemini-9-Debriefing_1966.pdf",
+      "pages": 78,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "74dc1a19ef09d093ceba4a0ab082bf3729cb19218c0c3481d8b71f814740c9b3",
+      "name": "NASA-UAP-D1-Apollo-12-Transcript-1969.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "18ee158476f1203b0ce45bc1eb9b209c225e30b4181ec0fb98b338b2cc0b7591",
+      "name": "NASA-UAP-D2-Apollo-17-Transcript-1972.pdf",
+      "pages": 16,
+      "ready_pages": 16,
+      "dossier": true
+    },
+    {
+      "sha": "aacc41814dd16583bbeabe068026bf286cd9b0e464ff097c5c7b97b00d308443",
+      "name": "NASA-UAP-D4-Apollo-11-Technical-Crew-Debriefing-1969.pdf",
+      "pages": 11,
+      "ready_pages": 11,
+      "dossier": true
+    },
+    {
+      "sha": "23c76f92be6a04417373771a12229c0a6857b9769086989c1b5e459afb5c3e52",
+      "name": "NASA-UAP-D5-Apollo-17-Crew-Debriefing-for-Science-1973.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "2c874c40c55505f2348177ddde77c9fd015bf971e6e059c43508a92bc9ee6b30",
+      "name": "NASA-UAP-D6-Apollo-17-Technical-Crew-Debriefing-1973.pdf",
+      "pages": 2,
+      "ready_pages": 2,
+      "dossier": true
+    },
+    {
+      "sha": "61f7e6594e7ab6959503214c73a2a591dc231a14ba92df8e36d0bb0a0fbd6691",
+      "name": "NASA-UAP-D7-Skylab-Technical-Crew-Debriefing-1973.pdf",
+      "pages": 11,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "bef126d8702b94e760041d065bf4d6611443815a0e1ea671809bfd64319dbffb",
+      "name": "ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+      "pages": 2,
+      "ready_pages": 2,
+      "dossier": true
+    },
+    {
+      "sha": "c38d267441b19350df557d9f3bfbd689fb5ba0619366373a7b9e6f8dce84bb8c",
+      "name": "Serial 5 Redacted_Redacted.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "abe02815d6331854374cee46db6b1f948f83d9115d2121ac86f5836fef1b65a0",
+      "name": "Serial-3_Redacted.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "29ed0fb7cbe0be3c23965212bb83c58d3890a0de9253938ee4e9c9bb2349d5fe",
+      "name": "Serial-4-Redacted_Redacted.pdf",
+      "pages": 2,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "3393d62c92d9a5ad76155535caddf39cf9e76f5f19716ebfc851ba2b86b0ae3a",
+      "name": "USG-UAP-D001_Congress-WhiteHouse-UFO-Correspondence_1998.pdf",
+      "pages": 86,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "60c1239f7a6bad9655cb66e7b3a82c7e582762f8b4248bc1b614cca9a82d6e37",
+      "name": "USPER-Statement-Redacted.pdf",
+      "pages": 3,
+      "ready_pages": 0,
+      "dossier": false
+    },
+    {
+      "sha": "8565c159b82f50a6e9038987f0b71541aa38f07737a91b08af1a5cf224b6a2f3",
+      "name": "Western_US_Event_Slides_5.08.2026.pdf",
+      "pages": 4,
+      "ready_pages": 0,
+      "dossier": false
+    }
+  ]
+}

@@ -40,6 +40,26 @@ class ResearchTests(unittest.TestCase):
         self.db.close()
         shutil.rmtree(self.root)
 
+    def test_reviewed_retry_keeps_old_reservation_and_cannot_loop(self):
+        import hashlib
+        payload = json.dumps({'text': 'sample'})
+        fingerprint = hashlib.sha256((research.MODEL+research.VERSION+research.PROMPT+payload).encode()).hexdigest()
+        old = research.reserve(self.db, fingerprint, 0.10)
+        with self.db:
+            self.db.execute("UPDATE research_calls SET state='error' WHERE id=?", (old,))
+        api = Mock()
+        api.responses.create.side_effect = TimeoutError('simulated')
+        with self.assertRaises(RuntimeError): research.invoke(self.db, api, payload)
+        self.assertEqual(api.responses.create.call_count, 0)
+        with self.db:
+            self.db.execute('INSERT INTO research_retry_authorizations VALUES(?,?,?)', (old, 'Reviewed timeout', archive.now()))
+        with self.assertRaises(RuntimeError): research.invoke(self.db, api, payload)
+        self.assertEqual(api.responses.create.call_count, 1)
+        self.assertEqual(self.db.execute('SELECT count(*) FROM research_calls').fetchone()[0], 2)
+        self.assertGreater(research.budget(self.db)['accounted_usd'], 0.10)
+        with self.assertRaises(RuntimeError): research.invoke(self.db, api, payload)
+        self.assertEqual(api.responses.create.call_count, 1)
+
     def test_long_text_split_preserves_every_character(self):
         text=('Dlouhý text\n s diakritikou. '*900)+'KONEC'
         parts=research.chunks(text)

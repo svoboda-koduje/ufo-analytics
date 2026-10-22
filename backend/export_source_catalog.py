@@ -9,6 +9,16 @@ import local_archive as archive
 import research
 import source_catalog as sources
 
+def coverage(metadata, units, has_dossier):
+    """A video sample and a PDF with gaps must never be advertised as complete."""
+    kind=metadata.get('kind')
+    expected=metadata.get('pages') if kind=='pdf' else (1 if kind=='image' else None)
+    keys={u['unit_key'] for u in units}
+    covered=keys=={f'page:{n}' for n in range(1,expected+1)} if kind=='pdf' and expected else bool(expected and len(keys)==expected)
+    return {'complete':bool(has_dossier and covered and kind in {'pdf','image'}),
+            'expected_units':expected,'partial_units':sum(u.get('status')=='partial' for u in units),
+            'scope':'sample' if kind=='video' else 'document'}
+
 def years(raw):
     values=sorted(set(int(x) for x in re.findall(r'\b(?:18|19|20)\d{2}\b',raw)))
     if values:return values
@@ -56,9 +66,11 @@ def export(video_path=None):
                 units=[{'unit_key':x['unit_key'],**json.loads(x['result'])} for x in db.execute('SELECT unit_key,result FROM research_units WHERE sha256=? ORDER BY CAST(substr(unit_key,instr(unit_key,\':\')+1) AS INTEGER)',(sha,))]
                 if not units:continue
                 dossier=db.execute('SELECT result FROM research_documents WHERE sha256=?',(sha,)).fetchone()
-                payload={'sha256':sha,'units':units,'dossier':json.loads(dossier[0]) if dossier else None,'source_url':r['source_url']}
+                asset=db.execute('SELECT metadata FROM assets WHERE sha256=?',(sha,)).fetchone()
+                state=coverage(json.loads(asset[0] or '{}') if asset else {},units,dossier is not None)
+                payload={'sha256':sha,'units':units,'dossier':json.loads(dossier[0]) if dossier else None,'source_url':r['source_url'],**state}
                 (public/(sha+'.json')).write_text(json.dumps(payload,ensure_ascii=False),encoding='utf-8')
-                r['analyses'].append({'sha256':sha,'units':len(units),'url':'/research/'+sha+'.json'})
+                r['analyses'].append({'sha256':sha,'units':len(units),'url':'/research/'+sha+'.json',**state})
                 r['events'].extend(summaries.get(sha,{}).get('events',[]))
         budget=research.budget(db)
     sources.save(records)

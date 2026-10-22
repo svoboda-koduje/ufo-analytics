@@ -131,7 +131,9 @@ def prepare(db):
         reserved_usd REAL NOT NULL, cost_usd REAL, input_tokens INTEGER, output_tokens INTEGER,
         response_json TEXT, created_at TEXT NOT NULL);
     CREATE INDEX IF NOT EXISTS research_fingerprint ON research_calls(fingerprint);
-      CREATE TABLE IF NOT EXISTS research_call_context (
+      CREATE TABLE IF NOT EXISTS research_retry_authorizations (
+        call_id TEXT PRIMARY KEY, reason TEXT NOT NULL, created_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS research_call_context (
           call_id TEXT PRIMARY KEY, sha256 TEXT, phase TEXT, unit_key TEXT);
     CREATE TABLE IF NOT EXISTS research_units (
         sha256 TEXT NOT NULL, unit_key TEXT NOT NULL, source_hash TEXT NOT NULL,
@@ -235,11 +237,16 @@ def invoke(db, api, payload, image_path=None, dossier=False):
     prompt = DOSSIER_PROMPT if dossier else PROMPT
     schema = Dossier if dossier else Reading
     fingerprint = hashlib.sha256((MODEL+VERSION+prompt+payload).encode() + image_data).hexdigest()
-    cached = db.execute('SELECT state,response_json FROM research_calls WHERE fingerprint=? ORDER BY created_at DESC LIMIT 1', (fingerprint,)).fetchone()
+    cached = db.execute('SELECT id,state,response_json FROM research_calls WHERE fingerprint=? ORDER BY created_at DESC,rowid DESC LIMIT 1', (fingerprint,)).fetchone()
     if cached:
-        if cached['state'] != 'done':
+        if cached['state'] == 'done':
+            return json.loads(cached['response_json'])
+        # A reviewed retry authorizes only this failed attempt. Its reservation
+        # stays charged; a newly failed attempt needs a separate review.
+        authorized = cached['state'] == 'error' and db.execute(
+            'SELECT 1 FROM research_retry_authorizations WHERE call_id=?', (cached['id'],)).fetchone()
+        if not authorized:
             raise RuntimeError('Předchozí API volání není potvrzené. Vyžaduje kontrolu; automaticky se znovu neúčtuje.')
-        return json.loads(cached['response_json'])
     # UTF-8 bytes upper-bound text tokens; reserve extra for schema/message overhead.
     # Images are previews <= 1800 px; 10,000 tokens conservatively exceeds model patch cap.
     if len(payload.encode()) > 180000:
@@ -416,8 +423,8 @@ if __name__ == '__main__':
     with closing(archive.connect(args.db)) as db:
         prepare(db)
         if args.approve_total_usd is not None:
-            if not 0 <= args.approve_total_usd <= 100:
-                parser.error('Celkový schválený strop je 100 USD (24. 9. 2026).')
+            if not 0 <= args.approve_total_usd <= 500:
+                parser.error('Celkový schválený strop je 500 USD včetně dosavadní spotřeby (schváleno uživatelem).')
             with db: db.execute('UPDATE research_budget SET limit_usd=? WHERE id=1',(args.approve_total_usd,))
         for sha in args.sha256 or []:
             print(json.dumps(run(db,sha,args.db.parent/'previews',progress=lambda i,n,k:print(f'{i}/{n} {k}',flush=True)),ensure_ascii=False))
